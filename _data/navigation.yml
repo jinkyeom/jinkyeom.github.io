@@ -6,6 +6,8 @@ main:
     url: /categories/
   - title: "Tag"
     url: /tags/
+  - title: "By Year"
+    url: /year-archive-grid/
   - title: "Search"
     url: /search/
 
@@ -23,6 +25,12 @@ docs:
         url: /categories/
       - title: "Tag"
         url: /tags/
+
+counts:
+  - title: "카테고리"
+    use: true
+  - title: "태그"
+    use: false
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
