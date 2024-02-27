@@ -1,5 +1,5 @@
 ---
-title: "연도별 (grid view)"
+title: "연도별"
 permalink: /year-archive-grid/
 layout: posts
 entries_layout: grid
