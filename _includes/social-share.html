@@ -3,7 +3,7 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>
     Kakao.init("4eaecd284bdfbada48ccc367a040c2ad");   // 아까 복사해둔 JavaScript 키
     function sendLink() {
