@@ -202,13 +202,16 @@ body:hover .visually-hidden button {
 }
 
 /* social icons*/
-
 .social-icons {
   .fas,
   .fab,
   .far,
   .fal {
     color: $text-color;
+  }
+
+  .fa-comment {
+    color: #FDDC3F;
   }
 
   .fa-behance,
