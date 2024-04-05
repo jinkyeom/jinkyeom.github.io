@@ -3,12 +3,12 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   <script>
     Kakao.init("4eaecd284bdfbada48ccc367a040c2ad");   // 아까 복사해둔 JavaScript 키
     function sendLink() {
       Kakao.Link.sendCustom({
-        templateId: 1058777,   // 복사해둔 템플릿 ID
+        templateId: 106718,   // 복사해둔 템플릿 ID
         templateArgs: {
           title: "{{ page.title }}",
           description: "{{ page.excerpt }}",
