@@ -110,6 +110,45 @@ body {
 		}
 	}
 
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1em;
+    transition: transform 0.3s, box-shadow 0.3s;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .card__image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card__content {
+    padding: 1em;
+  }
+  
+  .card__title {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .card__description {
+    font-size: 1em;
+    color: #666;
+    margin-top: 0.5em;
+  }
+
   p,
   li,
   dl {
