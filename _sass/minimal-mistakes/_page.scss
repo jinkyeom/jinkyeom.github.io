@@ -131,15 +131,18 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
+    margin-bottom: 0.5em; /* 이미지 아래 간격 조정 */
   }
   
   .card__content {
-    padding: 1em;
+    // padding: 1em;
+    padding-top: 0.5em; /* 내용 상단 간격 줄이기 */
   }
   
   .card__title {
     font-size: 1.25em;
     font-weight: bold;
+    margin-top: 0; /* 타이틀과 상단 간격 조정 */
     margin-bottom: 0.5em;
   }
   
