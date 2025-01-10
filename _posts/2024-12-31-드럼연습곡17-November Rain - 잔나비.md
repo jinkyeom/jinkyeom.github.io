@@ -5,7 +5,7 @@ categories: drumPractice
 author_profile: false
 sidebar:
   nav: "counts"
-tags: [취미드럼, 드럼 연습곡, November Rain, 잔나비]
+tags: [취미드럼, 연습후기, 클로드ai, 드럼 연습곡, November Rain, 잔나비]
 ---
 
 ### 1. 드럼플레이스: November Rain - 잔나비
