@@ -12,7 +12,8 @@ $doc-font-size: 16 !default;
 $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
-$customFontStyle : 'Cafe24Supermagic-Bold-v1.0';
+// $customFontStyle : 'Cafe24Supermagic-Bold-v1.0';
+$customFontStyle : 'KCCBangJeonghwan';
 /* system typefaces */
 $serif: $customFontStyle, Georgia, Times, serif !default;
 $sans-serif: $customFontStyle, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
