@@ -25,7 +25,11 @@ search: false
 .layout--categories,
 .layout--tags,
 .layout--archive {
-  background-color: #F8F9FA;
+//   background-color: #F8F9FA;
+  // 배경색: 연한 블루 그레이
+    background-color: #F5F7FA;
+  // 텍스트: 진한 슬레이트
+    color: #2F3542;
 }
 
 /* 포스트 제목 스타일 및 호버 효과 */
