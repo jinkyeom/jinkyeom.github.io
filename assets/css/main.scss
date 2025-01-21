@@ -30,7 +30,7 @@ search: false
 
 /* 포스트 제목 스타일 및 호버 효과 */
 .archive__item-title {
-  font-size: 1.3em;
+  font-size: 1.8em;
   line-height: 1.5;
   
   a {
@@ -55,7 +55,7 @@ a {
 
 /* 본문 타이포그래피 개선 */
 .page__content {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.8;
   
   p {
@@ -65,8 +65,8 @@ a {
 
 /* 카테고리 섹션과 본문 사이 여백 */
 .taxonomy__section {
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /* 포스트 카드 호버 효과 */
