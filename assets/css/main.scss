@@ -30,8 +30,8 @@ search: false
 
 /* 포스트 제목 스타일 및 호버 효과 */
 .archive__item-title {
-  font-size: 1.8em;
-  line-height: 1.5;
+//   font-size: 1.8em;
+//   line-height: 1.5;
   
   a {
     text-decoration: none;
@@ -54,14 +54,14 @@ a {
 }
 
 /* 본문 타이포그래피 개선 */
-.page__content {
-  font-size: 20px;
-  line-height: 1.8;
+// .page__content {
+//   font-size: 20px;
+//   line-height: 1.8;
   
-  p {
-    margin-bottom: 1.5em;
-  }
-}
+//   p {
+//     margin-bottom: 1.5em;
+//   }
+// }
 
 /* 카테고리 섹션과 본문 사이 여백 */
 .taxonomy__section {
@@ -81,20 +81,20 @@ a {
 }
 
 /* 사이드바 너비 조정 */
-.sidebar {
-  width: calc(280px + 1em);
+// .sidebar {
+//   width: calc(280px + 1em);
   
-  @media (min-width: 64em) {
-    width: calc(300px + 1em);
-  }
-}
+//   @media (min-width: 64em) {
+//     width: calc(300px + 1em);
+//   }
+// }
 
 /* 네비게이션 메뉴 간격 조정 */
-.nav__items {
-  li {
-    margin-bottom: 0.5em;
-  }
-}
+// .nav__items {
+//   li {
+//     margin-bottom: 0.5em;
+//   }
+// }
 
 /* 다크모드 토글 버튼 스타일링 */
 .greedy-nav__toggle {
