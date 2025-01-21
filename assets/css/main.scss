@@ -18,3 +18,91 @@ search: false
     font-weight: 400;
     font-style: normal;
 }
+
+/* 라이트 모드 배경색 및 전반적인 스타일 수정 */
+.layout--home,
+.layout--posts,
+.layout--categories,
+.layout--tags,
+.layout--archive {
+  background-color: #F8F9FA;
+}
+
+/* 포스트 제목 스타일 및 호버 효과 */
+.archive__item-title {
+  font-size: 1.3em;
+  line-height: 1.5;
+  
+  a {
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+      color: #2C3E50;
+      transition: color 0.3s ease;
+    }
+  }
+}
+
+/* 링크 색상 수정 */
+a {
+  color: #34495E;
+  
+  &:hover {
+    color: #2980B9;
+  }
+}
+
+/* 본문 타이포그래피 개선 */
+.page__content {
+  font-size: 16px;
+  line-height: 1.8;
+  
+  p {
+    margin-bottom: 1.5em;
+  }
+}
+
+/* 카테고리 섹션과 본문 사이 여백 */
+.taxonomy__section {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+/* 포스트 카드 호버 효과 */
+.archive__item {
+  padding: 1em;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+}
+
+/* 사이드바 너비 조정 */
+.sidebar {
+  width: calc(280px + 1em);
+  
+  @media (min-width: 64em) {
+    width: calc(300px + 1em);
+  }
+}
+
+/* 네비게이션 메뉴 간격 조정 */
+.nav__items {
+  li {
+    margin-bottom: 0.5em;
+  }
+}
+
+/* 다크모드 토글 버튼 스타일링 */
+.greedy-nav__toggle {
+  background-color: #34495E;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  
+  &:hover {
+    background-color: #2C3E50;
+  }
+}
