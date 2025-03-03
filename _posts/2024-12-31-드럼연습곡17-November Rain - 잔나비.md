@@ -51,7 +51,7 @@ tags: [취미드럼, 연습후기, 클로드ai, 드럼 연습곡, November Rain,
 
 - 습관적으로 들려있는 뒷굼치를 본 드럼 선생님의 처방에 따라서 뒷굼치를 내렸더니 되기 시작함.
 - 드럼셋 연습시간이 미미한 상태에서 감을 잡기가, 유지하기가 쉽지 않음.
+{% include video id="dPAFVzzpDF4" provider="youtube" %}
 
 ### 4. 라이브 영상: 잔나비 Jannabi 'November Rain' 라이브 LIVE / 150315[슈퍼주니어의 키스 더 라디오]
-
 {% include video id="0MfIdEpx6JY" provider="youtube" %}
