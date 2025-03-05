@@ -10,10 +10,6 @@ html {
   background-color: $background-color;
   font-size: 16px;
 
-  @include breakpoint($small) {  // 이 부분을 추가 또는 수정
-    font-size: 18px;  // 모바일 화면에서 글자 크기 조정
-  }
-
   @include breakpoint($medium) {
     font-size: 18px;
   }
