@@ -14,15 +14,19 @@
 
 /* 모바일 화면에서 글자 크기를 기존보다 20% 확대 */
 @media screen and (max-width: 600px) {
-    :root {
-      --type-size-1: 2.6em;   // ~41.6px
-      --type-size-2: 2.153em; // ~34.448px
-      --type-size-3: 1.763em; // ~28.208px
-      --type-size-4: 1.45em;  // ~23.2px
-      --type-size-5: 1.2em;   // ~19.2px
-      --type-size-6: 0.95em;  // ~15.2px
-      --type-size-7: 0.8875em;// ~14.2px
-      --type-size-8: 0.825em; // ~13.2px
+    html {
+      font-size: 18px !important;
+    }
+    
+    body {
+      font-size: 18px !important;
+    }
+    
+    // 모든 type-size에 대해 강제 적용
+    .small,
+    h1, h2, h3, h4, h5, h6,
+    .page__content {
+      font-size: 1.2em !important;
     }
   }
 
