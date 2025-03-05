@@ -13,7 +13,7 @@ search: false
 @import "custom/customOverride.scss";
 
 /* 모바일 화면에서 글자 크기를 기존보다 20% 확대 */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   html {
     font-size: 20px !important;
   }
