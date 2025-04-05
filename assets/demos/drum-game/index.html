@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드럼 리듬 게임 데모</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            width: 600px;
+            height: 500px;
+            position: relative;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+        #game-canvas {
+            background-color: #000;
+        }
+        .drum-lane {
+            position: absolute;
+            bottom: 0;
+            height: 100%;
+            width: 25%;
+            border-right: 1px solid #333;
+        }
+        .drum-label {
+            position: absolute;
+            bottom: 10px;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+        .judgment-line {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+        .note {
+            position: absolute;
+            width: 80%;
+            height: 20px;
+            border-radius: 5px;
+            margin-left: 10%;
+            z-index: 10;
+        }
+        .kick { background-color: #ff0000; }
+        .snare { background-color: #0000ff; }
+        .hihat { background-color: #ffff00; }
+        .tom { background-color: #00ff00; }
+        
+        #score-display {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 18px;
+        }
+        #combo-display {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            color: white;
+            font-size: 18px;
+        }
+        #feedback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #controls {
+            margin-top: 20px;
+            color: white;
+            text-align: center;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        #game-over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            z-index: 100;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="game-container">
+            <canvas id="game-canvas" width="600" height="500"></canvas>
+            
+            <!-- 드럼 레인 -->
+            <div class="drum-lane" style="left: 0%;">
+                <div class="drum-label">킥 (A)</div>
+            </div>
+            <div class="drum-lane" style="left: 25%;">
+                <div class="drum-label">스네어 (S)</div>
+            </div>
+            <div class="drum-lane" style="left: 50%;">
+                <div class="drum-label">하이햇 (D)</div>
+            </div>
+            <div class="drum-lane" style="left: 75%;">
+                <div class="drum-label">탐 (F)</div>
+            </div>
+            
+            <!-- 판정선 -->
+            <div class="judgment-line"></div>
+            
+            <!-- 점수 표시 -->
+            <div id="score-display">점수: 0</div>
+            <div id="combo-display">콤보: 0</div>
+            <div id="feedback"></div>
+            
+            <!-- 게임 오버 화면 -->
+            <div id="game-over">
+                <h2>게임 종료!</h2>
+                <p id="final-score">최종 점수: 0</p>
+                <p id="max-combo">최대 콤보: 0</p>
+                <button id="restart-button">다시 시작</button>
+            </div>
+        </div>
+        
+        <div id="controls">
+            <button id="start-button">게임 시작</button>
+            <p>A, S, D, F 키를 사용하여 드럼을 연주하세요!</p>
+        </div>
+    </div>
+
+    <script>
+        // 게임 변수
+        let score = 0;
+        let combo = 0;
+        let maxCombo = 0;
+        let notes = [];
+        let gameStarted = false;
+        let gameOver = false;
+        
+        // DOM 요소
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('score-display');
+        const comboDisplay = document.getElementById('combo-display');
+        const feedback = document.getElementById('feedback');
+        const gameOverScreen = document.getElementById('game-over');
+        const finalScoreDisplay = document.getElementById('final-score');
+        const maxComboDisplay = document.getElementById('max-combo');
+        const startButton = document.getElementById('start-button');
+        const restartButton = document.getElementById('restart-button');
+        
+        // 레인 정보
+        const lanes = [
+            { name: 'kick', key: 'a', color: '#ff0000', x: 0 },
+            { name: 'snare', key: 's', color: '#0000ff', x: 150 },
+            { name: 'hihat', key: 'd', color: '#ffff00', x: 300 },
+            { name: 'tom', key: 'f', color: '#00ff00', x: 450 }
+        ];
+        
+        // 판정선 위치
+        const judgmentLineY = 450;
+        
+        // 노트 생성
+        function generateNotes() {
+            notes = [];
+            
+            // 8마디, 마디당 4비트
+            for (let measure = 0; measure < 8; measure++) {
+                for (let beat = 0; beat < 4; beat++) {
+                    // 50% 확률로 노트 생성
+                    if (Math.random() > 0.5) {
+                        const laneIndex = Math.floor(Math.random() * 4);
+                        const lane = lanes[laneIndex];
+                        
+                        notes.push({
+                            x: lane.x,
+                            y: -100 - (measure * 4 + beat) * 100, // 위치 조정
+                            type: lane.name,
+                            speed: 3,
+                            width: 100,
+                            height: 20,
+                            hit: false,
+                            missed: false,
+                            laneIndex: laneIndex
+                        });
+                    }
+                }
+            }
+        }
+        
+        // 게임 시작
+        function startGame() {
+            score = 0;
+            combo = 0;
+            maxCombo = 0;
+            gameStarted = true;
+            gameOver = false;
+            
+            scoreDisplay.textContent = '점수: 0';
+            comboDisplay.textContent = '콤보: 0';
+            gameOverScreen.style.display = 'none';
+            
+            generateNotes();
+            gameLoop();
+        }
+        
+        // 게임 업데이트
+        function update() {
+            let allNotesProcessed = true;
+            
+            for (let note of notes) {
+                if (!note.hit && !note.missed) {
+                    allNotesProcessed = false;
+                    
+                    // 노트 이동
+                    note.y += note.speed;
+                    
+                    // 노트가 화면 밖으로 나갔는지 확인
+                    if (note.y > judgmentLineY + 30 && !note.hit) {
+                        note.missed = true;
+                        combo = 0;
+                        comboDisplay.textContent = '콤보: 0';
+                    }
+                }
+            }
+            
+            // 모든 노트가 처리되었는지 확인
+            if (allNotesProcessed && notes.length > 0) {
+                gameOver = true;
+                finalScoreDisplay.textContent = `최종 점수: ${score}`;
+                maxComboDisplay.textContent = `최대 콤보: ${maxCombo}`;
+                gameOverScreen.style.display = 'flex';
+            }
+        }
+        
+        // 게임 렌더링
+        function render() {
+            // 화면 지우기
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // 레인 그리기
+            for (let i = 0; i < 4; i++) {
+                ctx.strokeStyle = '#333';
+                ctx.beginPath();
+                ctx.moveTo(i * 150, 0);
+                ctx.lineTo(i * 150, canvas.height);
+                ctx.stroke();
+            }
+            
+            // 판정선 그리기
+            ctx.strokeStyle = '#fff';
+            ctx.beginPath();
+            ctx.moveTo(0, judgmentLineY);
+            ctx.lineTo(canvas.width, judgmentLineY);
+            ctx.stroke();
+            
+            // 노트 그리기
+            for (let note of notes) {
+                if (!note.hit && !note.missed) {
+                    ctx.fillStyle = lanes[note.laneIndex].color;
+                    ctx.fillRect(note.x + 10, note.y, note.width - 20, note.height);
+                    ctx.strokeStyle = '#fff';
+                    ctx.strokeRect(note.x + 10, note.y, note.width - 20, note.height);
+                }
+            }
+        }
+        
+        // 키 입력 처리
+        function handleKeyPress(event) {
+            if (!gameStarted || gameOver) return;
+            
+            const key = event.key.toLowerCase();
+            let laneIndex = -1;
+            
+            // 키에 해당하는 레인 찾기
+            for (let i = 0; i < lanes.length; i++) {
+                if (lanes[i].key === key) {
+                    laneIndex = i;
+                    break;
+                }
+            }
+            
+            if (laneIndex !== -1) {
+                let hitSuccess = false;
+                
+                // 해당 레인의 판정선 근처 노트 찾기
+                for (let note of notes) {
+                    if (note.laneIndex === laneIndex && !note.hit && !note.missed) {
+                        // 판정 영역 내에 있는지 확인
+                        if (judgmentLineY - 30 <= note.y && note.y <= judgmentLineY + 30) {
+                            note.hit = true;
+                            hitSuccess = true;
+                            
+                            // 타이밍에 따른 점수 계산
+                            if (judgmentLineY - 15 <= note.y && note.y <= judgmentLineY + 15) {
+                                score += 100; // Perfect
+                                showFeedback('Perfect!', '#00ff00');
+                                combo++;
+                            } else {
+                                score += 50; // Good
+                                showFeedback('Good!', '#ffff00');
+                                combo++;
+                            }
+                            
+                            maxCombo = Math.max(maxCombo, combo);
+                            scoreDisplay.textContent = `점수: ${score}`;
+                            comboDisplay.textContent = `콤보: ${combo}`;
+                            break;
+                        }
+                    }
+                }
+                
+                if (!hitSuccess) {
+                    combo = 0;
+                    comboDisplay.textContent = `콤보: ${combo}`;
+                    showFeedback('Miss!', '#ff0000');
+                }
+            }
+        }
+        
+        // 피드백 표시
+        function showFeedback(text, color) {
+            feedback.textContent = text;
+            feedback.style.color = color;
+            feedback.style.opacity = 1;
+            
+            setTimeout(() => {
+                feedback.style.opacity = 0;
+            }, 500);
+        }
+        
+        // 게임 루프
+        function gameLoop() {
+            if (!gameStarted) return;
+            
+            update();
+            render();
+            
+            if (!gameOver) {
+                requestAnimationFrame(gameLoop);
+            }
+        }
+        
+        // 이벤트 리스너
+        document.addEventListener('keydown', handleKeyPress);
+        startButton.addEventListener('click', startGame);
+        restartButton.addEventListener('click', startGame);
+    </script>
+</body>
+</html>
