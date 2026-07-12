@@ -1,0 +1,76 @@
+// _refinements.scss
+// Masthead compact
+.masthead__inner-wrap {
+  padding: 0.2em 1em !important;
+}
+
+// Author Badges
+.author__badges {
+  margin-top: 0.6em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+}
+
+.author__badges .badge {
+  display: inline-block;
+  padding: 0.25em 0.65em;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 9999px;
+  background-color: rgba(128, 128, 128, 0.15);
+  color: inherit;
+  opacity: 0.85;
+}
+
+// Archive Card Density
+.archive-card__body {
+  padding: 0.8rem 1rem 1rem !important; // override default padding if it's too large
+}
+.archive-card__category {
+  margin-bottom: 0.2rem !important;
+}
+.archive__item-title {
+  margin-top: 0 !important;
+  margin-bottom: 0.25rem !important;
+  font-size: 1.05rem !important;
+}
+.archive__item-excerpt {
+  margin-top: 0 !important;
+  margin-bottom: 0.4rem !important;
+  font-size: 0.82rem !important;
+}
+.archive__item--card .page__meta {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+  padding-top: 0.5rem !important;
+}
+
+// Muted CTA Default
+.archive-card__cta {
+  color: rgba(128, 128, 128, 0.65) !important;
+  transition: color 0.2s ease;
+}
+html[data-theme="default"] .archive-card__cta {
+  color: rgba(60, 60, 60, 0.65) !important;
+}
+
+// CTA Hover overrides based on category
+.archive__item--sciencestop:hover .archive-card__cta { color: #5b8def !important; }
+.archive__item--datascience:hover .archive-card__cta { color: #4d9bbf !important; }
+.archive__item--drum:hover .archive-card__cta { color: #4fb286 !important; }
+.archive__item--music:hover .archive-card__cta { color: #a778d5 !important; }
+.archive__item--ai:hover .archive-card__cta { color: #e39445 !important; }
+.archive__item--other:hover .archive-card__cta { color: #7f8b99 !important; }
+
+// Drum Overlay
+.archive__item--drum .archive-card__media {
+  position: relative;
+}
+.archive__item--drum .archive-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}

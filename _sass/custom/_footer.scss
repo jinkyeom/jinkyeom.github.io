@@ -4,18 +4,27 @@
 
 .site-footer__inner {
   display: flex;
-  justify-content: space-between;
-  gap: 3rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 1.75rem;
+  padding: 3.5rem 1.5rem 2rem;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .site-footer__brand-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   text-decoration: none;
   color: inherit;
@@ -26,52 +35,59 @@
 }
 
 .site-footer__logo {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .site-footer__brand p {
-  margin: 0.75rem 0 0;
+  margin: 0.85rem 0 0;
   line-height: 1.65;
+  color: inherit;
+  opacity: 0.85;
 }
 
 .site-footer__topics {
   font-size: 0.9rem;
-  opacity: 0.82;
+  opacity: 0.75 !important;
 }
 
 .site-footer__links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(80px, 1fr));
-  gap: 0.65rem 1.5rem;
-  align-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 2rem;
 }
 
 .site-footer__links a {
   text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.site-footer__links a:hover {
+  opacity: 1;
 }
 
 .site-footer__bottom {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
   max-width: 1360px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 3rem;
   border-top: 1px solid rgba(120, 140, 165, 0.2);
   font-size: 0.78rem;
-  opacity: 0.78;
+  opacity: 0.7;
 }
 
-@media (max-width: 700px) {
-  .site-footer__inner,
+@media (min-width: 700px) {
   .site-footer__bottom {
-    flex-direction: column;
-  }
-
-  .site-footer__links {
-    grid-template-columns: repeat(2, max-content);
+    flex-direction: row;
+    gap: 1.5rem;
   }
 }

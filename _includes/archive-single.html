@@ -7,12 +7,16 @@
   {% assign category_label = "과학정류장" %}
 {% elsif post_category_key == "datascience" %}
   {% assign category_class = "datascience" %}
+  {% assign category_label = "데이터사이언스" %}
 {% elsif post_category_key == "drumpractice" or post_category_key == "drumscores" or post_category_key == "drum" or post_category contains "드럼" %}
   {% assign category_class = "drum" %}
+  {% assign category_label = "드럼 연습곡" %}
 {% elsif post_category_key == "soundtrack" or post_category_key == "music" or post_category contains "음악" %}
   {% assign category_class = "music" %}
+  {% assign category_label = "음악" %}
 {% elsif post_category_key == "ai" or post_category contains "AI" %}
   {% assign category_class = "ai" %}
+  {% assign category_label = "AI" %}
 {% endif %}
 
 {% if post.header.teaser %}

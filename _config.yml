@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "BounceBounce"
   avatar           : "/assets/images/logo-blackhole-b-contrast.png" # keep in sync with site.logo for one-file logo replacement
-  bio              : "세상을 탐험하고,<br>나를 발견하는 기록.<span class=\"author__tagline\">과학 · 음악 · 드럼 · 일상</span>"
+  bio              : "세상을 탐험하고,<br>나를 발견하는 기록.<div class=\"author__badges\"><span class=\"badge\">과학</span><span class=\"badge\">음악</span><span class=\"badge\">드럼</span><span class=\"badge\">일상</span></div>"
   location         :
   email            : "jinkyeom.kim@gmail.com"
   github           : "jinkyeom"
