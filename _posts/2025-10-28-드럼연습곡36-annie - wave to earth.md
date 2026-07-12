@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "드럼 연습곡: annie. - wave to earth"
+description: "인디 팝 특유의 몽환적인 분위기와 리듬감을 연습해 보는 웨이브 투 어스의 'annie.' 드럼 연습 기록입니다."
 categories: drumPractice
 header:
   teaser: https://i.ytimg.com/vi/FbUtyJP8eLU/maxresdefault.jpg

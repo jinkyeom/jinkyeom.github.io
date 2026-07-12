@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "드럼 연습곡: Too Good To Say Goodbye - Bruno Mars"
+description: "브루노 마스 특유의 소울풀한 리듬과 알앤비 그루브를 익히기 좋은 'Too Good To Say Goodbye' 드럼 연습입니다."
 categories: drumPractice
 header:
   teaser: https://i.ytimg.com/vi/WknGKoV6oHc/maxresdefault.jpg
