@@ -1,21 +1,42 @@
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
+<div class="site-footer__inner">
+  <div class="site-footer__brand">
+    <a href="{{ '/' | relative_url }}" class="site-footer__brand-link">
+      <img
+        src="{{ site.logo | relative_url }}"
+        alt="BounceBounce"
+        class="site-footer__logo"
+      >
+      <span>BounceBounce</span>
+    </a>
 
-    {% if site.footer.links %}
-      {% for link in site.footer.links %}
-        {% if link.label and link.url %}
-          <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+    <p>
+      세상을 탐험하고,<br>
+      나를 발견하는 기록.
+    </p>
 
-    {% unless site.atom_feed.hide %}
-      <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endunless %}
-  </ul>
+    <p class="site-footer__topics">
+      과학 · 음악 · 드럼 · 일상
+    </p>
+  </div>
+
+  <nav class="site-footer__links" aria-label="푸터 링크">
+    <a href="{{ '/categories/' | relative_url }}">카테고리</a>
+    <a href="{{ '/tags/' | relative_url }}">태그</a>
+    <a href="{{ '/year-archive-grid/' | relative_url }}">연도</a>
+    <a href="mailto:{{ site.author.email }}">이메일</a>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+  </nav>
 </div>
 
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="site-footer__bottom">
+  <span>© {{ site.time | date: '%Y' }} BounceBounce</span>
+  <span>
+    Built with
+    <a href="https://jekyllrb.com/">Jekyll</a>
+    ·
+    <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/">
+      Minimal Mistakes
+    </a>
+  </span>
+</div>

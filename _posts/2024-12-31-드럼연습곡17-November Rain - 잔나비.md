@@ -3,7 +3,8 @@ layout: single
 title: "드럼 연습곡: November Rain - 잔나비"
 categories: drumPractice
 header:
-  teaser: https://img.youtube.com/vi/yQB9bM4owHc/hqdefault.jpg
+  teaser: https://i.ytimg.com/vi/yQB9bM4owHc/maxresdefault.jpg
+  og_image: https://i.ytimg.com/vi/yQB9bM4owHc/maxresdefault.jpg
 author_profile: false
 sidebar:
   nav: "counts"

@@ -1,0 +1,28 @@
+.archive__item-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.archive__item-excerpt {
+  flex: 1;
+}
+
+.archive__item-cta,
+.btn {
+  margin-top: auto;
+}
+
+.archive__item-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.archive__item-teaser img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}

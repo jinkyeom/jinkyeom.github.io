@@ -1,0 +1,21 @@
+// Light theme specific overrides
+.page__content,
+.page__content p,
+.page__content li {
+  color: #2f3b48;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4 {
+  color: #1f2935;
+}
+
+.toc {
+  color: #5c6369;
+}
+
+.pagination--pager {
+  color: #255bb3;
+}

@@ -3,7 +3,8 @@ layout: single
 title: "드럼 연습곡: annie. - wave to earth"
 categories: drumPractice
 header:
-  teaser: https://img.youtube.com/vi/FbUtyJP8eLU/hqdefault.jpg
+  teaser: https://i.ytimg.com/vi/FbUtyJP8eLU/maxresdefault.jpg
+  og_image: https://i.ytimg.com/vi/FbUtyJP8eLU/maxresdefault.jpg
 author_profile: false
 sidebar:
   nav: "counts"

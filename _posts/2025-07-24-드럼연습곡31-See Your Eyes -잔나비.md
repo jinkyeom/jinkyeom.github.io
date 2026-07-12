@@ -3,7 +3,8 @@ layout: single
 title: "드럼 연습곡: See Your Eyes - 잔나비"
 categories: drumPractice
 header:
-  teaser: https://img.youtube.com/vi/zpXs5sQXRUQ/hqdefault.jpg
+  teaser: https://i.ytimg.com/vi/zpXs5sQXRUQ/maxresdefault.jpg
+  og_image: https://i.ytimg.com/vi/zpXs5sQXRUQ/maxresdefault.jpg
 author_profile: false
 sidebar:
   nav: "counts"

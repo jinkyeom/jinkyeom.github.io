@@ -33,9 +33,13 @@
         ? currentHref.replace(/main(?:_dark)?\.css/, nextFile)
         : new URL("/assets/css/" + nextFile, window.location.origin).href;
       const url = new URL(nextHref, window.location.origin);
+      const currentUrl = new URL(currentHref, window.location.origin);
+      const vParam = currentUrl.searchParams.get("v");
 
       url.searchParams.set("theme", theme);
-      url.searchParams.set("v", "20260712");
+      if (vParam) {
+        url.searchParams.set("v", vParam);
+      }
       return url.href;
     };
 
@@ -59,6 +63,7 @@
       document.documentElement.classList.toggle("theme--default", !isDark);
       localStorage.setItem("theme", theme);
       setToggleLabel(isDark);
+      window.dispatchEvent(new CustomEvent("themechange", { detail: { theme: theme } }));
     };
 
     const currentTheme = getStoredTheme();

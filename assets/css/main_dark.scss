@@ -10,3 +10,18 @@
 @import "minimal-mistakes"; // main partials
 
 @import "custom/customOverride.scss";
+@import "custom/theme-dark.scss";
+
+.drum-game-screenshot {
+  display: block;
+  width: min(100%, 900px);
+  height: auto;
+  margin: 1.5rem auto 2rem;
+  border-radius: 12px;
+}
+
+@import "custom/footer";
+
+@import "custom/masthead_logo";
+
+@import "custom/archive_grid";
