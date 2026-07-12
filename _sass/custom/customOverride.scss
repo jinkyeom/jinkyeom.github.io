@@ -420,6 +420,14 @@ a {
   display: none;
 }
 
+.sciencestop-intro-image {
+  display: block;
+  width: min(100%, 960px);
+  height: auto;
+  margin: 1.5rem auto 2rem;
+  border-radius: 12px;
+}
+
 .pagination {
   margin-top: 1.4rem;
 }
@@ -604,5 +612,53 @@ html[data-theme="default"] {
     background:
       linear-gradient(135deg, rgba(47, 111, 214, 0.12), rgba(79, 178, 134, 0.09)),
       #eef3f8;
+  }
+
+  .page__footer {
+    background: #e8edf4;
+    color: #4d5a6a !important;
+
+    a,
+    a:visited {
+      color: #2f6fd6;
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  background: $bb-background;
+
+  body,
+  .layout--home,
+  .layout--posts,
+  .layout--categories,
+  .layout--tags,
+  .layout--archive,
+  .layout--single,
+  .initial-content,
+  #main {
+    background: $bb-background;
+    color: $bb-text;
+  }
+
+  .sidebar .h-card,
+  .archive__item--card {
+    border-color: $bb-border;
+    background: $bb-surface;
+  }
+
+  .archive__item--card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: $bb-surface-hover;
+  }
+
+  .page__footer {
+    background: #0d1219;
+    color: $bb-text-muted !important;
+
+    a,
+    a:visited {
+      color: $bb-accent;
+    }
   }
 }

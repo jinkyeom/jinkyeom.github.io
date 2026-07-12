@@ -26,15 +26,17 @@
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const buildThemeHref = (isDark) => {
-      const nextFile = isDark ? "main_dark.css" : "main.css";
+    const buildThemeHref = (theme) => {
+      const nextFile = theme === "dark" ? "main_dark.css" : "main.css";
       const currentHref = themeLink.href || "/assets/css/main.css";
+      const nextHref = /main(?:_dark)?\.css/.test(currentHref)
+        ? currentHref.replace(/main(?:_dark)?\.css/, nextFile)
+        : new URL("/assets/css/" + nextFile, window.location.origin).href;
+      const url = new URL(nextHref, window.location.origin);
 
-      if (/main(?:_dark)?\.css/.test(currentHref)) {
-        return currentHref.replace(/main(?:_dark)?\.css/, nextFile);
-      }
-
-      return new URL("/assets/css/" + nextFile, window.location.origin).href;
+      url.searchParams.set("theme", theme);
+      url.searchParams.set("v", "20260712");
+      return url.href;
     };
 
     const setToggleLabel = (isDark) => {
@@ -50,7 +52,7 @@
     const applyTheme = (theme) => {
       const isDark = theme === "dark";
 
-      themeLink.href = buildThemeHref(isDark);
+      themeLink.href = buildThemeHref(theme);
       toggleThemeBtn.checked = isDark;
       document.documentElement.dataset.theme = theme;
       document.documentElement.classList.toggle("theme--dark", isDark);
