@@ -2,6 +2,8 @@
 layout: single
 title: "드럼 연습곡: annie. - wave to earth"
 categories: drumPractice
+header:
+  teaser: https://img.youtube.com/vi/IQmqSU_rfIQ/hqdefault.jpg
 author_profile: false
 sidebar:
   nav: "counts"
@@ -25,5 +27,4 @@ tags: [취미드럼, 연습후기, 드럼 연습곡, annie., wave to earth]
 ### 4. [라이브 영상] 엿이나 먹어😜 wave to earth-annie. [가사,해석,lyrics]
 
 {% include video id="IQmqSU_rfIQ" provider="youtube" %}
-
 

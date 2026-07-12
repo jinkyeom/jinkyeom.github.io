@@ -2,6 +2,8 @@
 layout: single
 title: "드럼 연습곡: Too Good To Say Goodbye - Bruno Mars"
 categories: drumPractice
+header:
+  teaser: https://img.youtube.com/vi/vAgYV0p_GoE/hqdefault.jpg
 author_profile: false
 sidebar:
   nav: "counts"

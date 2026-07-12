@@ -52,6 +52,9 @@
       </h2>
       {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 120 }}</p>{% endif %}
       {% include page__meta.html type=include.type %}
+      <a class="archive-card__cta" href="{{ post.url | relative_url }}" rel="permalink">
+        글 읽기 <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </div>
   </article>
 </div>

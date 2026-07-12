@@ -195,7 +195,7 @@ a {
 
 .entries-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   margin-top: 0.8rem;
 }
@@ -207,7 +207,7 @@ a {
 .archive__item--card {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   height: 100%;
   overflow: hidden;
   padding: 0;
@@ -301,7 +301,7 @@ a {
 .archive-card__media {
   display: block;
   position: relative;
-  width: 100%;
+  flex: 0 0 52%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background:
@@ -333,7 +333,9 @@ a {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 0.9rem 0.95rem 0.95rem;
+  flex-basis: 48%;
+  min-width: 0;
+  padding: 1rem 1.05rem;
 }
 
 .archive-card__category {
@@ -379,8 +381,31 @@ a {
 }
 
 .archive__item--card .page__meta {
-  margin: auto 0 0;
+  margin: 0.65rem 0 0;
   padding-top: 0.75rem;
+}
+
+.archive-card__cta {
+  position: relative;
+  z-index: 12;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  color: $bb-text;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    color: $bb-accent;
+  }
+}
+
+.archive__item--card .archive__item-title a[rel=permalink]::before {
+  display: none;
 }
 
 .pagination {
@@ -426,6 +451,15 @@ a {
   .entries-cards {
     grid-template-columns: 1fr;
     gap: 0.85rem;
+  }
+
+  .archive__item--card {
+    flex-direction: column;
+  }
+
+  .archive-card__media {
+    flex-basis: auto;
+    width: 100%;
   }
 
   .archive__subtitle {
