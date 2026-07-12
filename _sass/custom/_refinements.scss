@@ -82,18 +82,21 @@ html[data-theme="dark"] .active-category {
 }
 
 // Left Sidebar Layout Fixes
+// Define Layout Gutter
+$sidebar-gutter: 32px;
+
 @media screen and (min-width: 1024px) {
   .sidebar {
     width: 250px !important; // Slightly wider to prevent category names from clipping
   }
   .layout--single .page {
-    width: calc(100% - 250px) !important;
+    width: calc(100% - 250px - #{$sidebar-gutter}) !important;
   }
   .layout--home .sidebar {
     width: 220px !important; // Keep home sidebar original width
   }
   .layout--home .page {
-    width: calc(100% - 220px) !important;
+    width: calc(100% - 220px - #{$sidebar-gutter}) !important;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -101,14 +104,25 @@ html[data-theme="dark"] .active-category {
     width: 280px !important;
   }
   .layout--single .page {
-    width: calc(100% - 280px) !important;
+    width: calc(100% - 280px - #{$sidebar-gutter}) !important;
   }
   .layout--home .sidebar {
     width: 240px !important;
   }
   .layout--home .page {
-    width: calc(100% - 240px) !important;
+    width: calc(100% - 240px - #{$sidebar-gutter}) !important;
   }
+}
+
+// Category Nav Title Refinements
+.nav__sub-title {
+  margin-right: 12px !important;
+  margin-bottom: 16px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="dark"] .nav__sub-title {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 .author__badges .badge {
