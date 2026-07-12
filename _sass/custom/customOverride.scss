@@ -301,7 +301,7 @@ a {
 .archive-card__media {
   display: block;
   position: relative;
-  flex: 0 0 44%;
+  flex: 0 0 42%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background:
@@ -333,9 +333,9 @@ a {
   display: flex;
   flex: 1;
   flex-direction: column;
-  flex-basis: 56%;
+  flex-basis: 58%;
   min-width: 0;
-  padding: 1rem 1.15rem;
+  padding: 1rem 1.1rem;
 }
 
 .archive-card__category {
@@ -410,6 +410,46 @@ a {
 
 .pagination {
   margin-top: 1.4rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .layout--home #main {
+    width: calc(100% - 2rem);
+    max-width: 1400px;
+  }
+
+  .layout--home .archive {
+    width: calc(100% - 150px);
+    padding-right: 0;
+  }
+
+  .layout--home .sidebar {
+    width: calc(150px - 1em);
+  }
+
+  .layout--home .sidebar .h-card {
+    max-width: 140px;
+    padding: 0.85rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .layout--home #main {
+    max-width: 1500px;
+  }
+
+  .layout--home .archive {
+    width: calc(100% - 170px);
+    padding-right: 0;
+  }
+
+  .layout--home .sidebar {
+    width: calc(170px - 1em);
+  }
+
+  .layout--home .sidebar .h-card {
+    max-width: 160px;
+  }
 }
 
 @media screen and (max-width: 1023px) {

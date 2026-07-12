@@ -3,7 +3,7 @@ layout: single
 title: "드럼 연습곡: Always Remember Us This Way - Lady Gaga"
 categories: drumPractice
 header:
-  teaser: https://img.youtube.com/vi/5vheNbQlsyU/hqdefault.jpg
+  teaser: https://img.youtube.com/vi/u17ta349fNQ/hqdefault.jpg
 author_profile: false
 sidebar:
   nav: "counts"

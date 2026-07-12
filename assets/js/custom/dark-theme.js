@@ -1,31 +1,49 @@
-const defaultTheme = [...document.styleSheets].find(style => /(main.css)$/.test(style.href));
-const darkTheme = [...document.styleSheets].find(style => /(main_dark.css)$/.test(style.href));
+(function () {
+  const defaultTheme = [...document.styleSheets].find((style) =>
+    /\/main\.css(\?|$)/.test(style.href || "")
+  );
+  const darkTheme = [...document.styleSheets].find((style) =>
+    /\/main_dark\.css(\?|$)/.test(style.href || "")
+  );
+  const toggleThemeBtn = document.getElementById("toggle_dark_theme");
+  const toggleThemeLabel = document.querySelector('label[for="toggle_dark_theme"]');
 
-let setDarkMode = (isDark) => {
-    darkTheme.disabled = isDark !== true;
-    defaultTheme.disabled = isDark === true;
-    localStorage.setItem('theme', isDark ? 'dark' : 'default');
-}
+  if (!defaultTheme || !darkTheme || !toggleThemeBtn) {
+    return;
+  }
 
-if (darkTheme) {
-    let currentTheme = localStorage.getItem('theme');
-    let isDarkMode = false;
-    if (currentTheme) {
-        isDarkMode = currentTheme === 'dark';
-    } else {
-        isDarkMode = matchMedia('(prefers-color-scheme: dark)').matches;
+  const getStoredTheme = () => localStorage.getItem("theme");
+  const getSystemTheme = () =>
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const setToggleLabel = (isDark) => {
+    const label = isDark ? "라이트 모드로 전환" : "다크 모드로 전환";
+    toggleThemeBtn.setAttribute("aria-label", label);
+
+    if (toggleThemeLabel) {
+      toggleThemeLabel.setAttribute("aria-label", label);
+      toggleThemeLabel.setAttribute("title", label);
     }
+  };
 
-    setDarkMode(isDarkMode);
+  const setDarkMode = (isDark) => {
+    darkTheme.disabled = !isDark;
+    defaultTheme.disabled = isDark;
+    toggleThemeBtn.checked = isDark;
+    document.documentElement.dataset.theme = isDark ? "dark" : "default";
+    document.documentElement.classList.toggle("theme--dark", isDark);
+    document.documentElement.classList.toggle("theme--default", !isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "default");
+    setToggleLabel(isDark);
+  };
 
-    let toggleThemeBtn = document.getElementById("toggle_dark_theme")
-    if (toggleThemeBtn) {
-        toggleThemeBtn.checked = isDarkMode
-    }
+  const currentTheme = getStoredTheme();
+  const isDarkMode = currentTheme ? currentTheme === "dark" : getSystemTheme();
 
-    let changeTheme = (e) => {
-        setDarkMode(e.target.checked);
-    }
+  setDarkMode(isDarkMode);
 
-    toggleThemeBtn.addEventListener('click', changeTheme)
-}
+  toggleThemeBtn.addEventListener("change", (event) => {
+    setDarkMode(event.target.checked);
+  });
+})();
