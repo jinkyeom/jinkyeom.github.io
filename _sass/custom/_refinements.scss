@@ -1,12 +1,26 @@
 // _refinements.scss
-// Masthead compact
+// Masthead compact & Logo Enforcement
+.site-logo {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 .masthead__inner-wrap {
   padding: 0.2em 1em !important;
 }
 
-// Author Badges
+// Author Bio & Badges
+.author__bio {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  font-weight: 500 !important;
+  opacity: 0.95;
+  margin-bottom: 1.5rem !important;
+}
+
 .author__badges {
-  margin-top: 0.6em;
+  margin-top: 1.2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35em;
