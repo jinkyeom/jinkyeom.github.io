@@ -1,12 +1,34 @@
-{% if page.previous or page.next %}
+{% assign primary_cat = page.categories[0] %}
+{% assign cat_posts = site.categories[primary_cat] %}
+{% assign cat_next = nil %}
+{% assign cat_previous = nil %}
+
+{% for post in cat_posts %}
+  {% if post.id == page.id %}
+    {% assign current_index = forloop.index0 %}
+    {% assign next_index = current_index | minus: 1 %}
+    {% assign prev_index = current_index | plus: 1 %}
+
+    {% if next_index >= 0 %}
+      {% assign cat_next = cat_posts[next_index] %}
+    {% endif %}
+
+    {% if prev_index < cat_posts.size %}
+      {% assign cat_previous = cat_posts[prev_index] %}
+    {% endif %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if cat_previous or cat_next %}
   <nav class="pagination">
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+    {% if cat_previous %}
+      <a href="{{ cat_previous.url | relative_url }}" class="pagination--pager" title="{{ cat_previous.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
     {% else %}
       <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
     {% endif %}
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+    {% if cat_next %}
+      <a href="{{ cat_next.url | relative_url }}" class="pagination--pager" title="{{ cat_next.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
     {% else %}
       <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
     {% endif %}

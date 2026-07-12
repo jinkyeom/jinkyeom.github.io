@@ -16,34 +16,42 @@
   line-height: 1.7 !important;
   font-weight: 500 !important;
   opacity: 0.95;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
 .author__badges {
-  margin-top: 1.2rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35em;
 }
 
+.sidebar .author__name {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
 // Layout Spacing Adjustments
-.breadcrumbs {
-  margin-top: 1.5rem !important; // ~24px
-  margin-bottom: 1.5rem !important;
-}
+.layout--single {
+  .breadcrumbs {
+    margin-top: 1.25rem; // ~20px (masthead -> breadcrumb)
+    margin-bottom: 1rem; // ~16px (breadcrumb -> title)
+  }
 
-.page__inner-wrap {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
+  .page__inner-wrap {
+    margin-top: 0;
+    padding-top: 0;
+  }
 
-.page__title {
-  margin-top: 0 !important;
-  margin-bottom: 0.75rem !important; // ~12px
-}
+  .page__title {
+    margin-top: 0;
+    margin-bottom: 0.6rem; // ~10px (title -> meta)
+  }
 
-.page__meta {
-  margin-top: 0 !important;
+  .page__meta {
+    margin-top: 0;
+    margin-bottom: 1.75rem; // ~28px (meta -> content)
+  }
 }
 
 // Active Category Highlight (Left Sidebar)
@@ -221,4 +229,13 @@ html[data-theme="dark"] .taxonomy__section:target .archive__subtitle {
   color: rgba(128, 128, 128, 0.9);
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
+}
+
+// Archive Subtitle Border (Recent Posts, etc)
+.archive__subtitle {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="dark"] .archive__subtitle {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
