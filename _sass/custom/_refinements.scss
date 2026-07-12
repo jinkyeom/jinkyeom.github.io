@@ -48,11 +48,12 @@
 
 // Muted CTA Default
 .archive-card__cta {
-  color: rgba(128, 128, 128, 0.65) !important;
-  transition: color 0.2s ease;
+  color: #8898aa !important; // A solid neutral gray that works well on dark
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 html[data-theme="default"] .archive-card__cta {
-  color: rgba(60, 60, 60, 0.65) !important;
+  color: #6c7a89 !important; // A solid neutral gray that works well on light
 }
 
 // CTA Hover overrides based on category
