@@ -1,5 +1,22 @@
+{% assign post_category = post.categories | first | default: "기타" %}
+{% assign post_category_key = post_category | downcase %}
+{% assign category_class = "other" %}
+{% if post_category_key == "datascience" or post_category_key == "science" or post_category contains "과학" %}
+  {% assign category_class = "science" %}
+{% elsif post_category_key == "drumpractice" or post_category_key == "drumscores" or post_category_key == "drum" or post_category contains "드럼" %}
+  {% assign category_class = "drum" %}
+{% elsif post_category_key == "soundtrack" or post_category_key == "music" or post_category contains "음악" %}
+  {% assign category_class = "music" %}
+{% elsif post_category_key == "ai" or post_category contains "AI" %}
+  {% assign category_class = "ai" %}
+{% endif %}
+
 {% if post.header.teaser %}
   {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% elsif post.header.image %}
+  {% capture teaser %}{{ post.header.image }}{% endcapture %}
+{% elsif post.image %}
+  {% capture teaser %}{{ post.image }}{% endcapture %}
 {% else %}
   {% assign teaser = site.teaser %}
 {% endif %}
@@ -10,6 +27,31 @@
   {% assign title = post.title %}
 {% endif %}
 
+{% if include.type == "cards" %}
+<div class="cards__item">
+  <article class="archive__item archive__item--card archive__item--{{ category_class }}" itemscope itemtype="https://schema.org/CreativeWork">
+    <a class="archive-card__media{% unless teaser %} archive-card__media--fallback{% endunless %}" href="{{ post.url | relative_url }}" rel="permalink" aria-label="{{ title | strip_html }}">
+      {% if teaser %}
+        <img src="{{ teaser | relative_url }}" alt="" loading="lazy">
+      {% else %}
+        <span class="archive-card__fallback-label">{{ post_category }}</span>
+      {% endif %}
+    </a>
+    <div class="archive-card__body">
+      <span class="archive-card__category">{{ post_category }}</span>
+      <h2 class="archive__item-title no_toc" itemprop="headline">
+        {% if post.link %}
+          <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+        {% else %}
+          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+        {% endif %}
+      </h2>
+      {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 120 }}</p>{% endif %}
+      {% include page__meta.html type=include.type %}
+    </div>
+  </article>
+</div>
+{% else %}
 <div class="{{ include.type | default: 'list' }}__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
@@ -28,3 +70,4 @@
     {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
   </article>
 </div>
+{% endif %}
