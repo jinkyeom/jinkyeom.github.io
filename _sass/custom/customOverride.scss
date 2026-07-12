@@ -207,8 +207,8 @@ a {
 
 .entries-cards {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
   margin-top: 0.8rem;
 }
 
@@ -219,7 +219,7 @@ a {
 .archive__item--card {
   position: relative;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   height: 100%;
   overflow: hidden;
   padding: 0;
@@ -313,7 +313,8 @@ a {
 .archive-card__media {
   display: block;
   position: relative;
-  flex: 0 0 44%;
+  flex: 0 0 auto;
+  width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background:
@@ -345,9 +346,9 @@ a {
   display: flex;
   flex: 1;
   flex-direction: column;
-  flex-basis: 56%;
+  flex-basis: auto;
   min-width: 0;
-  padding: 1rem 1.1rem;
+  padding: 1rem 1.05rem 1.05rem;
 }
 
 .archive-card__category {
@@ -376,7 +377,7 @@ a {
 .archive__item--card .archive__item-title {
   display: -webkit-box;
   overflow: hidden;
-  min-height: 2.72em;
+  min-height: 2.8em;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -428,6 +429,27 @@ a {
   border-radius: 12px;
 }
 
+.toc {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.toc__menu a {
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.pagination--pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
 .pagination {
   margin-top: 1.4rem;
 }
@@ -451,6 +473,36 @@ a {
     max-width: 220px;
     padding: 0.95rem;
   }
+
+  .layout--home .author__avatar {
+    margin-bottom: 1rem;
+
+    img {
+      width: 140px;
+      height: 140px;
+      max-width: none;
+      object-fit: contain;
+    }
+  }
+
+  .layout--home .author__name {
+    font-size: 1.2rem;
+    line-height: 1.18;
+  }
+
+  .layout--home .author__bio {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .layout--home .author__tagline {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .layout--home .author__urls a {
+    font-size: 0.82rem;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -469,6 +521,43 @@ a {
 
   .layout--home .sidebar .h-card {
     max-width: 240px;
+  }
+
+  .layout--home .author__avatar img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .layout--home .author__bio {
+    font-size: 1rem;
+  }
+
+  .layout--home .author__tagline {
+    font-size: 0.9rem;
+  }
+
+  .layout--single .page {
+    width: calc(100% - 250px);
+    padding-right: 250px;
+  }
+
+  .layout--single .sidebar__right {
+    width: 250px;
+    margin-right: -250px;
+    padding-left: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .layout--single .page {
+    width: calc(100% - 230px);
+    padding-right: 230px;
+  }
+
+  .layout--single .sidebar__right {
+    width: 230px;
+    margin-right: -230px;
+    padding-left: 0.75rem;
   }
 }
 
@@ -499,6 +588,12 @@ a {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .entries-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 17px;
@@ -513,12 +608,7 @@ a {
     gap: 0.85rem;
   }
 
-  .archive__item--card {
-    flex-direction: column;
-  }
-
   .archive-card__media {
-    flex-basis: auto;
     width: 100%;
   }
 
@@ -593,9 +683,24 @@ html[data-theme="default"] {
   }
 
   .sidebar .h-card,
-  .archive__item--card {
+  .archive__item--card,
+  .toc {
     border-color: rgba(31, 41, 53, 0.12);
     background: #ffffff;
+  }
+
+  .toc .nav__title {
+    background: #e8edf4;
+    color: #1f2935;
+  }
+
+  .toc__menu a {
+    border-color: rgba(31, 41, 53, 0.12);
+    color: #5f6b7a;
+
+    &:hover {
+      color: #1f2935;
+    }
   }
 
   .archive__item--card:hover {
@@ -642,9 +747,24 @@ html[data-theme="dark"] {
   }
 
   .sidebar .h-card,
-  .archive__item--card {
+  .archive__item--card,
+  .toc {
     border-color: $bb-border;
     background: $bb-surface;
+  }
+
+  .toc .nav__title {
+    background: #121922;
+    color: $bb-text;
+  }
+
+  .toc__menu a {
+    border-color: $bb-border;
+    color: $bb-text-muted;
+
+    &:hover {
+      color: $bb-text;
+    }
   }
 
   .archive__item--card:hover {
