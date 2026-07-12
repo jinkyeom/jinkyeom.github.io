@@ -301,7 +301,7 @@ a {
 .archive-card__media {
   display: block;
   position: relative;
-  flex: 0 0 52%;
+  flex: 0 0 44%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background:
@@ -333,9 +333,9 @@ a {
   display: flex;
   flex: 1;
   flex-direction: column;
-  flex-basis: 48%;
+  flex-basis: 56%;
   min-width: 0;
-  padding: 1rem 1.05rem;
+  padding: 1rem 1.15rem;
 }
 
 .archive-card__category {
