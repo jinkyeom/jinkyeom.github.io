@@ -33,10 +33,9 @@
         {% assign crumb_label = crumb | replace: '-', ' ' | replace: '%20', ' ' | capitalize %}
         {% if page.collection == 'posts' and page.categories[0] %}
           {% assign crumb_key = page.categories[0] %}
-          {% assign crumb_label = page.categories[0] %}
-          {% if page.categories[0] == "sciencestop" %}
-            {% assign crumb_label = "과학정류장" %}
-          {% endif %}
+          {% assign current_cat = page.categories[0] %}
+          {% capture crumb_label %}{% include category-label.html category=current_cat %}{% endcapture %}
+          {% assign crumb_label = crumb_label | strip %}
         {% endif %}
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="{{ crumb_key | downcase | replace: '%20', '-' | prepend: path_type | prepend: crumb_path | relative_url }}" itemprop="item"><span itemprop="name">{{ crumb_label }}</span></a>

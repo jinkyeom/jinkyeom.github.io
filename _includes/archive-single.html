@@ -1,32 +1,19 @@
 {% assign post_category = post.categories | first | default: "기타" %}
 {% assign post_category_key = post_category | downcase %}
 {% assign category_class = "other" %}
-{% assign category_label = post_category %}
+{% capture category_label %}{% include category-label.html category=post_category %}{% endcapture %}
+{% assign category_label = category_label | strip %}
+
 {% if post_category_key == "sciencestop" or post_category contains "과학정류장" %}
   {% assign category_class = "sciencestop" %}
-  {% assign category_label = "과학정류장" %}
-{% elsif post_category_key == "datascience" or post_category_key == "데이터사이언스" %}
+{% elsif post_category_key == "datascience" or post_category_key == "데이터사이언스" or post_category_key == "visualization" or post_category contains "시각화" %}
   {% assign category_class = "datascience" %}
-  {% assign category_label = "데이터사이언스" %}
 {% elsif post_category_key == "drumpractice" or post_category_key == "drumscores" or post_category_key == "drum" or post_category contains "드럼" %}
   {% assign category_class = "drum" %}
-  {% if post_category_key == "drumscores" %}
-    {% assign category_label = "드럼 악보" %}
-  {% else %}
-    {% assign category_label = "드럼 연습곡" %}
-  {% endif %}
 {% elsif post_category_key == "soundtrack" or post_category_key == "music" or post_category contains "음악" %}
   {% assign category_class = "music" %}
-  {% assign category_label = "음악" %}
 {% elsif post_category_key == "ai" or post_category contains "AI" %}
   {% assign category_class = "ai" %}
-  {% assign category_label = "AI" %}
-{% elsif post_category_key == "visualization" or post_category contains "시각화" %}
-  {% assign category_class = "datascience" %}
-  {% assign category_label = "시각화" %}
-{% elsif post_category_key == "recipe" or post_category contains "레시피" %}
-  {% assign category_class = "other" %}
-  {% assign category_label = "레시피" %}
 {% endif %}
 
 {% if post.header.teaser %}

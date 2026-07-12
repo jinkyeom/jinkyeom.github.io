@@ -12,10 +12,8 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].categories_label | default: "Categories:" }} </strong>
     <span itemprop="keywords">
     {% for category_word in categories_sorted %}
-      {% assign category_label = category_word %}
-      {% if category_word == "sciencestop" %}
-        {% assign category_label = "과학정류장" %}
-      {% endif %}
+      {% capture category_label %}{% include category-label.html category=category_word %}{% endcapture %}
+      {% assign category_label = category_label | strip %}
       <a href="{{ category_word | slugify | prepend: path_type | prepend: site.category_archive.path | relative_url }}" class="page__taxonomy-item p-category" rel="tag">{{ category_label }}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
     {% endfor %}
     </span>

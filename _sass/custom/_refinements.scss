@@ -26,6 +26,53 @@
   gap: 0.35em;
 }
 
+// Layout Spacing Adjustments
+.breadcrumbs {
+  margin-top: 1.5rem !important; // ~24px
+  margin-bottom: 1.5rem !important;
+}
+
+.page__inner-wrap {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page__title {
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important; // ~12px
+}
+
+.page__meta {
+  margin-top: 0 !important;
+}
+
+// Active Category Highlight (Left Sidebar)
+.active-category strong {
+  color: #5b8def !important; // Use an accent color, e.g., science stop blue
+  font-weight: 700 !important;
+}
+.active-category {
+  display: block;
+  border-left: 3px solid #5b8def;
+  padding-left: 0.5rem;
+  background-color: rgba(91, 141, 239, 0.05);
+  border-radius: 0 4px 4px 0;
+}
+html[data-theme="dark"] .active-category strong {
+  color: #7ba2ff !important;
+}
+html[data-theme="dark"] .active-category {
+  border-left-color: #7ba2ff;
+  background-color: rgba(123, 162, 255, 0.1);
+}
+
+// TOC Styling
+.toc__menu li a {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.45 !important;
+}
+
 // Left Sidebar Layout Fixes
 @media screen and (min-width: 1024px) {
   .sidebar {

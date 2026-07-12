@@ -1,0 +1,22 @@
+{% assign cat_key = include.category | downcase | strip %}
+{% assign category_label = include.category %}
+{% if cat_key == "sciencestop" or cat_key contains "과학정류장" %}
+  {% assign category_label = "과학정류장" %}
+{% elsif cat_key == "datascience" or cat_key contains "데이터사이언스" %}
+  {% assign category_label = "데이터사이언스" %}
+{% elsif cat_key == "drumpractice" %}
+  {% assign category_label = "드럼 연습곡" %}
+{% elsif cat_key == "drumscores" %}
+  {% assign category_label = "드럼 악보" %}
+{% elsif cat_key == "drum" or cat_key contains "드럼" %}
+  {% assign category_label = "드럼 연습곡" %}
+{% elsif cat_key == "soundtrack" or cat_key == "music" or cat_key contains "음악" %}
+  {% assign category_label = "음악" %}
+{% elsif cat_key == "ai" %}
+  {% assign category_label = "AI" %}
+{% elsif cat_key == "visualization" or cat_key contains "시각화" %}
+  {% assign category_label = "시각화" %}
+{% elsif cat_key == "recipe" or cat_key contains "레시피" %}
+  {% assign category_label = "레시피" %}
+{% endif %}
+{{ category_label | strip }}
