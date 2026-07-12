@@ -24,9 +24,13 @@
       {% for i in (1..categories_max) reversed %}
         {% for category in site.categories %}
           {% if category[1].size == i %}
+            {% assign category_label = category[0] %}
+            {% if category[0] == "sciencestop" %}
+              {% assign category_label = "과학정류장" %}
+            {% endif %}
             <ul style="padding-top: 0px; padding-bottom: 0px;">
               <a href="/categories/#{{ category[0] | slugify }}">
-                <strong style="font-size: 16px;">{{ category[0] }}</strong> <span class="taxonomy__count" style="font-size: 14px;">{{ i }}</span>
+                <strong style="font-size: 16px;">{{ category_label }}</strong> <span class="taxonomy__count" style="font-size: 14px;">{{ i }}</span>
               </a>
             </ul>
           {% endif %}

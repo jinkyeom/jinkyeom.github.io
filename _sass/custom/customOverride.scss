@@ -6,7 +6,8 @@ $bb-text-muted: #aab4c0;
 $bb-border: rgba(255, 255, 255, 0.09);
 $bb-accent: #6ea8fe;
 
-$bb-science: #5b8def;
+$bb-sciencestop: #5b8def;
+$bb-datascience: #4d9bbf;
 $bb-drum: #4fb286;
 $bb-music: #a778d5;
 $bb-ai: #e39445;
@@ -223,16 +224,29 @@ a {
   }
 }
 
-.archive__item--science {
-  border-top-color: $bb-science;
+.archive__item--sciencestop {
+  border-top-color: $bb-sciencestop;
 
   .archive-card__category {
-    color: $bb-science;
-    background: rgba($bb-science, 0.14);
+    color: $bb-sciencestop;
+    background: rgba($bb-sciencestop, 0.14);
   }
 
   .archive__item-title a:hover {
-    color: lighten($bb-science, 8%);
+    color: lighten($bb-sciencestop, 8%);
+  }
+}
+
+.archive__item--datascience {
+  border-top-color: $bb-datascience;
+
+  .archive-card__category {
+    color: $bb-datascience;
+    background: rgba($bb-datascience, 0.14);
+  }
+
+  .archive__item-title a:hover {
+    color: lighten($bb-datascience, 8%);
   }
 }
 

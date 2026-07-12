@@ -1,8 +1,12 @@
 {% assign post_category = post.categories | first | default: "기타" %}
 {% assign post_category_key = post_category | downcase %}
 {% assign category_class = "other" %}
-{% if post_category_key == "datascience" or post_category_key == "science" or post_category contains "과학" %}
-  {% assign category_class = "science" %}
+{% assign category_label = post_category %}
+{% if post_category_key == "sciencestop" %}
+  {% assign category_class = "sciencestop" %}
+  {% assign category_label = "과학정류장" %}
+{% elsif post_category_key == "datascience" %}
+  {% assign category_class = "datascience" %}
 {% elsif post_category_key == "drumpractice" or post_category_key == "drumscores" or post_category_key == "drum" or post_category contains "드럼" %}
   {% assign category_class = "drum" %}
 {% elsif post_category_key == "soundtrack" or post_category_key == "music" or post_category contains "음악" %}
@@ -34,11 +38,11 @@
       {% if teaser %}
         <img src="{{ teaser | relative_url }}" alt="" loading="lazy">
       {% else %}
-        <span class="archive-card__fallback-label">{{ post_category }}</span>
+        <span class="archive-card__fallback-label">{{ category_label }}</span>
       {% endif %}
     </a>
     <div class="archive-card__body">
-      <span class="archive-card__category">{{ post_category }}</span>
+      <span class="archive-card__category">{{ category_label }}</span>
       <h2 class="archive__item-title no_toc" itemprop="headline">
         {% if post.link %}
           <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
