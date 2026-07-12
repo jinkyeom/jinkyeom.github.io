@@ -5,7 +5,7 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         <a class="site-logo" href="{{ '/' | relative_url }}">
-          <img src="{{ site.logo | relative_url }}" alt="" width="34" height="34" class="site-logo__image" style="border-radius: 50%; object-fit: cover;">
+          <img src="{{ site.logo | relative_url }}" alt="" width="34" height="34" class="site-logo__image" style="border-radius: 50%; object-fit: contain;">
         </a>
         <a class="site-title" href="{{ '/' | relative_url }}" style="margin-left: 0.5rem;">
           {{ site.masthead_title | default: site.title }}

@@ -25,7 +25,7 @@ url                      : "https://jinkyeom.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/logo-blackhole-b-contrast.png" # shared logo image for masthead, author avatar, and favicon links
+logo                     : "/assets/images/logo-blackhole-b-v2.png" # shared logo image for masthead, author avatar, and favicon links
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
@@ -86,7 +86,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/assets/images/logo-blackhole-b-contrast.png" # Open Graph/Twitter default site image
+og_image                 : "/assets/images/logo-blackhole-b-v2.png" # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -105,7 +105,7 @@ analytics:
 # Site Author
 author:
   name             : "BounceBounce"
-  avatar           : "/assets/images/logo-blackhole-b-contrast.png" # keep in sync with site.logo for one-file logo replacement
+  avatar           : "/assets/images/logo-blackhole-b-v2.png" # keep in sync with site.logo for one-file logo replacement
   bio              : "세상을 탐험하고,<br>나를 발견하는 기록."
   topics           : ["과학", "음악", "드럼"]
   location         :
