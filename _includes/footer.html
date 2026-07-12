@@ -14,9 +14,11 @@
       나를 발견하는 기록.
     </p>
 
+    {% if site.author.topics %}
     <p class="site-footer__topics">
-      과학 · 음악 · 드럼 · 일상
+      {{ site.author.topics | join: ' · ' }}
     </p>
+    {% endif %}
   </div>
 
   <nav class="site-footer__links" aria-label="푸터 링크">

@@ -19,11 +19,13 @@
       <div class="author__bio p-note" itemprop="description">
         {{ author.bio | markdownify }}
       </div>
-      <div class="author__badges" aria-label="주요 주제">
-        <span class="badge">과학</span>
-        <span class="badge">음악</span>
-        <span class="badge">드럼</span>
-      </div>
+      {% if site.author.topics %}
+        <div class="author__badges" aria-label="주요 주제">
+          {% for topic in site.author.topics %}
+            <span class="badge">{{ topic }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 </div>

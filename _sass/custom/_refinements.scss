@@ -26,6 +26,24 @@
   gap: 0.35em;
 }
 
+// Left Sidebar Layout Fixes
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    width: 250px !important; // Slightly wider to prevent category names from clipping
+  }
+  .layout--home .sidebar {
+    width: 220px !important; // Keep home sidebar original width
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sidebar {
+    width: 280px !important;
+  }
+  .layout--home .sidebar {
+    width: 240px !important;
+  }
+}
+
 .author__badges .badge {
   display: inline-block;
   padding: 0.25em 0.65em;

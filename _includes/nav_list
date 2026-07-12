@@ -25,12 +25,29 @@
         {% for category in site.categories %}
           {% if category[1].size == i %}
             {% assign category_label = category[0] %}
-            {% if category[0] == "sciencestop" %}
+            {% assign cat_key = category[0] | downcase %}
+            {% if cat_key == "sciencestop" or category[0] contains "과학정류장" %}
               {% assign category_label = "과학정류장" %}
+            {% elsif cat_key == "datascience" or cat_key == "데이터사이언스" %}
+              {% assign category_label = "데이터사이언스" %}
+            {% elsif cat_key == "drumpractice" %}
+              {% assign category_label = "드럼 연습곡" %}
+            {% elsif cat_key == "drumscores" %}
+              {% assign category_label = "드럼 악보" %}
+            {% elsif cat_key == "drum" or category[0] contains "드럼" %}
+              {% assign category_label = "드럼 연습곡" %}
+            {% elsif cat_key == "soundtrack" or cat_key == "music" or category[0] contains "음악" %}
+              {% assign category_label = "음악" %}
+            {% elsif cat_key == "ai" or category[0] contains "AI" %}
+              {% assign category_label = "AI" %}
+            {% elsif cat_key == "visualization" or category[0] contains "시각화" %}
+              {% assign category_label = "시각화" %}
+            {% elsif cat_key == "recipe" or category[0] contains "레시피" %}
+              {% assign category_label = "레시피" %}
             {% endif %}
             <ul style="padding-top: 0px; padding-bottom: 0px;">
               <a href="/categories/#{{ category[0] | slugify }}">
-                <strong style="font-size: 16px;">{{ category_label }}</strong> <span class="taxonomy__count" style="font-size: 14px;">{{ i }}</span>
+                <strong style="font-size: 16px; word-break: keep-all; overflow-wrap: normal; white-space: nowrap; display: inline-block; vertical-align: middle;">{{ category_label }}</strong> <span class="taxonomy__count" style="font-size: 14px;">{{ i }}</span>
               </a>
             </ul>
           {% endif %}
@@ -51,7 +68,7 @@
         {% if tag[1].size == i %}
           <ul style="padding-top: 0px; padding-bottom: 0px;">
             <a href="/tags/#{{ tag[0] | slugify }}">
-              <strong style="font-size: 16px;">{{ tag[0] }}</strong> <span class="taxonomy__count" style="font-size: 14px;">{{ i }}</span>
+              <strong style="font-size: 16px; word-break: keep-all; overflow-wrap: normal; white-space: nowrap; display: inline-block; vertical-align: middle;">{{ tag[0] }}</strong> <span class="taxonomy__count" style="font-size: 14px;">{{ i }}</span>
             </a>
           </ul>
         {% endif %}
