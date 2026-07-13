@@ -1,0 +1,658 @@
+{
+  "storyId": "world-again-01-city-size",
+  "meta": {
+    "populationReferenceDate": "2026-06-30",
+    "areaReferenceDate": "2025-12-31",
+    "nationalComparisonPopulation": 51091769,
+    "scope": "특별시·광역시·특별자치시 8개 (일반시 및 도 제외)",
+    "gwangjuTemporalStatus": "TEMPORARY_LEGACY_CARRYOVER",
+    "mapBoundaryLayers": {
+      "historicalSnapshot": {
+        "referenceDate": "2026-06-30",
+        "source": "GIS GeoService public static 2025 administrative boundary GeoJSON",
+        "provider": "국가데이터처 SGIS",
+        "boundaryYear": "2025",
+        "geometryLevels": [
+          "시도",
+          "시군구"
+        ],
+        "coordinateReferenceSystem": "SGIS/UTM-K 계열 평면좌표",
+        "usage": "World Again #1 map assets only",
+        "administrativeSystemNote": "2025 경계는 광주광역시와 전라남도가 분리되어 있어 World Again #1의 통합 이전 인구·면적 스냅샷과 행정체계가 일치한다."
+      },
+      "currentBoundary": {
+        "referenceDate": "latest authenticated GeoService state; exact 기준일 not verified by Codex",
+        "source": "authenticated GIS GeoService/API",
+        "usage": "future current map or separate story only",
+        "worldAgain01Usage": "do not use",
+        "investigationStatus": "Atlas GeoService tab found, but Network entries were not accessible because Apple Events JavaScript execution is disabled."
+      }
+    },
+    "mapAssets": {
+      "contextSvg": "/assets/images/world-again/korea-context.svg",
+      "cityOutlinesSvg": "/assets/images/world-again/city-outlines.svg",
+      "contextGeojson": "/assets/data/world-again/korea-admin-2025.geojson"
+    }
+  },
+  "contextPlaces": [
+    {
+      "id": "seoul",
+      "nameKo": "서울",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "busan",
+      "nameKo": "부산",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "incheon",
+      "nameKo": "인천",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "daegu",
+      "nameKo": "대구",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "daejeon",
+      "nameKo": "대전",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "gwangju",
+      "nameKo": "광주",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "ulsan",
+      "nameKo": "울산",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "sejong",
+      "nameKo": "세종",
+      "unitType": "metropolitan_city",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "gyeonggi",
+      "nameKo": "경기도",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "gangwon",
+      "nameKo": "강원",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "chungbuk",
+      "nameKo": "충북",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "chungnam",
+      "nameKo": "충남",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "jeonbuk",
+      "nameKo": "전북",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "jeonnam",
+      "nameKo": "전남",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "gyeongbuk",
+      "nameKo": "경북",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "gyeongnam",
+      "nameKo": "경남",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "jeju",
+      "nameKo": "제주",
+      "unitType": "province",
+      "sourceGeometry": "sido"
+    },
+    {
+      "id": "suwon",
+      "nameKo": "수원",
+      "unitType": "general_city",
+      "parent": "gyeonggi",
+      "sourceGeometry": "sigungu"
+    },
+    {
+      "id": "goyang",
+      "nameKo": "고양",
+      "unitType": "general_city",
+      "parent": "gyeonggi",
+      "sourceGeometry": "sigungu"
+    },
+    {
+      "id": "yongin",
+      "nameKo": "용인",
+      "unitType": "general_city",
+      "parent": "gyeonggi",
+      "sourceGeometry": "sigungu"
+    },
+    {
+      "id": "hwaseong",
+      "nameKo": "화성",
+      "unitType": "general_city",
+      "parent": "gyeonggi",
+      "sourceGeometry": "sigungu"
+    },
+    {
+      "id": "changwon",
+      "nameKo": "창원",
+      "unitType": "general_city",
+      "parent": "gyeongnam",
+      "sourceGeometry": "sigungu"
+    },
+    {
+      "id": "cheongju",
+      "nameKo": "청주",
+      "unitType": "general_city",
+      "parent": "chungbuk",
+      "sourceGeometry": "sigungu"
+    },
+    {
+      "id": "jeonju",
+      "nameKo": "전주",
+      "unitType": "general_city",
+      "parent": "jeonbuk",
+      "sourceGeometry": "sigungu"
+    }
+  ],
+  "comparisonGroups": {
+    "metropolitanCities": [
+      "서울특별시",
+      "부산광역시",
+      "인천광역시",
+      "대구광역시",
+      "대전광역시",
+      "광주광역시",
+      "울산광역시",
+      "세종특별자치시"
+    ],
+    "generalCities": [
+      {
+        "id": "suwon",
+        "nameKo": "수원시",
+        "status": "official_population_area_pending"
+      },
+      {
+        "id": "goyang",
+        "nameKo": "고양시",
+        "status": "official_population_area_pending"
+      },
+      {
+        "id": "yongin",
+        "nameKo": "용인시",
+        "status": "official_population_area_pending"
+      },
+      {
+        "id": "changwon",
+        "nameKo": "창원시",
+        "status": "official_population_area_pending"
+      },
+      {
+        "id": "cheongju",
+        "nameKo": "청주시",
+        "status": "official_population_area_pending"
+      },
+      {
+        "id": "jeonju",
+        "nameKo": "전주시",
+        "status": "official_population_area_pending"
+      }
+    ],
+    "provinces": [
+      "경기도",
+      "강원특별자치도",
+      "충청북도",
+      "전북특별자치도",
+      "경상남도",
+      "제주특별자치도"
+    ]
+  },
+  "actualPopulation": [
+    {
+      "cityId": "seoul",
+      "nameKo": "서울특별시",
+      "population": 9289813,
+      "populationDisplay": "9,289,813",
+      "rank": 1,
+      "colorHex": "#941E34",
+      "secondaryColorHex": "#DFDFDD",
+      "colorSourceId": "seoul-dancheong-red",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "busan",
+      "nameKo": "부산광역시",
+      "population": 3232370,
+      "populationDisplay": "3,232,370",
+      "rank": 2,
+      "colorHex": "#E4007F",
+      "secondaryColorHex": "#0052A5",
+      "colorSourceId": "busan-dynamic-magenta",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "incheon",
+      "nameKo": "인천광역시",
+      "population": 3061002,
+      "populationDisplay": "3,061,002",
+      "rank": 3,
+      "colorHex": "#2BB0D4",
+      "secondaryColorHex": "#244EA2",
+      "colorSourceId": "incheon-sky",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "daegu",
+      "nameKo": "대구광역시",
+      "population": 2348165,
+      "populationDisplay": "2,348,165",
+      "rank": 4,
+      "colorHex": "#4579BD",
+      "secondaryColorHex": "#77BD43",
+      "colorSourceId": "daegu-colorful-blue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "daejeon",
+      "nameKo": "대전광역시",
+      "population": 1442034,
+      "populationDisplay": "1,442,034",
+      "rank": 5,
+      "colorHex": "#00944E",
+      "secondaryColorHex": "#1A2B7C",
+      "colorSourceId": "daejeon-green",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "gwangju",
+      "nameKo": "광주광역시",
+      "population": 1385460,
+      "populationDisplay": "1,385,460",
+      "rank": 6,
+      "colorHex": "#E8380C",
+      "secondaryColorHex": "#0A2D4D",
+      "colorSourceId": "gwangju-light-orange",
+      "colorVerificationStatus": "CONFIRMED_DERIVED_FROM_PRIMARY",
+      "colorTemporalStatus": "TEMPORARY_LEGACY_CARRYOVER"
+    },
+    {
+      "cityId": "ulsan",
+      "nameKo": "울산광역시",
+      "population": 1087089,
+      "populationDisplay": "1,087,089",
+      "rank": 7,
+      "colorHex": "#0F7E89",
+      "secondaryColorHex": "#AE4149",
+      "colorSourceId": "ulsan-sea",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "sejong",
+      "nameKo": "세종특별자치시",
+      "population": 390923,
+      "populationDisplay": "390,923",
+      "rank": 8,
+      "colorHex": "#00A0C6",
+      "secondaryColorHex": "#0C419A",
+      "colorSourceId": "sejong-skyblue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    }
+  ],
+  "perHundred": [
+    {
+      "cityId": "seoul",
+      "nameKo": "서울특별시",
+      "peoplePerHundred": 18.182601976455345,
+      "peoplePerHundredDisplay": "18.18명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#941E34",
+      "secondaryColorHex": "#DFDFDD",
+      "colorSourceId": "seoul-dancheong-red",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "busan",
+      "nameKo": "부산광역시",
+      "peoplePerHundred": 6.326596364279342,
+      "peoplePerHundredDisplay": "6.33명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#E4007F",
+      "secondaryColorHex": "#0052A5",
+      "colorSourceId": "busan-dynamic-magenta",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "incheon",
+      "nameKo": "인천광역시",
+      "peoplePerHundred": 5.991184215993774,
+      "peoplePerHundredDisplay": "5.99명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#2BB0D4",
+      "secondaryColorHex": "#244EA2",
+      "colorSourceId": "incheon-sky",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "daegu",
+      "nameKo": "대구광역시",
+      "peoplePerHundred": 4.595975136425595,
+      "peoplePerHundredDisplay": "4.60명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#4579BD",
+      "secondaryColorHex": "#77BD43",
+      "colorSourceId": "daegu-colorful-blue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "daejeon",
+      "nameKo": "대전광역시",
+      "peoplePerHundred": 2.822438972508468,
+      "peoplePerHundredDisplay": "2.82명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#00944E",
+      "secondaryColorHex": "#1A2B7C",
+      "colorSourceId": "daejeon-green",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "gwangju",
+      "nameKo": "광주광역시",
+      "peoplePerHundred": 2.711708807733786,
+      "peoplePerHundredDisplay": "2.71명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#E8380C",
+      "secondaryColorHex": "#0A2D4D",
+      "colorSourceId": "gwangju-light-orange",
+      "colorVerificationStatus": "CONFIRMED_DERIVED_FROM_PRIMARY",
+      "colorTemporalStatus": "TEMPORARY_LEGACY_CARRYOVER"
+    },
+    {
+      "cityId": "ulsan",
+      "nameKo": "울산광역시",
+      "peoplePerHundred": 2.1277184589165428,
+      "peoplePerHundredDisplay": "2.13명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#0F7E89",
+      "secondaryColorHex": "#AE4149",
+      "colorSourceId": "ulsan-sea",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "sejong",
+      "nameKo": "세종특별자치시",
+      "peoplePerHundred": 0.7651389013365343,
+      "peoplePerHundredDisplay": "0.77명",
+      "nationalComparisonPopulation": 51091769,
+      "colorHex": "#00A0C6",
+      "secondaryColorHex": "#0C419A",
+      "colorSourceId": "sejong-skyblue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    }
+  ],
+  "area": [
+    {
+      "cityId": "daegu",
+      "nameKo": "대구광역시",
+      "area": 1499.6783724000002,
+      "areaDisplay": "1,499.7km²",
+      "colorHex": "#4579BD",
+      "secondaryColorHex": "#77BD43",
+      "colorSourceId": "daegu-colorful-blue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 1
+    },
+    {
+      "cityId": "incheon",
+      "nameKo": "인천광역시",
+      "area": 1069.5548807999999,
+      "areaDisplay": "1,069.6km²",
+      "colorHex": "#2BB0D4",
+      "secondaryColorHex": "#244EA2",
+      "colorSourceId": "incheon-sky",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 2
+    },
+    {
+      "cityId": "ulsan",
+      "nameKo": "울산광역시",
+      "area": 1062.33,
+      "areaDisplay": "1,062.3km²",
+      "colorHex": "#0F7E89",
+      "secondaryColorHex": "#AE4149",
+      "colorSourceId": "ulsan-sea",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 3
+    },
+    {
+      "cityId": "busan",
+      "nameKo": "부산광역시",
+      "area": 771.6662582,
+      "areaDisplay": "771.7km²",
+      "colorHex": "#E4007F",
+      "secondaryColorHex": "#0052A5",
+      "colorSourceId": "busan-dynamic-magenta",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 4
+    },
+    {
+      "cityId": "seoul",
+      "nameKo": "서울특별시",
+      "area": 605.2469817,
+      "areaDisplay": "605.2km²",
+      "colorHex": "#941E34",
+      "secondaryColorHex": "#DFDFDD",
+      "colorSourceId": "seoul-dancheong-red",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 5
+    },
+    {
+      "cityId": "daejeon",
+      "nameKo": "대전광역시",
+      "area": 539.8,
+      "areaDisplay": "539.8km²",
+      "colorHex": "#00944E",
+      "secondaryColorHex": "#1A2B7C",
+      "colorSourceId": "daejeon-green",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 6
+    },
+    {
+      "cityId": "gwangju",
+      "nameKo": "광주광역시",
+      "area": 500.9,
+      "areaDisplay": "500.9km²",
+      "colorHex": "#E8380C",
+      "secondaryColorHex": "#0A2D4D",
+      "colorSourceId": "gwangju-light-orange",
+      "colorVerificationStatus": "CONFIRMED_DERIVED_FROM_PRIMARY",
+      "colorTemporalStatus": "TEMPORARY_LEGACY_CARRYOVER",
+      "areaRank": 7
+    },
+    {
+      "cityId": "sejong",
+      "nameKo": "세종특별자치시",
+      "area": 464.99384039999995,
+      "areaDisplay": "465km²",
+      "colorHex": "#00A0C6",
+      "secondaryColorHex": "#0C419A",
+      "colorSourceId": "sejong-skyblue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null,
+      "areaRank": 8
+    }
+  ],
+  "populationDensity": [
+    {
+      "cityId": "seoul",
+      "nameKo": "서울특별시",
+      "population": 9289813,
+      "area": 605.2469817,
+      "populationDensity": 15348.796905863199,
+      "populationDensityDisplay": "15,349명/km²",
+      "rank": 1,
+      "hasConfirmedArea": true,
+      "colorHex": "#941E34",
+      "secondaryColorHex": "#DFDFDD",
+      "colorSourceId": "seoul-dancheong-red",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "busan",
+      "nameKo": "부산광역시",
+      "population": 3232370,
+      "area": 771.6662582,
+      "populationDensity": 4188.818631956091,
+      "populationDensityDisplay": "4,189명/km²",
+      "rank": 2,
+      "hasConfirmedArea": true,
+      "colorHex": "#E4007F",
+      "secondaryColorHex": "#0052A5",
+      "colorSourceId": "busan-dynamic-magenta",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "incheon",
+      "nameKo": "인천광역시",
+      "population": 3061002,
+      "area": 1069.5548807999999,
+      "populationDensity": 2861.940097651135,
+      "populationDensityDisplay": "2,862명/km²",
+      "rank": 3,
+      "hasConfirmedArea": true,
+      "colorHex": "#2BB0D4",
+      "secondaryColorHex": "#244EA2",
+      "colorSourceId": "incheon-sky",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "gwangju",
+      "nameKo": "광주광역시",
+      "population": 1385460,
+      "area": 500.9,
+      "populationDensity": 2765.9413056498306,
+      "populationDensityDisplay": "2,766명/km²",
+      "rank": 4,
+      "hasConfirmedArea": true,
+      "colorHex": "#E8380C",
+      "secondaryColorHex": "#0A2D4D",
+      "colorSourceId": "gwangju-light-orange",
+      "colorVerificationStatus": "CONFIRMED_DERIVED_FROM_PRIMARY",
+      "colorTemporalStatus": "TEMPORARY_LEGACY_CARRYOVER"
+    },
+    {
+      "cityId": "daejeon",
+      "nameKo": "대전광역시",
+      "population": 1442034,
+      "area": 539.8,
+      "populationDensity": 2671.4227491663582,
+      "populationDensityDisplay": "2,671명/km²",
+      "rank": 5,
+      "hasConfirmedArea": true,
+      "colorHex": "#00944E",
+      "secondaryColorHex": "#1A2B7C",
+      "colorSourceId": "daejeon-green",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "daegu",
+      "nameKo": "대구광역시",
+      "population": 2348165,
+      "area": 1499.6783724000002,
+      "populationDensity": 1565.7790651752416,
+      "populationDensityDisplay": "1,566명/km²",
+      "rank": 6,
+      "hasConfirmedArea": true,
+      "colorHex": "#4579BD",
+      "secondaryColorHex": "#77BD43",
+      "colorSourceId": "daegu-colorful-blue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "ulsan",
+      "nameKo": "울산광역시",
+      "population": 1087089,
+      "area": 1062.33,
+      "populationDensity": 1023.3063172460536,
+      "populationDensityDisplay": "1,023명/km²",
+      "rank": 7,
+      "hasConfirmedArea": true,
+      "colorHex": "#0F7E89",
+      "secondaryColorHex": "#AE4149",
+      "colorSourceId": "ulsan-sea",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    },
+    {
+      "cityId": "sejong",
+      "nameKo": "세종특별자치시",
+      "population": 390923,
+      "area": 464.99384039999995,
+      "populationDensity": 840.705760024085,
+      "populationDensityDisplay": "841명/km²",
+      "rank": 8,
+      "hasConfirmedArea": true,
+      "colorHex": "#00A0C6",
+      "secondaryColorHex": "#0C419A",
+      "colorSourceId": "sejong-skyblue",
+      "colorVerificationStatus": "CONFIRMED_PRIMARY",
+      "colorTemporalStatus": null
+    }
+  ]
+}

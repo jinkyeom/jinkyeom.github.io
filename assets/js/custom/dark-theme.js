@@ -72,6 +72,7 @@
       document.documentElement.classList.toggle("theme--default", !isDark);
       localStorage.setItem("theme", theme);
       setToggleLabel(isDark);
+      document.documentElement.classList.remove("theme--initializing");
       window.dispatchEvent(new CustomEvent("themechange", { detail: { theme: theme } }));
     };
 

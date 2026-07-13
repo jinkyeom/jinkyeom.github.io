@@ -10,11 +10,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  (function () {
+    var root = document.documentElement;
+    var storedTheme = null;
+    try {
+      storedTheme = localStorage.getItem("theme");
+    } catch (error) {}
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var theme = storedTheme || (prefersDark ? "dark" : "default");
+    root.className = root.className.replace(/\bno-js\b/g, "") + " js ";
+    root.dataset.theme = theme;
+    root.classList.toggle("theme--dark", theme === "dark");
+    root.classList.toggle("theme--default", theme !== "dark");
+    root.classList.add("theme--initializing");
+    window.__initialTheme = theme;
+  })();
 </script>
+<style>
+  html.theme--initializing *,
+  html.theme--initializing *::before,
+  html.theme--initializing *::after {
+    transition: none !important;
+  }
+</style>
 
 <!-- For all browsers -->
-<link id="theme-css" rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.asset_version }}">
+<script>
+  (function () {
+    var theme = window.__initialTheme || "default";
+    var themeFile = theme === "dark" ? "main_dark.css" : "main.css";
+    document.write('<link id="theme-css" rel="stylesheet" href="{{ "/assets/css/" | relative_url }}' + themeFile + '?theme=' + theme + '&v={{ site.asset_version }}">');
+  })();
+</script>
+<noscript><link id="theme-css" rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.asset_version }}"></noscript>
+{% if page.world_again_stylesheet %}
+<link rel="stylesheet" href="{{ page.world_again_stylesheet | relative_url }}?v={{ site.asset_version }}">
+{% endif %}
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 

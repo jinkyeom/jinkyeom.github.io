@@ -1,0 +1,149 @@
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/world-again/world-again-01.css' | relative_url }}"
+>
+
+<section
+  class="wa01"
+  data-world-again="01"
+  data-source="{{ '/assets/data/world-again/world-again-01.json' | relative_url }}"
+>
+  <div class="wa01__inner">
+    <header class="wa01__intro">
+
+      <div class="wa01__copy">
+        <p><strong>같은 도시, 다른 창으로 바라보기.</strong></p>
+        <p>대한민국에서 가장 큰 도시는 서울이고, 그다음은 부산이라고 생각합니다.</p>
+        <p>인천과 대구 같은 대도시들이 그 뒤를 잇습니다.</p>
+        <p>그런데 우리는 무엇을 보고 도시가 크다고 말하는 걸까요?</p>
+        <p>사람의 수일까요. 땅의 넓이일까요. 아니면 그 안에 모여 사는 방식일까요.</p>
+      </div>
+    </header>
+
+    <section class="wa01__section" aria-labelledby="wa01-map-title">
+      <div class="wa01__section-title">
+        <p class="wa01__eyebrow">STEP 1</p>
+        <h2 id="wa01-map-title">우리가 알고 있는 도시</h2>
+        <div class="wa01__lead">
+          <p>먼저 머릿속에 있는 대한민국 지도를 꺼내봅니다.</p>
+          <p>서울과 부산, 경기도와 전주. 우리는 서로 다른 행정단위의 이름도 모두 익숙한 지역으로 떠올립니다.</p>
+        </div>
+      </div>
+      <div class="wa01__map-card" data-chart="context-map" aria-live="polite">
+        <div class="wa01__chart-fallback">
+          <h3>우리가 알고 있는 도시</h3>
+          <p>공식 행정경계 지도 위에 익숙한 도시 이름을 올려봅니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wa01__transition">
+      <p>그렇다면</p>
+      <p>우리는 무엇을 보고 도시가 크다고 생각했을까요?</p>
+    </section>
+
+    <section class="wa01__section" aria-labelledby="wa01-population-title">
+      <div class="wa01__section-title">
+        <p class="wa01__eyebrow">STEP 2</p>
+        <h2 id="wa01-population-title">사람의 수로 보면</h2>
+        <div class="wa01__lead">
+          <p>가장 익숙한 기준은 인구입니다.</p>
+          <p>서울이 압도적으로 많고, 부산과 인천, 대구가 뒤를 잇습니다. 우리가 알고 있던 순서와 크게 다르지 않습니다.</p>
+        </div>
+      </div>
+      <div class="wa01__chart" data-chart="population" aria-live="polite">
+        <p class="wa01__loading">시각화 데이터를 불러오는 중입니다.</p>
+      </div>
+
+      <div class="wa01__subwindow">
+        <h3>대한민국을 100명으로 줄여 보면</h3>
+        <p>수백만이라는 숫자를 잠깐 작게 접어봅니다.</p>
+        <div class="wa01__chart" data-chart="hundred" aria-live="polite">
+          <p class="wa01__loading">시각화 데이터를 불러오는 중입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wa01__transition">
+      <p>사람의 수로 보면 대구는 네 번째입니다.</p>
+      <p>그렇다면 땅의 크기로 보아도 네 번째일까요?</p>
+    </section>
+
+    <section class="wa01__section" aria-labelledby="wa01-outline-title">
+      <div class="wa01__section-title">
+        <p class="wa01__eyebrow">STEP 3 · THE TURN</p>
+        <h2 id="wa01-outline-title">땅의 크기로 다시 보면</h2>
+        <div class="wa01__lead">
+          <p>도시를 패널 크기에 맞춰 각각 확대하지 않고, 같은 축척으로 놓았습니다.</p>
+          <p>먼저 외곽선의 크기와 흩어진 모양을 그대로 봅니다.</p>
+        </div>
+      </div>
+      <div class="wa01__map-card" data-chart="outlines" aria-live="polite">
+        <p class="wa01__loading">공식 행정경계 외곽선을 불러오는 중입니다.</p>
+      </div>
+    </section>
+
+    <section class="wa01__transition">
+      <p>그 넓은 공간 위에</p>
+      <p>사람을 다시 올려놓으면 어떻게 보일까요?</p>
+    </section>
+
+    <section class="wa01__section" aria-labelledby="wa01-density-title">
+      <div class="wa01__section-title">
+        <p class="wa01__eyebrow">STEP 4</p>
+        <h2 id="wa01-density-title">공간 위의 사람</h2>
+        <div class="wa01__lead">
+          <p>인구를 면적으로 나누면 도시가 얼마나 촘촘한지 보입니다.</p>
+          <p>이번에는 순위보다, 같은 사람의 수가 어떤 공간 위에 놓이는지 봅니다.</p>
+        </div>
+      </div>
+      <div class="wa01__chart" data-chart="density" aria-live="polite">
+        <p class="wa01__loading">시각화 데이터를 불러오는 중입니다.</p>
+      </div>
+      <p class="wa01__finding">같은 도시도 어떤 창으로 바라보느냐에 따라 전혀 다른 모습이 됩니다.</p>
+    </section>
+
+    <section class="wa01__transition wa01__transition--final">
+      <p>인구, 면적, 밀도.</p>
+      <p>결국 어느 하나만이 도시의 크기였을까요?</p>
+    </section>
+
+    <section class="wa01__new-window">
+      <p class="wa01__eyebrow">STEP 5</p>
+      <h2>도시는 처음부터 그대로였습니다.</h2>
+      <div class="wa01__new-window-copy">
+        <p>대구의 사람도, 넓은 땅도 처음부터 그 자리에 있었습니다.</p>
+        <p>사람의 수를 보던 창 옆에, 공간을 함께 보는 창이 하나 더 열렸습니다.</p>
+      </div>
+    </section>
+
+    <section class="wa01__notes">
+      <h2>Data Note</h2>
+      <dl>
+        <div>
+          <dt>인구</dt>
+          <dd>행정안전부 주민등록인구통계, 2026년 6월 30일 기준, 외국인 제외</dd>
+        </div>
+        <div>
+          <dt>면적</dt>
+          <dd>국토교통부 지적통계, 2025년 12월 31일 기준</dd>
+        </div>
+        <div>
+          <dt>행정경계</dt>
+          <dd>SGIS GeoService 2025 행정경계를 사용했습니다. 면적 통계와 행정경계 geometry는 작성 목적과 산정 방식이 달라 일부 차이가 있을 수 있습니다.</dd>
+        </div>
+        <div>
+          <dt>광주</dt>
+          <dd>World Again #1의 기준 시점에 따라 통합 이전 광주광역시 데이터와 2025년 공식 전용색상을 사용했습니다.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <div class="wa01__sr-only" data-chart="summary"></div>
+    <noscript>
+      <p class="wa01__error">이 시각화를 보려면 JavaScript가 필요합니다. 본문은 그대로 읽을 수 있습니다.</p>
+    </noscript>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/world-again/world-again-01.js' | relative_url }}" defer></script>
