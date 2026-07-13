@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 730" role="img">
 <style>
-  svg { background: #f2f4f5; }
-  .wa-map__sido { fill: #dddcd5; stroke: #98978f; stroke-width: 0.8px; }
+  svg { background: #171b20; }
+  .wa-map__sido { fill: #343a42; stroke: #7b8490; stroke-width: 0.8px; }
   .wa-map__sido--selected { stroke-width: 1px; }
-  .wa-map__label { font: 700 17px system-ui, -apple-system, sans-serif; fill: #343638; stroke: #f2f4f5; stroke-width: 5px; stroke-linejoin: round; paint-order: stroke; text-anchor: middle; dominant-baseline: middle; }
+  .wa-map__label { font: 700 17px system-ui, -apple-system, sans-serif; fill: #f3f5f7; stroke: #171b20; stroke-width: 5px; stroke-linejoin: round; paint-order: stroke; text-anchor: middle; dominant-baseline: middle; }
   .wa-map__label--sigungu { font-size: 14px; }
-  .wa-map__label--do { font-size: 14px; font-weight: 400; fill: #8a9493; stroke: none; letter-spacing: 0.05em; }
+  .wa-map__label--do { font-size: 14px; font-weight: 400; fill: #8a9da0; stroke: none; letter-spacing: 0.05em; }
 </style>
 <title>대한민국 행정경계 맥락 지도</title>
 <desc>GIS GeoService 2025 공개 행정경계를 이용해 17개 시도와 주요 일반시 위치를 표시한 지도입니다. 광주광역시와 전라남도는 분리되어 있습니다.</desc>
