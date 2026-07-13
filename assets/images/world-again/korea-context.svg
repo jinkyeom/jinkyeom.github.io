@@ -35,11 +35,11 @@
 <text class="wa-map__label wa-map__label--do" x="227.0" y="493.8">전남</text>
 <text class="wa-map__label wa-map__label--do" x="439.7" y="313.5">경북</text>
 <text class="wa-map__label wa-map__label--do" x="369.4" y="456.7">경남</text>
-<text class="wa-map__label wa-map__label--sigungu" x="261.8" y="209.7">수원</text>
+<text class="wa-map__label wa-map__label--sigungu" x="271.8" y="199.7">수원</text>
 <text class="wa-map__label wa-map__label--sigungu" x="205.1" y="131.9">고양</text>
 <text class="wa-map__label wa-map__label--sigungu" x="316.3" y="211.6">용인</text>
 <text class="wa-map__label wa-map__label--sigungu" x="440.7" y="469.7">창원</text>
 <text class="wa-map__label wa-map__label--sigungu" x="335.8" y="258.1">청주</text>
 <text class="wa-map__label wa-map__label--sigungu" x="238.5" y="385.7">전주</text>
-<text class="wa-map__label wa-map__label--sigungu" x="203.6" y="211.9">화성</text>
+<text class="wa-map__label wa-map__label--sigungu" x="236.6" y="226.9">화성</text>
 </svg>

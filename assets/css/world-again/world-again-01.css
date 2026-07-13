@@ -258,6 +258,7 @@ html[data-theme="dark"] .wa01 {
 .wa01__chart {
   min-height: 8rem;
   padding: clamp(1rem, 3vw, 1.6rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
   overflow: visible;
   border: 1px solid var(--wa01-line);
   border-radius: 8px;
@@ -267,8 +268,8 @@ html[data-theme="dark"] .wa01 {
 .wa01__subwindow {
   display: grid;
   gap: 0.75rem;
-  margin-top: clamp(3rem, 6vw, 4.5rem);
-  padding-top: clamp(1.2rem, 3vw, 1.8rem);
+  margin-top: clamp(4.5rem, 8vw, 6.5rem);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
   border-top: 1px solid var(--wa01-line);
 }
 
@@ -754,7 +755,7 @@ html[data-theme="dark"] .wa01 {
 }
 
 .wa01__finding {
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
   color: var(--wa01-text) !important;
   font-size: clamp(1rem, 2vw, 1.14rem);
   line-height: 1.7;
