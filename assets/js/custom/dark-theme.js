@@ -9,14 +9,20 @@
   };
 
   ready(function () {
-    const toggleThemeBtn = document.getElementById("toggle_dark_theme");
-    const toggleThemeLabel = document.querySelector('label[for="toggle_dark_theme"]');
+    const toggleThemeBtns = Array.from(
+      document.querySelectorAll("#toggle_dark_theme, #mobile_toggle_dark_theme")
+    );
+    const toggleThemeLabels = Array.from(
+      document.querySelectorAll(
+        'label[for="toggle_dark_theme"], label[for="mobile_toggle_dark_theme"]'
+      )
+    );
     const themeLink =
       document.getElementById("theme-css") ||
       document.querySelector('link[rel="stylesheet"][href*="/assets/css/main"]') ||
       document.querySelector('link[rel="stylesheet"][href*="assets/css/main"]');
 
-    if (!toggleThemeBtn || !themeLink) {
+    if (toggleThemeBtns.length === 0 || !themeLink) {
       console.error("Theme toggle elements not found");
       return;
     }
@@ -45,19 +51,22 @@
 
     const setToggleLabel = (isDark) => {
       const label = isDark ? "라이트 모드로 전환" : "다크 모드로 전환";
-      toggleThemeBtn.setAttribute("aria-label", label);
-
-      if (toggleThemeLabel) {
+      toggleThemeBtns.forEach((toggleThemeBtn) => {
+        toggleThemeBtn.setAttribute("aria-label", label);
+      });
+      toggleThemeLabels.forEach((toggleThemeLabel) => {
         toggleThemeLabel.setAttribute("aria-label", label);
         toggleThemeLabel.setAttribute("title", label);
-      }
+      });
     };
 
     const applyTheme = (theme) => {
       const isDark = theme === "dark";
 
       themeLink.href = buildThemeHref(theme);
-      toggleThemeBtn.checked = isDark;
+      toggleThemeBtns.forEach((toggleThemeBtn) => {
+        toggleThemeBtn.checked = isDark;
+      });
       document.documentElement.dataset.theme = theme;
       document.documentElement.classList.toggle("theme--dark", isDark);
       document.documentElement.classList.toggle("theme--default", !isDark);
@@ -71,8 +80,10 @@
 
     applyTheme(initialTheme);
 
-    toggleThemeBtn.addEventListener("change", function () {
-      applyTheme(toggleThemeBtn.checked ? "dark" : "default");
+    toggleThemeBtns.forEach((toggleThemeBtn) => {
+      toggleThemeBtn.addEventListener("change", function () {
+        applyTheme(toggleThemeBtn.checked ? "dark" : "default");
+      });
     });
   });
 })();

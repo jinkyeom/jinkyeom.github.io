@@ -13,7 +13,8 @@ $(function() {
   var $logo = $('nav.greedy-nav .site-logo');
   var $logoImg = $('nav.greedy-nav .site-logo img');
   var $title = $("nav.greedy-nav .site-title");
-  var $search = $('nav.greedy-nav button.search__toggle');
+  var $search = $('nav.greedy-nav > button.search__toggle');
+  var mobileBreakpoint = 1024;
 
   var numOfItems, totalSpace, closingTime, breakWidths;
 
@@ -43,7 +44,7 @@ $(function() {
     }
     // Measure both visible and hidden links widths
     $vlinks.children().outerWidth(addWidth);
-    $hlinks.children().each(function(){hiddenWidth($(this))});
+    $hlinks.children(":not(.masthead__mobile-menu-controls)").each(function(){hiddenWidth($(this))});
   }
   // Get initial state
   measureLinks();
@@ -57,6 +58,20 @@ $(function() {
   function check() {
 
     winWidth = $( window ).width();
+
+    if (winWidth < mobileBreakpoint) {
+      var $mobileControls = $hlinks.children(".masthead__mobile-menu-controls");
+      if ($mobileControls.length) {
+        $vlinks.children().insertBefore($mobileControls);
+      } else {
+        $vlinks.children().appendTo($hlinks);
+      }
+      numOfVisibleItems = 0;
+      $btn.attr("count", numOfItems);
+      $btn.removeClass("hidden");
+      return;
+    }
+
     // Set the current CSS width breakpoint: 0: <768px, 1: <1024px, 2: < 1280px, 3: >= 1280px.
     var curBreakpoint = winWidth < 768 ? 0 : winWidth < 1024 ? 1 : winWidth < 1280 ? 2 : 3;
     // If current breakpoint is different from last measured breakpoint, measureLinks again
@@ -81,7 +96,7 @@ $(function() {
       check();
       // There is more than enough space. If only one element is hidden, add the toggle width to the available space
     } else if (availableSpace + (numOfVisibleItems === breakWidths.length - 1?$btn.outerWidth(true):0) > breakWidths[numOfVisibleItems]) {
-      $hlinks.children().first().appendTo($vlinks);
+      $hlinks.children(":not(.masthead__mobile-menu-controls)").first().appendTo($vlinks);
       numOfVisibleItems += 1;
       check();
     }

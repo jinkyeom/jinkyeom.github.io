@@ -4,12 +4,14 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-logo" href="{{ '/' | relative_url }}">
-          <img src="{{ site.logo | relative_url }}" alt="" width="34" height="34" class="site-logo__image" style="border-radius: 50%; object-fit: contain;">
-        </a>
-        <a class="site-title" href="{{ '/' | relative_url }}" style="margin-left: 0.5rem;">
-          {{ site.masthead_title | default: site.title }}
-        </a>
+        <div class="masthead__brand">
+          <a class="site-logo" href="{{ '/' | relative_url }}">
+            <img src="{{ site.logo | relative_url }}" alt="" width="34" height="34" class="site-logo__image" style="border-radius: 50%; object-fit: contain;">
+          </a>
+          <a class="site-title" href="{{ '/' | relative_url }}" style="margin-left: 0.5rem;">
+            {{ site.masthead_title | default: site.title }}
+          </a>
+        </div>
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
@@ -32,7 +34,23 @@
             <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
             <div class="navicon"></div>
         </button>
-        <ul class="hidden-links hidden"></ul>
+        <ul class="hidden-links hidden">
+          <li class="masthead__mobile-menu-controls">
+            {% if site.search == true %}
+            <button class="search__toggle masthead__mobile-search" type="button">
+              <span>{{ site.data.ui-text[site.locale].search_label | default: "Search" }}</span>
+              <i class="fas fa-search"></i>
+            </button>
+            {% endif %}
+            {% if site.dark_theme_toggle == true %}
+            <div class="masthead__mobile-theme">
+              <span>테마</span>
+              <input id="mobile_toggle_dark_theme" class="mh_toogle" type="checkbox" aria-hidden="true" tabindex="-1">
+              <label for="mobile_toggle_dark_theme" class="material-icons-sharp mh_toggle_btn" role="button" aria-label="다크 모드로 전환" title="다크 모드로 전환"></label>
+            </div>
+            {% endif %}
+          </li>
+        </ul>
       </nav>
     </div>
   </div>
