@@ -83,34 +83,131 @@ html[data-theme="dark"] .active-category {
 
 // Left Sidebar Layout Fixes
 // Define Layout Gutter
-$sidebar-gutter: 32px;
+$sidebar-gutter: 20px;
 
 @media screen and (min-width: 1024px) {
+  .masthead__inner-wrap,
+  #main {
+    box-sizing: border-box;
+    width: min(calc(100% - 40px), 1280px);
+    max-width: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .masthead__menu,
+  .greedy-nav {
+    width: 100%;
+  }
+
   .sidebar {
-    width: 250px !important; // Slightly wider to prevent category names from clipping
+    width: 160px !important; // Keep category column compact while avoiding awkward wraps
   }
+
   .layout--single .page {
-    width: calc(100% - 250px - #{$sidebar-gutter}) !important;
+    width: calc(100% - 160px - #{$sidebar-gutter}) !important;
+    padding-right: 0 !important;
   }
+
+  .layout--single .page__inner-wrap > header {
+    max-width: 880px;
+  }
+
+  .layout--single .page__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: none;
+  }
+
+  .layout--single .page__content > :not(.sidebar__right) {
+    max-width: 880px;
+  }
+
+  .layout--single .sidebar__right {
+    align-self: start;
+    float: none !important;
+    grid-column: 1;
+    order: 100;
+    position: static !important;
+    width: min(100%, 880px) !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
   .layout--home .sidebar {
     width: 220px !important; // Keep home sidebar original width
   }
+
   .layout--home .page {
     width: calc(100% - 220px - #{$sidebar-gutter}) !important;
+    padding-right: 0 !important;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .sidebar {
-    width: 280px !important;
+    width: 170px !important;
   }
+
   .layout--single .page {
-    width: calc(100% - 280px - #{$sidebar-gutter}) !important;
+    width: calc(100% - 170px - #{$sidebar-gutter}) !important;
+    padding-right: 0 !important;
   }
+
+  .layout--single .page__inner-wrap > header {
+    max-width: 920px;
+  }
+
+  .layout--single .page__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: none;
+  }
+
+  .layout--single .page__content > :not(.sidebar__right) {
+    max-width: 920px;
+  }
+
+  .layout--single .sidebar__right {
+    align-self: start;
+    float: none !important;
+    grid-column: 1;
+    order: 100;
+    position: static !important;
+    width: min(100%, 920px) !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
   .layout--home .sidebar {
     width: 240px !important;
   }
+
   .layout--home .page {
     width: calc(100% - 240px - #{$sidebar-gutter}) !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .layout--single .page__content {
+    grid-template-columns: minmax(0, 920px) 215px;
+    column-gap: 20px;
+    justify-content: start;
+  }
+
+  .layout--single .page__content > :not(.sidebar__right) {
+    grid-column: 1;
+    max-width: 920px;
+  }
+
+  .layout--single .sidebar__right {
+    grid-column: 2;
+    grid-row: 1 / span 999;
+    order: 0;
+    width: 215px !important;
   }
 }
 
