@@ -11,7 +11,7 @@ author_profile: false
 sidebar:
   nav: "counts"
 header:
-  teaser: "/assets/images/world-again/world-again-teaser.png"
+  teaser: "/assets/images/world-again/world-again-teaser.svg"
 
 toc: true
 toc_sticky: true
