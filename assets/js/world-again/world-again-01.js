@@ -196,9 +196,8 @@
     );
 
     replaceChildren(target, [
-      chartHead("실제 인구", "서울이 압도적으로 많고, 부산이 두 번째입니다."),
+      chartHead("인구", "사람의 수로 보면, 우리가 익숙하게 떠올리던 도시의 순서와 크게 다르지 않습니다."),
       el("div", { className: "wa01__bar-list", role: "list" }, rows),
-      el("p", { className: "wa01__finding", text: "지금까지는 우리가 알고 있던 도시의 모습과 크게 다르지 않습니다." }),
     ]);
   };
 
@@ -254,7 +253,7 @@
       el("div", { className: "wa01__people-list" }, rows),
       el("p", {
         className: "wa01__finding",
-        text: "대구는 100명 중 약 5명에 해당합니다. 사람의 수로 보면 여전히 큰 도시입니다.",
+        text: "대구는 대한민국 100명 가운데 약 5명, 인구 순위로는 네 번째입니다. 그렇다면 땅의 크기로 보아도 네 번째일까요?",
       }),
     ]);
   };
@@ -314,7 +313,7 @@
       ]),
       el("p", {
         className: "wa01__finding",
-        text: "대구는 비교한 광역 도시 가운데 면적이 가장 넓었습니다. 사람이 적은 도시가 아니라, 많은 사람이 넓은 공간에 놓인 도시였습니다.",
+        text: "대구는 비교한 광역 도시 가운데 면적이 가장 넓었습니다. 사람이 적은 도시가 아니라, 많은 사람이 넓은 공간에 퍼져 사는 도시였습니다.",
       }),
       el("p", {
         className: "wa01__supporting-note",
