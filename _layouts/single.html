@@ -37,7 +37,7 @@ layout: default
         </header>
       {% endunless %}
 
-      <section class="page__content e-content" itemprop="text">
+      <section class="page__content e-content{% if page.toc %} page__content--with-toc{% endif %}" itemprop="text">
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc">
@@ -50,6 +50,10 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
+      {% if page.id %}
+        {% include ads/article-bottom.html %}
+      {% endif %}
+
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
@@ -60,7 +64,6 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% include post_pagination.html %}
     </div>
 
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
@@ -90,5 +93,11 @@ layout: default
         </div>
       </div>
     {% endif %}
+  {% endif %}
+
+  {% if page.id %}
+    <div class="page__post-pagination">
+      {% include post_pagination.html %}
+    </div>
   {% endif %}
 </div>
