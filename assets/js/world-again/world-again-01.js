@@ -249,7 +249,7 @@
     );
 
     replaceChildren(target, [
-      chartHead("대한민국 100명 중", "선택한 8개 도시끼리 다시 100명으로 만들지 않습니다."),
+      chartHead("대한민국 100명 중", ""),
       el("div", { className: "wa01__people-list" }, rows),
       el("p", {
         className: "wa01__finding",
