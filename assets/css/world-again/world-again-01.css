@@ -1038,8 +1038,12 @@ body.layout--single:has(.wa01) .page__content > :not(.sidebar__right) {
 }
 
 .wa01 .wa-map__label--do {
-  font-size: 0.9rem;
-  font-weight: 400;
-  fill: #8a9493;
+  font-size: 1rem;
+  font-weight: 500;
+  fill: #6f7473;
   letter-spacing: 0.05em;
+}
+
+html[data-theme="dark"] .wa01 .wa-map__label--do {
+  fill: #aeb7b5;
 }
