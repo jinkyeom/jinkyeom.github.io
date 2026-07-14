@@ -16,8 +16,8 @@ author_profile: false
 sidebar:
   nav: "counts"
 header:
-  teaser: /assets/images/sciencestop/series-02-departure-hero.webp
-  og_image: /assets/images/sciencestop/series-02-departure-hero.webp
+  teaser: /assets/images/sciencestop/series-02-departure-voyage.webp
+  og_image: /assets/images/sciencestop/series-02-departure-voyage.webp
 toc: true
 toc_sticky: true
 related: true
