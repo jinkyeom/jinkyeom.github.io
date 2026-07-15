@@ -16,13 +16,17 @@ author_profile: false
 sidebar:
   nav: "counts"
 header:
-  teaser: /assets/images/sciencestop/series-02-departure-voyage.webp
-  og_image: /assets/images/sciencestop/series-02-departure-voyage.webp
+  teaser: /assets/images/sciencestop/series-02-departure.webp
+  og_image: /assets/images/sciencestop/series-02-departure.webp
 toc: false
 toc_sticky: false
 read_time: false
 show_date: true
 related: true
+continuing_voyage:
+  description: "이 이름이 실제로 출항한 이야기는 여기에서 시작됩니다."
+  title: "ScienceStop Series 02 · 출항"
+  url: "https://sciencestop.kr/article/2026-06-29-series-02-departure/"
 ---
 
 <div class="discovery-log__body" markdown="1">
