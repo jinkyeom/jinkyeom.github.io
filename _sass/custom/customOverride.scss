@@ -103,7 +103,7 @@ a {
 /* Discovery Log: 설명글보다 한 장면의 여백과 리듬에 집중한다. */
 .layout--discovery-log {
   .discovery-log__header {
-    width: min(100%, 660px);
+    width: min(100%, 820px);
     margin-right: auto;
     margin-left: auto;
   }
@@ -111,11 +111,17 @@ a {
   .page__content {
     float: none !important;
     width: 100%;
-    max-width: 660px;
+    max-width: 820px;
     margin-right: auto !important;
     margin-left: auto !important;
     font-size: 1em;
     line-height: 1.95;
+
+    .discovery-log__body {
+      width: min(100%, 660px);
+      margin-right: auto;
+      margin-left: auto;
+    }
 
     p,
     li {
@@ -130,9 +136,35 @@ a {
       margin-bottom: 1.55em;
     }
 
+    .discovery-log__arrow {
+      margin: 1rem 0;
+      line-height: 1;
+    }
+
     blockquote {
-      margin-top: 2.2em;
-      margin-bottom: 2.2em;
+      margin-top: 1.8em;
+      margin-bottom: 1.8em;
+
+      p,
+      .discovery-log__line-group {
+        margin-bottom: 1em;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .discovery-log__wide-image {
+    display: block;
+    width: 100%;
+    margin: 2.75rem auto;
+
+    img {
+      display: block;
+      width: 100%;
+      margin: 0;
     }
   }
 
@@ -155,14 +187,19 @@ a {
       letter-spacing: 0.08em;
     }
   }
+
+  .page__content {
+    padding-bottom: 1.5rem;
+  }
+
+  .page__related {
+    margin-top: 4rem;
+  }
 }
 
 @media (min-width: 48em) {
-  .layout--discovery-log .page__content > p > img {
-    display: block;
-    width: calc(100% + 6rem);
-    max-width: calc(100% + 6rem);
-    margin: 2.75rem 0 2.75rem -3rem;
+  .layout--discovery-log .discovery-log__header .page__title {
+    white-space: nowrap;
   }
 }
 

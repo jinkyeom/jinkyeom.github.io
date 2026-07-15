@@ -25,6 +25,8 @@ show_date: true
 related: true
 ---
 
+<div class="discovery-log__body" markdown="1">
+
 <p class="discovery-log__line-group">갈루아 글에<br>작은 시각화를 하나 연결해 보자는 이야기였다.</p>
 
 <p class="discovery-log__line-group">처음에는<br>인터랙션 하나만 고민하고 있었다.</p>
@@ -39,7 +41,7 @@ related: true
 >
 > <p class="discovery-log__line-group">이전에는 보이지 않던 것이<br>하나씩 보이기 시작한다.</p>
 
-↓
+<p class="discovery-log__arrow" aria-hidden="true">↓</p>
 
 > 🪞 Mirror
 >
@@ -51,13 +53,19 @@ related: true
 >
 > <p class="discovery-log__line-group">그 새로운 시선은<br>다시 나 자신을 바라보게 만들었다.</p>
 
-↓
+<p class="discovery-log__arrow" aria-hidden="true">↓</p>
 
 창과 거울.
 
 두 단어가 나란히 놓인 순간이었다.
 
-![창과 거울이 이어지고 노트 위에 WindowMirror라는 이름이 처음 적힌 순간](/assets/images/sciencestop/series-02-windowmirror-moment.webp)
+</div>
+
+<figure class="discovery-log__wide-image">
+  <img src="/assets/images/sciencestop/series-02-windowmirror-moment.webp" alt="창과 거울이 이어지고 노트 위에 WindowMirror라는 이름이 처음 적힌 순간">
+</figure>
+
+<div class="discovery-log__body" markdown="1">
 
 <p class="discovery-log__line-group">갑자기<br>이건 글 하나의 구조가 아니라<br>하나의 여정처럼 느껴졌다.</p>
 
@@ -97,9 +105,11 @@ related: true
 >
 > 다시 자기 자신에게 돌아온다.
 
-<p class="discovery-log__line-group">그날,<br>작은 시각화를 고민하던 대화는<br>항해의 이름을 얻게 되었다.</p>
+<p class="discovery-log__line-group">그날,<br>작은 시각화를 고민하던 대화에서<br>우리 배의 이름을 얻게 되었다.</p>
 
 <aside class="discovery-note" aria-labelledby="discovery-note-title">
   <p class="discovery-note__title" id="discovery-note-title">오늘의 발견</p>
-  <p>창과 거울이 나란히 놓인 순간,<br>우리의 항해가 시작되었다.</p>
+  <p>창과 거울이 나란히 놓인 순간,<br>WindowMirror호의<br>항해가 시작되었다.</p>
 </aside>
+
+</div>
