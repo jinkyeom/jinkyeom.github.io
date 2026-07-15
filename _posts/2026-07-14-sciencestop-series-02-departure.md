@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: discovery-log
 title: "우리 배의 이름이 생긴 날"
 description: "작은 시각화 이야기를 나누다 Window와 Mirror가 만나고, 우리 배의 이름이 생긴 날의 기록"
 excerpt: "작은 시각화 이야기를 나누다 WindowMirror라는 이름이 처음 적힌 날"
@@ -18,16 +18,16 @@ sidebar:
 header:
   teaser: /assets/images/sciencestop/series-02-departure-voyage.webp
   og_image: /assets/images/sciencestop/series-02-departure-voyage.webp
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
+read_time: false
+show_date: true
 related: true
 ---
 
-갈루아 글에 작은 시각화를 하나 연결해 보자는 이야기였다.
+<p class="discovery-log__line-group">갈루아 글에<br>작은 시각화를 하나 연결해 보자는 이야기였다.</p>
 
-처음에는
-
-인터랙션 하나를 어떻게 넣을지만 이야기하고 있었다.
+<p class="discovery-log__line-group">처음에는<br>인터랙션 하나만 고민하고 있었다.</p>
 
 그런데 대화가 조금씩 다른 방향으로 흘러가기 시작했다.
 
@@ -35,19 +35,9 @@ related: true
 >
 > 세상을 바라본다.
 >
-> 과학자.
+> <p class="discovery-log__line-group">과학자.<br>수학자.<br>AI.<br>생명.<br>우주.</p>
 >
-> 수학자.
->
-> AI.
->
-> 생명.
->
-> 우주.
->
-> 이전에는 보이지 않던 것이
->
-> 하나씩 보이기 시작한다.
+> <p class="discovery-log__line-group">이전에는 보이지 않던 것이<br>하나씩 보이기 시작한다.</p>
 
 ↓
 
@@ -59,9 +49,7 @@ related: true
 >
 > "나도 저기서 막혔는데."
 >
-> 그 새로운 시선은
->
-> 다시 나 자신을 바라보게 만들었다.
+> <p class="discovery-log__line-group">그 새로운 시선은<br>다시 나 자신을 바라보게 만들었다.</p>
 
 ↓
 
@@ -71,11 +59,7 @@ related: true
 
 ![창과 거울이 이어지고 노트 위에 WindowMirror라는 이름이 처음 적힌 순간](/assets/images/sciencestop/series-02-windowmirror-moment.webp)
 
-갑자기
-
-이건 글 하나의 구조가 아니라
-
-하나의 여정처럼 느껴졌다.
+<p class="discovery-log__line-group">갑자기<br>이건 글 하나의 구조가 아니라<br>하나의 여정처럼 느껴졌다.</p>
 
 > 🚢
 >
@@ -101,7 +85,7 @@ related: true
 >
 > ↓
 >
-> 🌉 탐험가의 시선이 전환되는 순간
+> 🌉 시선이 바뀌는 순간
 >
 > 보이지 않던 경계가 보이고
 >
@@ -113,22 +97,9 @@ related: true
 >
 > 다시 자기 자신에게 돌아온다.
 
-그날,
+<p class="discovery-log__line-group">그날,<br>작은 시각화를 고민하던 대화는<br>항해의 이름을 얻게 되었다.</p>
 
-작은 시각화를 고민하던 대화는
-
-항해의 이름을 얻게 되었다.
-
-## 오늘의 발견
-
-> 창은 새로운 시선으로
->
-> 세상을 넓혀 주고,
->
-> 거울은 그 시선으로
->
-> 다시 나를 돌아보게 한다.
->
-> 그 둘이 하나로 이어지는 순간,
->
-> 하나의 항해가 시작되었다.
+<aside class="discovery-note" aria-labelledby="discovery-note-title">
+  <p class="discovery-note__title" id="discovery-note-title">오늘의 발견</p>
+  <p>창과 거울이 나란히 놓인 순간,<br>우리의 항해가 시작되었다.</p>
+</aside>

@@ -100,6 +100,72 @@ a {
   }
 }
 
+/* Discovery Log: 설명글보다 한 장면의 여백과 리듬에 집중한다. */
+.layout--discovery-log {
+  .discovery-log__header {
+    width: min(100%, 660px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .page__content {
+    float: none !important;
+    width: 100%;
+    max-width: 660px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    font-size: 1em;
+    line-height: 1.95;
+
+    p,
+    li {
+      line-height: 1.95;
+    }
+
+    p {
+      margin-bottom: 1.55em;
+    }
+
+    .discovery-log__line-group {
+      margin-bottom: 1.55em;
+    }
+
+    blockquote {
+      margin-top: 2.2em;
+      margin-bottom: 2.2em;
+    }
+  }
+
+  .discovery-note {
+    margin: 4.5rem 0 1.5rem;
+    padding: 1.35rem 1.5rem;
+    border-top: 1px solid $bb-border;
+    border-bottom: 1px solid $bb-border;
+    color: $bb-text-muted;
+
+    p {
+      margin: 0;
+    }
+
+    .discovery-note__title {
+      margin-bottom: 0.65rem;
+      color: $bb-text;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .layout--discovery-log .page__content > p > img {
+    display: block;
+    width: calc(100% + 6rem);
+    max-width: calc(100% + 6rem);
+    margin: 2.75rem 0 2.75rem -3rem;
+  }
+}
+
 .page__title,
 .archive__subtitle {
   color: $bb-text;

@@ -32,7 +32,8 @@
 }
 
 // Layout Spacing Adjustments
-.layout--single {
+.layout--single,
+.layout--discovery-log {
   .breadcrumbs {
     margin-top: 1.25rem; // ~20px (masthead -> breadcrumb)
     margin-bottom: 1rem; // ~16px (breadcrumb -> title)
@@ -106,29 +107,34 @@ $sidebar-gutter: 20px;
     width: 160px !important; // Keep category column compact while avoiding awkward wraps
   }
 
-  .layout--single .page {
+  .layout--single .page,
+  .layout--discovery-log .page {
     width: calc(100% - 160px - #{$sidebar-gutter}) !important;
     padding-right: 0 !important;
   }
 
-  .layout--single .page__inner-wrap > header {
+  .layout--single .page__inner-wrap > header,
+  .layout--discovery-log .page__inner-wrap > header {
     max-width: 880px;
   }
 
-  .layout--single .page__content--with-toc {
+  .layout--single .page__content--with-toc,
+  .layout--discovery-log .page__content--with-toc {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 210px;
     column-gap: 20px;
     max-width: none;
   }
 
-  .layout--single .page__content--with-toc > :not(.sidebar__right) {
+  .layout--single .page__content--with-toc > :not(.sidebar__right),
+  .layout--discovery-log .page__content--with-toc > :not(.sidebar__right) {
     grid-column: 1;
     min-width: 0;
     max-width: 880px;
   }
 
-  .layout--single .sidebar__right.sticky {
+  .layout--single .sidebar__right.sticky,
+  .layout--discovery-log .sidebar__right.sticky {
     align-self: start;
     float: none !important;
     grid-column: 2;
@@ -143,12 +149,14 @@ $sidebar-gutter: 20px;
     overflow: hidden;
   }
 
-  .layout--single .sidebar__right.sticky .toc {
+  .layout--single .sidebar__right.sticky .toc,
+  .layout--discovery-log .sidebar__right.sticky .toc {
     max-height: inherit;
     overflow: hidden;
   }
 
-  .layout--single .sidebar__right.sticky .toc__menu {
+  .layout--single .sidebar__right.sticky .toc__menu,
+  .layout--discovery-log .sidebar__right.sticky .toc__menu {
     max-height: calc(100vh - 10rem);
     overflow-x: hidden;
     overflow-y: auto;
@@ -170,25 +178,30 @@ $sidebar-gutter: 20px;
     width: 170px !important;
   }
 
-  .layout--single .page {
+  .layout--single .page,
+  .layout--discovery-log .page {
     width: calc(100% - 170px - #{$sidebar-gutter}) !important;
     padding-right: 0 !important;
   }
 
-  .layout--single .page__inner-wrap > header {
+  .layout--single .page__inner-wrap > header,
+  .layout--discovery-log .page__inner-wrap > header {
     max-width: 920px;
   }
 
-  .layout--single .page__content--with-toc {
+  .layout--single .page__content--with-toc,
+  .layout--discovery-log .page__content--with-toc {
     grid-template-columns: minmax(0, 1fr) 220px;
     max-width: none;
   }
 
-  .layout--single .page__content--with-toc > :not(.sidebar__right) {
+  .layout--single .page__content--with-toc > :not(.sidebar__right),
+  .layout--discovery-log .page__content--with-toc > :not(.sidebar__right) {
     max-width: 920px;
   }
 
-  .layout--single .sidebar__right.sticky {
+  .layout--single .sidebar__right.sticky,
+  .layout--discovery-log .sidebar__right.sticky {
     width: 220px !important;
   }
 
@@ -203,18 +216,21 @@ $sidebar-gutter: 20px;
 }
 
 @media screen and (min-width: 1400px) {
-  .layout--single .page__content--with-toc {
+  .layout--single .page__content--with-toc,
+  .layout--discovery-log .page__content--with-toc {
     grid-template-columns: minmax(0, 920px) 215px;
     column-gap: 20px;
     justify-content: start;
   }
 
-  .layout--single .page__content--with-toc > :not(.sidebar__right) {
+  .layout--single .page__content--with-toc > :not(.sidebar__right),
+  .layout--discovery-log .page__content--with-toc > :not(.sidebar__right) {
     grid-column: 1;
     max-width: 920px;
   }
 
-  .layout--single .sidebar__right.sticky {
+  .layout--single .sidebar__right.sticky,
+  .layout--discovery-log .sidebar__right.sticky {
     grid-column: 2;
     grid-row: 1 / span 999;
     order: 0;
