@@ -24,7 +24,8 @@
 {% endfor %}
 
 {% assign related_count = related_posts.size %}
-{% assign cat_total = site.categories[primary_cat].size | minus: 1 %}
+{% comment %}전체 보기 페이지의 글 수는 현재 글과 소개 글을 포함한 카테고리 전체 수{% endcomment %}
+{% assign cat_total = site.categories[primary_cat].size %}
 
 {% if related_count > 0 %}
 
