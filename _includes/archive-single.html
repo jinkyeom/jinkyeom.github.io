@@ -51,11 +51,15 @@
           <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
         {% endif %}
       </h2>
-      {% if post.description %}<p class="archive__item-excerpt" itemprop="description">{{ post.description | markdownify | strip_html | truncate: 120 }}</p>{% endif %}
-      {% include page__meta.html type=include.type %}
-      <a class="archive-card__cta" href="{{ post.url | relative_url }}" rel="permalink">
-        글 읽기 <i class="fas fa-arrow-right" aria-hidden="true"></i>
-      </a>
+      {% if post.description %}<p class="archive-card__description" itemprop="description">{{ post.description | markdownify | strip_html | truncate: 120 }}</p>{% endif %}
+      <div class="archive-card__footer">
+        {% assign hide_read_time = false %}
+        {% if post.layout == 'discovery-log' %}{% assign hide_read_time = true %}{% endif %}
+        {% include page__meta.html type=include.type hide_read_time=hide_read_time %}
+        <a class="archive-card__cta" href="{{ post.url | relative_url }}" rel="permalink">
+          글 읽기 <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
   </article>
 </div>

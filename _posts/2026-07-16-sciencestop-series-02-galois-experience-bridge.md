@@ -1,7 +1,7 @@
 ---
 layout: discovery-log
 title: "다시 움직여 보니 먼저 보인 것"
-description: "갈루아 글과 오디오 팟캐스트 제작 회고"
+description: "처음 만든 Experience Bridge를 다시 움직이며, 설명보다 경험이 먼저여야 한다는 사실을 발견한 기록"
 date: 2026-07-16 13:00:00 +0900
 categories:
   - sciencestop
