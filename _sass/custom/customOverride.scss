@@ -322,29 +322,41 @@ a {
 /* ── Related Posts Carousel ──────────────────────────────────────────────── */
 .related-carousel {
   --rc-gap: 1.25rem;
-  --rc-cols: 1;          // mobile default; overridden below
+  --rc-cols: 1;   // mobile default; overridden by media queries
 
   padding-top: 1em;
   border-top: 1px solid $bb-border;
   margin-top: 2em;
 
-  // header row: title + nav buttons
+  // ── Header: title + controls ─────────────────────────────────────────────
   .related-carousel__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.5rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
   }
 
   .page__related-title {
     margin: 0;
+    flex: 1;
   }
 
-  // prev / next button group
-  .related-carousel__nav {
+  // controls group: ‹ 1/4 ›
+  .related-carousel__controls {
     display: flex;
+    align-items: center;
     gap: 0.25rem;
     flex-shrink: 0;
+  }
+
+  .related-carousel__indicator {
+    font-size: 0.78rem;
+    color: $bb-text-muted;
+    min-width: 2.8rem;
+    text-align: center;
+    letter-spacing: 0.02em;
   }
 
   .related-carousel__btn {
@@ -358,7 +370,7 @@ a {
     border-radius: 8px;
     background: $bb-surface;
     color: $bb-text;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 1;
     cursor: pointer;
     transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
@@ -379,24 +391,25 @@ a {
     }
   }
 
-  // scroll track
+  // ── Scroll track ─────────────────────────────────────────────────────────
   .related-carousel__track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc((100% - (var(--rc-cols) - 1) * var(--rc-gap)) / var(--rc-cols));
+    grid-auto-columns: calc(
+      (100% - (var(--rc-cols) - 1) * var(--rc-gap)) / var(--rc-cols)
+    );
     gap: var(--rc-gap);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;       // Firefox
+    scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 
-    &::-webkit-scrollbar { display: none; }  // Chrome/Safari
+    &::-webkit-scrollbar { display: none; }
   }
 
-  // individual card slot
+  // ── Card slot ────────────────────────────────────────────────────────────
   .related-carousel__item {
     scroll-snap-align: start;
-    // card styles are inherited from .archive__item--card
     min-width: 0;
 
     .archive__item--card {
@@ -404,14 +417,32 @@ a {
     }
   }
 
-  // ── Responsive column counts ──────────────────────────────────────────
-  @media (min-width: 768px) {
-    --rc-cols: 2;
+  // ── Footer: view-all link ────────────────────────────────────────────────
+  .related-carousel__footer {
+    margin-top: 1rem;
+    text-align: right;
   }
 
-  @media (min-width: 1024px) {
-    --rc-cols: 3;
+  .related-carousel__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $bb-text-muted;
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    i { font-size: 0.75rem; }
+
+    &:hover {
+      color: $bb-text;
+    }
   }
+
+  // ── Responsive columns ───────────────────────────────────────────────────
+  @media (min-width: 768px)  { --rc-cols: 2; }
+  @media (min-width: 1024px) { --rc-cols: 3; }
 }
 
 @media (min-width: 48em) {
