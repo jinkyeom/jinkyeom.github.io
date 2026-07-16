@@ -5,11 +5,11 @@ layout: single
 {{ content }}
 
 {% if page.continuing_voyage %}
-  <section class="discovery-log__body discovery-log__continuing-voyage" aria-labelledby="continuing-voyage-title">
+  <section class="discovery-log__continuing-voyage" aria-labelledby="continuing-voyage-title">
     <h2 id="continuing-voyage-title">이어지는 항해</h2>
-    <p>{{ page.continuing_voyage.description }}</p>
-    <p>
-      <a href="{{ page.continuing_voyage.url }}">→ {{ page.continuing_voyage.title }}</a>
-    </p>
+    <a href="{{ page.continuing_voyage.url }}" class="voyage-link">
+      <span class="voyage-title">{{ page.continuing_voyage.title }}</span>
+      <span class="voyage-action">{{ page.continuing_voyage.description }} &rarr;</span>
+    </a>
   </section>
 {% endif %}

@@ -12,7 +12,7 @@ layout: default
 {% if page.breadcrumbs != null %}
   {% assign breadcrumbs_enabled = page.breadcrumbs %}
 {% endif %}
-{% if page.url != "/" and breadcrumbs_enabled %}
+{% if page.layout != 'discovery-log' and page.url != "/" and breadcrumbs_enabled %}
   {% unless paginator %}
     {% include breadcrumbs.html %}
   {% endunless %}
@@ -28,6 +28,12 @@ layout: default
     {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
     <div class="page__inner-wrap">
+      {% if page.layout == 'discovery-log' and page.url != "/" and breadcrumbs_enabled %}
+        {% unless paginator %}
+          {% include breadcrumbs.html %}
+        {% endunless %}
+      {% endif %}
+
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header class="{% if page.layout == 'discovery-log' %}discovery-log__header{% endif %}">
           {% if page.title %}<h1 id="page-title" class="page__title p-name" itemprop="headline">
@@ -85,6 +91,7 @@ layout: default
     {% capture related_posts_html %}
       {% for post in site.categories[primary_cat] %}
         {% if post.id == page.id %}{% continue %}{% endif %}
+        {% if page.layout == 'discovery-log' and post.url contains '과학정류장-소개' %}{% continue %}{% endif %}
         {% include archive-single.html type="grid" %}
         {% assign related_count = related_count | plus: 1 %}
         {% if related_count >= max_related %}{% break %}{% endif %}

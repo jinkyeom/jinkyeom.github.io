@@ -279,7 +279,7 @@ compress_html:
   ignore:
     envs: development
 
-asset_version            : "20260712-2"
+asset_version            : "20260716-1"
 dark_theme_toggle        : true # 다크 모드 토글 기능 추가
 after_footer_scripts:
   - /assets/js/custom/dark-theme.js
