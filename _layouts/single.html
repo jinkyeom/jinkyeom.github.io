@@ -62,7 +62,6 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
           <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
@@ -73,83 +72,46 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% if page.layout == 'discovery-log' %}
-        {% comment %}<!-- DISCOVERY LOG: footer inside page__inner-wrap for width constraint -->{% endcomment %}
-        {% if page.id %}
-          {% include ads/article-bottom.html %}
-        {% endif %}
-        {% if page.id and page.related %}
-          {% assign max_related = 4 %}
-          {% assign related_count = 0 %}
-          {% assign primary_cat = page.categories[0] %}
-          {% capture related_posts_html %}
-            {% for post in site.categories[primary_cat] %}
-              {% if post.id == page.id %}{% continue %}{% endif %}
-              {% if post.url contains '과학정류장-소개' %}{% continue %}{% endif %}
-              {% include archive-single.html type="cards" %}
-              {% assign related_count = related_count | plus: 1 %}
-              {% if related_count >= max_related %}{% break %}{% endif %}
-            {% endfor %}
-          {% endcapture %}
-          {% if related_count > 0 %}
-            <div class="page__related">
-              <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
-              <div class="grid__wrapper">
-                {{ related_posts_html }}
-              </div>
+      {% comment %}<!-- ALL LAYOUTS: footer elements inside page__inner-wrap for correct column constraint -->{% endcomment %}
+      {% if page.id %}
+        {% include ads/article-bottom.html %}
+      {% endif %}
+
+      {% if page.id and page.related %}
+        {% assign max_related = 4 %}
+        {% assign related_count = 0 %}
+        {% assign primary_cat = page.categories[0] %}
+        {% capture related_posts_html %}
+          {% for post in site.categories[primary_cat] %}
+            {% if post.id == page.id %}{% continue %}{% endif %}
+            {% if page.layout == 'discovery-log' and post.url contains '과학정류장-소개' %}{% continue %}{% endif %}
+            {% include archive-single.html type="cards" %}
+            {% assign related_count = related_count | plus: 1 %}
+            {% if related_count >= max_related %}{% break %}{% endif %}
+          {% endfor %}
+        {% endcapture %}
+        {% if related_count > 0 %}
+          <div class="page__related">
+            <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
+            <div class="grid__wrapper">
+              {{ related_posts_html }}
             </div>
-          {% endif %}
-        {% endif %}
-        {% if page.id %}
-          {% include ads/article-bottom.html %}
-          <div class="page__post-pagination">
-            {% include post_pagination.html %}
           </div>
         {% endif %}
       {% endif %}
 
-    </div>
+      {% if page.id %}
+        {% include ads/article-bottom.html %}
+        <div class="page__post-pagination">
+          {% include post_pagination.html %}
+        </div>
+      {% endif %}
 
-
+    </div><!-- /.page__inner-wrap -->
 
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
       {% include comments.html %}
     {% endif %}
   </article>
 
-  {% if page.layout != 'discovery-log' %}
-    {% comment %}<!-- ORIGINAL POSITION FOR OTHER LAYOUTS -->{% endcomment %}
-    {% if page.id %}
-      {% include ads/article-bottom.html %}
-    {% endif %}
-    {% if page.id and page.related %}
-      {% assign max_related = 4 %}
-      {% assign related_count = 0 %}
-      {% assign primary_cat = page.categories[0] %}
-      {% capture related_posts_html %}
-        {% for post in site.categories[primary_cat] %}
-          {% if post.id == page.id %}{% continue %}{% endif %}
-          {% include archive-single.html type="cards" %}
-          {% assign related_count = related_count | plus: 1 %}
-          {% if related_count >= max_related %}{% break %}{% endif %}
-        {% endfor %}
-      {% endcapture %}
-
-      {% if related_count > 0 %}
-        <div class="page__related">
-          <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
-          <div class="grid__wrapper">
-            {{ related_posts_html }}
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-
-    {% if page.id %}
-      {% include ads/article-bottom.html %}
-      <div class="page__post-pagination">
-        {% include post_pagination.html %}
-      </div>
-    {% endif %}
-  {% endif %}
 </div>

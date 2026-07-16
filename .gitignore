@@ -78,3 +78,7 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# Local agent workspace and draft posts
+.agents/
+_drafts/

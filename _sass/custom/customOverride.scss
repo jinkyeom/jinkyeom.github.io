@@ -265,7 +265,7 @@ a {
 
   .page__related {
     margin-top: 4rem;
-    
+
     .grid__wrapper {
       margin-right: 0 !important;
       margin-left: 0 !important;
@@ -273,6 +273,41 @@ a {
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
       /* Remove float/width on grid items since we use CSS Grid */
+      .grid__item {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+/* ── Global: page__related & footer inside page__inner-wrap ─────────────────
+   Since all layouts now render footer elements inside page__inner-wrap,
+   override the Minimal Mistakes default (float:right + sidebar-width calc)
+   so they don't expand beyond the content column.
+   ─────────────────────────────────────────────────────────────────────────── */
+.page__inner-wrap {
+  .page__related,
+  .page__post-pagination,
+  .article-bottom-ad {
+    float: none !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .page__related {
+    padding-top: 1em;
+    border-top: 1px solid $bb-border;
+
+    .grid__wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+
       .grid__item {
         float: none !important;
         width: 100% !important;
