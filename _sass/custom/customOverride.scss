@@ -255,8 +255,30 @@ a {
     }
   }
 
+  .page__related,
+  .page__post-pagination {
+    float: none !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
   .page__related {
     margin-top: 4rem;
+    
+    .grid__wrapper {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      /* Remove float/width on grid items since we use CSS Grid */
+      .grid__item {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+    }
   }
 }
 
