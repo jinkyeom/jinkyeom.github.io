@@ -62,9 +62,6 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      {% if page.id %}
-        {% include ads/article-bottom.html %}
-      {% endif %}
 
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
@@ -84,6 +81,9 @@ layout: default
   </article>
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
+  {% if page.id %}
+    {% include ads/article-bottom.html %}
+  {% endif %}
   {% if page.id and page.related %}
     {% assign max_related = 4 %}
     {% assign related_count = 0 %}
@@ -92,7 +92,7 @@ layout: default
       {% for post in site.categories[primary_cat] %}
         {% if post.id == page.id %}{% continue %}{% endif %}
         {% if page.layout == 'discovery-log' and post.url contains '과학정류장-소개' %}{% continue %}{% endif %}
-        {% include archive-single.html type="grid" %}
+        {% include archive-single.html type="cards" %}
         {% assign related_count = related_count | plus: 1 %}
         {% if related_count >= max_related %}{% break %}{% endif %}
       {% endfor %}
@@ -109,6 +109,7 @@ layout: default
   {% endif %}
 
   {% if page.id %}
+    {% include ads/article-bottom.html %}
     <div class="page__post-pagination">
       {% include post_pagination.html %}
     </div>

@@ -521,7 +521,7 @@ a {
   flex-direction: column;
   flex-basis: auto;
   min-width: 0;
-  padding: 0.85rem 1rem 0.85rem; /* Reduced padding from 1rem 1.05rem 1.05rem */
+  padding: 1.25rem 1rem 0.85rem; /* Increased top padding for category badge breathing room */
 }
 
 .archive-card__category {
