@@ -58,6 +58,11 @@ related: true
 
 그래도 오래전에 흐릿해진 이해는 조금 채워졌고, 아는 척은 조금 줄었다.
 
+<aside class="discovery-note" aria-labelledby="discovery-note-title">
+  <p class="discovery-note__title" id="discovery-note-title">오늘의 발견</p>
+  <p>기다림은 성급한 결론에 붙잡히지 않는 방법이었다.</p>
+</aside>
+
 [과학정류장 괴델 편에서 직접 보기 →](https://sciencestop.kr/article/2026-07-04-godel-boundary-of-proof/){: target="_blank" rel="noopener"}
 
 [앞선 갈루아 편 함께 보기 →](https://sciencestop.kr/article/2026-06-29-galois-fifth-door/){: target="_blank" rel="noopener"}
