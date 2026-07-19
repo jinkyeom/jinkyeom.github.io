@@ -1,0 +1,17 @@
+<figure class="dia-road dia-road--fold" aria-labelledby="dia-fold-caption">
+  <div class="dia-road__kicker">ONE ROAD · 접힌 길</div>
+  <svg viewBox="0 0 360 330" role="img" aria-label="표준 기타 조율 E A D G B E와 인접 줄 사이의 완전4도, 완전4도, 완전4도, 장3도, 완전4도 관계">
+    <text x="18" y="25" class="svg-label">표준 조율 · E A D G B E</text>
+    <g class="fold-basic"><circle cx="180" cy="52" r="18"/><text x="180" y="58">E</text><path d="M180 70 V88"/><text x="210" y="83">완전4도</text><circle cx="180" cy="106" r="18"/><text x="180" y="112">A</text><path d="M180 124 V142"/><text x="210" y="137">완전4도</text><circle cx="180" cy="160" r="18"/><text x="180" y="166">D</text><path d="M180 178 V196"/><text x="210" y="191">완전4도</text><circle cx="180" cy="214" r="18"/><text x="180" y="220">G</text><path class="fold-basic__m3" d="M180 232 V246"/><text x="210" y="244" class="fold-basic__m3-label">장3도</text><circle cx="180" cy="264" r="18" class="fold-basic__turn"/><text x="180" y="270">B</text><path d="M180 282 V294"/><text x="210" y="292">완전4도</text><circle cx="180" cy="312" r="18"/><text x="180" y="318">E</text></g>
+  </svg>
+  <style>
+    .dia-road--fold .fold-basic circle { fill: var(--d-surface); stroke: var(--d-accent); stroke-width: 2; }
+    .dia-road--fold .fold-basic text { text-anchor: middle; }
+    .dia-road--fold .fold-basic path { fill: none; stroke: var(--d-accent); stroke-width: 3; }
+    .dia-road--fold .fold-basic text:nth-of-type(even) { text-anchor: start; fill: var(--d-muted); font-size: 13px; }
+    .dia-road--fold .fold-basic .fold-basic__m3 { stroke: var(--d-focus); }
+    .dia-road--fold .fold-basic .fold-basic__m3-label { fill: var(--d-focus); font-weight: 800; }
+    .dia-road--fold .fold-basic .fold-basic__turn { fill: var(--d-soft); stroke: var(--d-focus); stroke-width: 3; }
+  </style>
+  <figcaption id="dia-fold-caption">인접 줄은 대부분 완전4도이고, G–B 사이만 장3도다.</figcaption>
+</figure>

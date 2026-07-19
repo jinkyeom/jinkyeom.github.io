@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="{{ '/assets/css/guitar-theory/dia-road.css' | relative_url }}">
+<figure class="dia-road dia-road--piano" aria-labelledby="dia-road-caption">
+  <div class="dia-road__kicker">ONE ROAD · 펼쳐진 길</div>
+  <svg viewBox="0 0 360 270" role="img" aria-label="C 메이저 음계의 연속된 길 위에서 C E G를 한 음씩 건너뛰어 고르고, 다이어토닉 코드 가족으로 이어지는 과정">
+    <defs><marker id="road-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7Z"/></marker></defs>
+    <text x="18" y="24" class="svg-label">C 메이저 · 하나의 연속된 길</text>
+    <path class="road-solid" d="M28 70 H330" marker-end="url(#road-arrow)"/>
+    <g class="road-notes"><circle cx="28" cy="70" r="13" class="road-selected"/><circle cx="71" cy="70" r="13" class="road-skipped"/><circle cx="114" cy="70" r="13" class="road-selected"/><circle cx="157" cy="70" r="13" class="road-skipped"/><circle cx="200" cy="70" r="13" class="road-selected"/><circle cx="243" cy="70" r="13"/><circle cx="286" cy="70" r="13"/><circle cx="329" cy="70" r="13"/><text x="28" y="76">C</text><text x="71" y="76">D</text><text x="114" y="76">E</text><text x="157" y="76">F</text><text x="200" y="76">G</text><text x="243" y="76">A</text><text x="286" y="76">B</text><text x="329" y="76">C</text></g>
+    <text x="18" y="118" class="svg-label">C–E–G · 한 음씩 건너뛰어 쌓기</text>
+    <path class="road-jump" d="M28 142 Q71 101 114 142 Q157 101 200 142" marker-end="url(#road-arrow)"/>
+    <g class="road-picks"><text x="28" y="165">C</text><text x="114" y="165">E</text><text x="200" y="165">G</text><text x="245" y="165">→ C 코드</text></g>
+    <path class="road-family-line" d="M28 193 H329"/>
+    <g class="road-chords"><text x="28" y="224">C</text><text x="75" y="224">Dm</text><text x="122" y="224">Em</text><text x="169" y="224">F</text><text x="211" y="224">G</text><text x="253" y="224">Am</text><text x="305" y="224">Bdim</text></g>
+  </svg>
+  <figcaption id="dia-road-caption">같은 일곱 음을 나누어 쓰는 다이어토닉 코드 가족</figcaption>
+</figure>

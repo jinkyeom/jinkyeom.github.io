@@ -82,3 +82,6 @@ _site
 # Local agent workspace and draft posts
 .agents/
 _drafts/
+
+# Local agent files
+.agents/
