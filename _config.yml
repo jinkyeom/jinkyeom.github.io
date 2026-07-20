@@ -22,8 +22,8 @@ subtitle                 : "두근두근 콩닥콩닥 심쿵심쿵"
 name                     : "BounceBounce"
 description              : "몸이 반응하는 심쿵하는 것들을 실~컷 즐기고 남기는 사진과 같은 블로그."
 url                      : "https://jinkyeom.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+baseurl                  : "" # user site is published from the domain root
+repository               : "jinkyeom/jinkyeom.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/logo-blackhole-b-v2.png" # shared logo image for masthead, author avatar, and favicon links
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
