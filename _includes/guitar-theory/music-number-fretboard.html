@@ -1,0 +1,30 @@
+<figure class="music-numbers" aria-labelledby="music-number-fretboard-caption">
+  <h3 class="music-numbers__title">그림 1. C장조 숫자 지판</h3>
+  <p class="music-numbers__subtitle">표준 튜닝 · 0–12프렛 · 숫자는 C장조 안에서의 자리</p>
+  <div class="music-numbers__scroll" role="img" aria-label="표준 조율 기타의 0프렛부터 12프렛까지 C장조 자연음 위치. 각 위치에 음계 숫자와 실제 음 이름을 함께 표시한다.">
+    <div class="number-fretboard" aria-hidden="true">
+      <span></span>{% for fret in (0..12) %}<span class="number-fretboard__fret">{{ fret }}</span>{% endfor %}
+
+      <span class="number-fretboard__string">1번 줄 · E</span>
+      {% assign notes = "3:E,4:F,,5:G,,6:A,,7:B,1:C,,2:D,,3:E" | split: "," %}{% for item in notes %}{% assign fret = forloop.index0 %}{% assign pair = item | split: ":" %}<span class="number-fretboard__cell{% if fret == 0 %} number-fretboard__cell--open{% endif %}{% if fret == 12 %} number-fretboard__cell--octave{% endif %}">{% if item != empty %}<span class="fret-note{% if pair[0] == '1' %} fret-note--one{% elsif pair[0] == '4' %} fret-note--four{% elsif pair[0] == '5' %} fret-note--five{% endif %}"><span class="fret-note__degree">{{ pair[0] }}</span><span class="fret-note__name">{{ pair[1] }}</span></span>{% endif %}</span>{% endfor %}
+
+      <span class="number-fretboard__string">2번 줄 · B</span>
+      {% assign notes = "7:B,1:C,,2:D,,3:E,4:F,,5:G,,6:A,,7:B" | split: "," %}{% for item in notes %}{% assign fret = forloop.index0 %}{% assign pair = item | split: ":" %}<span class="number-fretboard__cell{% if fret == 0 %} number-fretboard__cell--open{% endif %}{% if fret == 12 %} number-fretboard__cell--octave{% endif %}">{% if item != empty %}<span class="fret-note{% if pair[0] == '1' %} fret-note--one{% elsif pair[0] == '4' %} fret-note--four{% elsif pair[0] == '5' %} fret-note--five{% endif %}"><span class="fret-note__degree">{{ pair[0] }}</span><span class="fret-note__name">{{ pair[1] }}</span></span>{% endif %}</span>{% endfor %}
+
+      <span class="number-fretboard__string">3번 줄 · G</span>
+      {% assign notes = "5:G,,6:A,,7:B,1:C,,2:D,,3:E,4:F,,5:G" | split: "," %}{% for item in notes %}{% assign fret = forloop.index0 %}{% assign pair = item | split: ":" %}<span class="number-fretboard__cell{% if fret == 0 %} number-fretboard__cell--open{% endif %}{% if fret == 12 %} number-fretboard__cell--octave{% endif %}">{% if item != empty %}<span class="fret-note{% if pair[0] == '1' %} fret-note--one{% elsif pair[0] == '4' %} fret-note--four{% elsif pair[0] == '5' %} fret-note--five{% endif %}"><span class="fret-note__degree">{{ pair[0] }}</span><span class="fret-note__name">{{ pair[1] }}</span></span>{% endif %}</span>{% endfor %}
+
+      <span class="number-fretboard__string">4번 줄 · D</span>
+      {% assign notes = "2:D,,3:E,4:F,,5:G,,6:A,,7:B,1:C,,2:D" | split: "," %}{% for item in notes %}{% assign fret = forloop.index0 %}{% assign pair = item | split: ":" %}<span class="number-fretboard__cell{% if fret == 0 %} number-fretboard__cell--open{% endif %}{% if fret == 12 %} number-fretboard__cell--octave{% endif %}">{% if item != empty %}<span class="fret-note{% if pair[0] == '1' %} fret-note--one{% elsif pair[0] == '4' %} fret-note--four{% elsif pair[0] == '5' %} fret-note--five{% endif %}"><span class="fret-note__degree">{{ pair[0] }}</span><span class="fret-note__name">{{ pair[1] }}</span></span>{% endif %}</span>{% endfor %}
+
+      <span class="number-fretboard__string">5번 줄 · A</span>
+      {% assign notes = "6:A,,7:B,1:C,,2:D,,3:E,4:F,,5:G,,6:A" | split: "," %}{% for item in notes %}{% assign fret = forloop.index0 %}{% assign pair = item | split: ":" %}<span class="number-fretboard__cell{% if fret == 0 %} number-fretboard__cell--open{% endif %}{% if fret == 12 %} number-fretboard__cell--octave{% endif %}">{% if item != empty %}<span class="fret-note{% if pair[0] == '1' %} fret-note--one{% elsif pair[0] == '4' %} fret-note--four{% elsif pair[0] == '5' %} fret-note--five{% endif %}"><span class="fret-note__degree">{{ pair[0] }}</span><span class="fret-note__name">{{ pair[1] }}</span></span>{% endif %}</span>{% endfor %}
+
+      <span class="number-fretboard__string">6번 줄 · E</span>
+      {% assign notes = "3:E,4:F,,5:G,,6:A,,7:B,1:C,,2:D,,3:E" | split: "," %}{% for item in notes %}{% assign fret = forloop.index0 %}{% assign pair = item | split: ":" %}<span class="number-fretboard__cell{% if fret == 0 %} number-fretboard__cell--open{% endif %}{% if fret == 12 %} number-fretboard__cell--octave{% endif %}">{% if item != empty %}<span class="fret-note{% if pair[0] == '1' %} fret-note--one{% elsif pair[0] == '4' %} fret-note--four{% elsif pair[0] == '5' %} fret-note--five{% endif %}"><span class="fret-note__degree">{{ pair[0] }}</span><span class="fret-note__name">{{ pair[1] }}</span></span>{% endif %}</span>{% endfor %}
+
+      <span></span>{% for fret in (0..12) %}<span class="number-fretboard__marker{% if fret == 3 or fret == 5 or fret == 7 or fret == 9 %} number-fretboard__marker--dot{% elsif fret == 12 %} number-fretboard__marker--double{% endif %}"></span>{% endfor %}
+    </div>
+  </div>
+  <figcaption id="music-number-fretboard-caption">같은 지판을 이번에는 숫자로 다시 읽어 보았다.</figcaption>
+</figure>

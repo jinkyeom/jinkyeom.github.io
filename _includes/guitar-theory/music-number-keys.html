@@ -1,0 +1,18 @@
+<style>.degree-card__progressions{display:grid;gap:.5rem;justify-items:center}.degree-card__progression{display:grid;grid-template-columns:2.4rem 1.6rem 2.4rem 1.6rem 2.4rem;align-items:center;text-align:center;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.degree-card__progression--numbers{font-size:1.45rem;font-weight:850;line-height:1}.degree-card__progression--numbers span:nth-child(even){color:var(--mn-line)}.degree-card__progression--chords{color:var(--mn-muted);font-size:.82rem;font-weight:750;line-height:1.2}</style>
+<figure class="music-numbers" aria-labelledby="music-number-keys-caption">
+  <h3 class="music-numbers__title">그림 2. 숫자는 그대로 남아 있었다</h3>
+  <p class="music-numbers__subtitle">C키, G키, D키의 1–4–5</p>
+  <div class="degree-cards" role="img" aria-label="C키의 C F G, G키의 G C D, D키의 D G A가 모두 1 4 5의 같은 자리에 놓이는 비교표">
+    {% assign keys = "C:C:F:G|G:G:C:D|D:D:G:A" | split: "|" %}
+    {% for key in keys %}{% assign data = key | split: ":" %}
+    <div class="degree-card" aria-hidden="true">
+      <div class="degree-card__key">KEY: {{ data[0] }}</div>
+      <div class="degree-card__progressions">
+        <div class="degree-card__progression degree-card__progression--numbers"><span class="degree--one">1</span><span>–</span><span class="degree--four">4</span><span>–</span><span class="degree--five">5</span></div>
+        <div class="degree-card__progression degree-card__progression--chords"><span>{{ data[1] }}</span><span>→</span><span>{{ data[2] }}</span><span>→</span><span>{{ data[3] }}</span></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <figcaption id="music-number-keys-caption">음 이름은 달라져도 자리의 관계는 그대로였다. 그래서 조가 바뀌어도 같은 진행을 같은 숫자로 이야기할 수 있었다.</figcaption>
+</figure>
