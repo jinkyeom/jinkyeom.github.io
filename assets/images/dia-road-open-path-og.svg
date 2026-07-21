@@ -2,23 +2,23 @@
   <title id="title">ONE ROAD · 펼쳐진 길</title>
   <desc id="desc">C 메이저의 연속된 길에서 C E G를 건너뛰어 쌓아 C 코드를 만들고, 다이어토닉 코드 가족으로 이어지는 그림</desc>
   <defs>
-    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 0L14 7L0 14Z" fill="#27675e"/></marker>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 0L14 7L0 14Z" fill="#9ad4c3"/></marker>
     <style>
-      .label{fill:#27675e;font:700 30px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.02em}.note{fill:#243038;font:700 34px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-anchor:middle}.small{fill:#a8563a;font:700 29px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-anchor:middle}.chord{fill:#243038;font:700 30px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-anchor:middle}.caption{fill:#607078;font:500 26px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.kicker{fill:#27675e;font:800 26px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.12em}
+      .label{fill:#9ad4c3;font:700 30px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.02em}.note{fill:#f0f4f5;font:700 34px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-anchor:middle}.small{fill:#f0ad82;font:700 29px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-anchor:middle}.chord{fill:#f0f4f5;font:700 30px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-anchor:middle}.caption{fill:#b9c5c9;font:500 26px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.kicker{fill:#9ad4c3;font:800 26px system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.12em}
     </style>
   </defs>
-  <rect width="1200" height="630" fill="#f7f4ed"/>
-  <rect x="58" y="48" width="1084" height="534" rx="28" fill="#f7f4ed" stroke="#c7d0cc" stroke-width="3"/>
+  <rect width="1200" height="630" fill="#192128"/>
+  <rect x="58" y="48" width="1084" height="534" rx="28" fill="#192128" stroke="#4a5960" stroke-width="3"/>
   <text x="104" y="105" class="kicker">ONE ROAD · 펼쳐진 길</text>
   <text x="104" y="161" class="label">C 메이저 · 하나의 연속된 길</text>
-  <path d="M136 246H1054" fill="none" stroke="#27675e" stroke-width="10" marker-end="url(#arrow)"/>
-  <g stroke="#27675e" stroke-width="5" fill="#fff">
-    <circle cx="136" cy="246" r="39" fill="#e4eee9" stroke="#a8563a" stroke-width="8"/><circle cx="267" cy="246" r="39" stroke-dasharray="10 10" opacity=".48"/><circle cx="398" cy="246" r="39" fill="#e4eee9" stroke="#a8563a" stroke-width="8"/><circle cx="529" cy="246" r="39" stroke-dasharray="10 10" opacity=".48"/><circle cx="660" cy="246" r="39" fill="#e4eee9" stroke="#a8563a" stroke-width="8"/><circle cx="791" cy="246" r="39"/><circle cx="922" cy="246" r="39"/><circle cx="1053" cy="246" r="39"/>
+  <path d="M136 246H1054" fill="none" stroke="#9ad4c3" stroke-width="10" marker-end="url(#arrow)"/>
+  <g stroke="#9ad4c3" stroke-width="5" fill="#222d35">
+    <circle cx="136" cy="246" r="39" fill="#29473f" stroke="#f0ad82" stroke-width="8"/><circle cx="267" cy="246" r="39" stroke-dasharray="10 10" opacity=".72"/><circle cx="398" cy="246" r="39" fill="#29473f" stroke="#f0ad82" stroke-width="8"/><circle cx="529" cy="246" r="39" stroke-dasharray="10 10" opacity=".72"/><circle cx="660" cy="246" r="39" fill="#29473f" stroke="#f0ad82" stroke-width="8"/><circle cx="791" cy="246" r="39"/><circle cx="922" cy="246" r="39"/><circle cx="1053" cy="246" r="39"/>
   </g>
   <g class="note"><text x="136" y="258">C</text><text x="267" y="258">D</text><text x="398" y="258">E</text><text x="529" y="258">F</text><text x="660" y="258">G</text><text x="791" y="258">A</text><text x="922" y="258">B</text><text x="1053" y="258">C</text></g>
   <text x="104" y="352" class="label">C–E–G · 한 음씩 건너뛰어 쌓기</text>
-  <path d="M136 426Q267 342 398 426Q529 342 660 426" fill="none" stroke="#a8563a" stroke-width="6" stroke-dasharray="15 12" marker-end="url(#arrow)"/>
+  <path d="M136 426Q267 342 398 426Q529 342 660 426" fill="none" stroke="#f0ad82" stroke-width="6" stroke-dasharray="15 12" marker-end="url(#arrow)"/>
   <g class="small"><text x="136" y="476">C</text><text x="398" y="476">E</text><text x="660" y="476">G</text><text x="824" y="476">→ C 코드</text></g>
-  <path d="M136 520H1053" stroke="#c7d0cc" stroke-width="4"/>
+  <path d="M136 520H1053" stroke="#4a5960" stroke-width="4"/>
   <g class="chord"><text x="136" y="565">C</text><text x="281" y="565">Dm</text><text x="426" y="565">Em</text><text x="571" y="565">F</text><text x="716" y="565">G</text><text x="861" y="565">Am</text><text x="1006" y="565">Bdim</text></g>
 </svg>

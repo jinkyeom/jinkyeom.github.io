@@ -3,11 +3,11 @@
   <desc id="desc">C장조의 숫자 1부터 7과 음 이름 C부터 B를 단순화한 기타 지판 위에 함께 배치한 대표 이미지</desc>
   <defs>
     <style>
-      text{font-family:'Apple SD Gothic Neo','Noto Sans KR',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.kicker{fill:#2867a5;font-size:25px;font-weight:800;letter-spacing:.12em}.headline{fill:#243038;font-size:54px;font-weight:850;letter-spacing:-.035em}.board-label{fill:#607078;font-size:22px;font-weight:750;letter-spacing:.04em}.fret{stroke:#65767b;stroke-width:3}.string{stroke:#65767b;stroke-width:4}.node{fill:#fff;stroke:#65767b;stroke-width:5}.node-tonic{fill:#fff;stroke:#2867a5;stroke-width:8}.node-subdominant{fill:#fff;stroke:#347552;stroke-width:8}.node-dominant{fill:#fff;stroke:#b24c43;stroke-width:8}.degree{fill:#4f5f64;font-size:39px;font-weight:850;text-anchor:middle}.degree-tonic{fill:#2867a5;font-size:39px;font-weight:850;text-anchor:middle}.degree-subdominant{fill:#347552;font-size:39px;font-weight:850;text-anchor:middle}.degree-dominant{fill:#b24c43;font-size:39px;font-weight:850;text-anchor:middle}.note{fill:#607078;font-size:19px;font-weight:750;text-anchor:middle}.caption{fill:#4f5f64;font-size:23px;font-weight:650}
+      text{font-family:'Apple SD Gothic Neo','Noto Sans KR',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.kicker{fill:#75b9f0;font-size:25px;font-weight:800;letter-spacing:.12em}.headline{fill:#f0f4f5;font-size:54px;font-weight:850;letter-spacing:-.035em}.board-label{fill:#b9c5c9;font-size:22px;font-weight:750;letter-spacing:.04em}.fret{stroke:#4a5960;stroke-width:3}.string{stroke:#647680;stroke-width:4}.node{fill:#222d35;stroke:#708087;stroke-width:5}.node-tonic{fill:#222d35;stroke:#75b9f0;stroke-width:8}.node-subdominant{fill:#222d35;stroke:#86c89d;stroke-width:8}.node-dominant{fill:#222d35;stroke:#f28d85;stroke-width:8}.degree{fill:#e0e7e9;font-size:39px;font-weight:850;text-anchor:middle}.degree-tonic{fill:#75b9f0;font-size:39px;font-weight:850;text-anchor:middle}.degree-subdominant{fill:#86c89d;font-size:39px;font-weight:850;text-anchor:middle}.degree-dominant{fill:#f28d85;font-size:39px;font-weight:850;text-anchor:middle}.note{fill:#b9c5c9;font-size:19px;font-weight:750;text-anchor:middle}.caption{fill:#b9c5c9;font-size:23px;font-weight:650}
     </style>
   </defs>
-  <rect width="1200" height="630" fill="#f7f4ed"/>
-  <rect x="48" y="42" width="1104" height="546" rx="28" fill="#f7f4ed" stroke="#65767b" stroke-width="4"/>
+  <rect width="1200" height="630" fill="#192128"/>
+  <rect x="48" y="42" width="1104" height="546" rx="28" fill="#192128" stroke="#4a5960" stroke-width="4"/>
   <text x="91" y="94" class="kicker">MUSIC MAP 02 · 음악의 숫자</text>
   <text x="89" y="161" class="headline">왜 음악에서는 자꾸</text>
   <text x="89" y="220" class="headline">숫자로 이야기할까?</text>
@@ -23,6 +23,6 @@
   <g transform="translate(745 468)"><rect class="node-dominant" x="-48" y="-49" width="96" height="98" rx="18"/><text class="degree-dominant" y="3">5</text><text class="note" y="32">G</text></g>
   <g transform="translate(890 342)"><rect class="node" x="-48" y="-49" width="96" height="98" rx="18"/><text class="degree" y="3">6</text><text class="note" y="32">A</text></g>
   <g transform="translate(1035 426)"><rect class="node" x="-48" y="-49" width="96" height="98" rx="18"/><text class="degree" y="3">7</text><text class="note" y="32">B</text></g>
-  <rect x="78" y="554" width="635" height="1" fill="#65767b" opacity=".4"/>
+  <rect x="78" y="554" width="635" height="1" fill="#4a5960" opacity=".8"/>
   <text x="1105" y="571" class="caption" text-anchor="end">숫자는 지금 조 안에서의 자리</text>
 </svg>
