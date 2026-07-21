@@ -3,6 +3,10 @@
 {% assign category_class = "other" %}
 {% capture category_label %}{% include category-label.html category=post_category %}{% endcapture %}
 {% assign category_label = category_label | strip %}
+{% assign guitar_theory_card = false %}
+{% if post.tags contains "기타 이론" %}
+  {% assign guitar_theory_card = true %}
+{% endif %}
 
 {% if post_category_key == "sciencestop" or post_category contains "과학정류장" %}
   {% assign category_class = "sciencestop" %}
@@ -34,7 +38,7 @@
 
 {% if include.type == "cards" %}
 <div class="cards__item">
-  <article class="archive__item archive__item--card archive__item--{{ category_class }}" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="archive__item archive__item--card archive__item--{{ category_class }}{% if guitar_theory_card %} archive__item--guitar-theory{% endif %}" itemscope itemtype="https://schema.org/CreativeWork">
     <a class="archive-card__media{% unless teaser %} archive-card__media--fallback{% endunless %}" href="{{ post.url | relative_url }}" rel="permalink" aria-label="{{ title | strip_html }}">
       {% if teaser %}
         <img src="{{ teaser | relative_url }}" alt="" loading="lazy">

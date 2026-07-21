@@ -364,6 +364,11 @@ html[data-theme="default"] .archive-card__cta {
   pointer-events: none;
 }
 
+// Guitar theory diagrams need their thin strings and fret lines to remain legible in cards.
+.archive__item--guitar-theory .archive-card__media::after {
+  display: none;
+}
+
 // Taxonomy Capsules (Category Index)
 .taxonomy__index-capsules {
   display: grid;
