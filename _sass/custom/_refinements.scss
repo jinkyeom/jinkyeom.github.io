@@ -740,16 +740,17 @@ html[data-theme="dark"] .archive__subtitle {
   }
 }
 
+// Category Page Layout & Desktop Sidebar Ad (160x600 Skyscraper at 100% Zoom)
 .layout--categories {
   .archive {
-    float: none !important;
+    float: left !important;
     width: 100% !important;
+    max-width: 1080px !important;
     padding-right: 0 !important;
     margin-right: 0 !important;
   }
 }
 
-// Category Page Desktop Sidebar Ad Layout (Outer Margin Only)
 .category-page-layout {
   position: relative;
   width: 100%;
@@ -757,6 +758,7 @@ html[data-theme="dark"] .archive__subtitle {
 
 .category-page-main {
   width: 100%;
+  max-width: 1080px;
   min-width: 0;
 }
 
@@ -764,13 +766,13 @@ html[data-theme="dark"] .archive__subtitle {
   display: none;
 }
 
-@media screen and (min-width: 1890px) {
+@media screen and (min-width: 1320px) {
   .category-page-ad {
     display: block;
     position: absolute;
     top: 0;
-    left: calc(100% + 10px);
-    width: 300px;
+    left: calc(1080px + 16px);
+    width: 160px;
     height: 100%;
     pointer-events: auto;
   }
@@ -778,17 +780,25 @@ html[data-theme="dark"] .archive__subtitle {
   .category-page-ad__slot {
     position: sticky;
     top: 96px;
-    width: 300px;
-    max-width: 300px;
+    width: 160px;
+    max-width: 160px;
+    min-height: 600px;
     box-sizing: border-box;
   }
+
 }
 
 .category-page-ad .adsbygoogle {
   border-bottom: 0 !important;
-  max-width: 300px;
+  width: 160px !important;
+  max-width: 160px;
+  min-height: 600px;
   overflow: hidden;
 }
+
+
+
+
 
 
 
