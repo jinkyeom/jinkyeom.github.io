@@ -740,9 +740,9 @@ html[data-theme="dark"] .archive__subtitle {
   }
 }
 
-// Category Page Desktop Sidebar Ad Layout
+// Category Page Desktop Sidebar Ad Layout (Outer Margin Only)
 .category-page-layout {
-  display: block;
+  position: relative;
   width: 100%;
 }
 
@@ -755,28 +755,24 @@ html[data-theme="dark"] .archive__subtitle {
   display: none;
 }
 
-@media screen and (min-width: 1200px) {
-  .category-page-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
-    column-gap: 40px;
-    align-items: start;
-  }
-
+@media screen and (min-width: 1920px) {
   .category-page-ad {
     display: block;
+    position: absolute;
+    top: 0;
+    left: calc(100% + 20px);
+    width: 300px;
+    height: 100%;
+    pointer-events: auto;
+  }
+
+  .category-page-ad__slot {
     position: sticky;
     top: 96px;
-    align-self: start;
     width: 300px;
-    max-height: calc(100vh - 110px);
-    z-index: 10;
+    max-width: 300px;
+    box-sizing: border-box;
   }
-}
-
-.category-page-ad__slot {
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .category-page-ad .adsbygoogle {
@@ -784,5 +780,6 @@ html[data-theme="dark"] .archive__subtitle {
   max-width: 300px;
   overflow: hidden;
 }
+
 
 
