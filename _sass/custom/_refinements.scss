@@ -739,3 +739,50 @@ html[data-theme="dark"] .archive__subtitle {
     text-align: center;
   }
 }
+
+// Category Page Desktop Sidebar Ad Layout
+.category-page-layout {
+  display: block;
+  width: 100%;
+}
+
+.category-page-main {
+  width: 100%;
+  min-width: 0;
+}
+
+.category-page-ad {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .category-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .category-page-ad {
+    display: block;
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    width: 300px;
+    max-height: calc(100vh - 110px);
+    z-index: 10;
+  }
+}
+
+.category-page-ad__slot {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.category-page-ad .adsbygoogle {
+  border-bottom: 0 !important;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+
