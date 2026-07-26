@@ -389,7 +389,7 @@
       { code: "NL", name: "네덜란드", popText: "1,798만 명", r: 11.6 },
       { code: "FI", name: "핀란드", popText: "563만 명", r: 6.5 },
       { code: "IE", name: "아일랜드", popText: "544만 명", r: 6.4 },
-      { code: "MT", name: "몰타", popText: "57만 명", r: 3.5 },
+      { code: "MT", name: "몰타", popText: "57만 명", r: 2.07 },
     ];
 
     if (popPanelItems && popPanelItems.children.length === 0) {

@@ -555,11 +555,9 @@ html[data-theme="dark"] .wa02 {
 .wa02__outline-stage {
   --outline-svg-size: 280px;
   padding: clamp(0.85rem, 2.5vw, 1.5rem);
-  background:
-    linear-gradient(var(--wa02-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--wa02-line) 1px, transparent 1px),
-    var(--wa02-surface);
-  background-size: 32px 32px;
+  background: var(--wa02-surface);
+  border: 1px solid var(--wa02-border-card);
+  border-radius: 8px;
 }
 
 .wa02__outline-contract {
