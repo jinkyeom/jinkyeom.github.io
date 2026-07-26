@@ -323,10 +323,16 @@ html[data-theme="dark"] .nav__sub-title {
   margin-bottom: 0.25rem !important;
   font-size: 1.05rem !important;
 }
+.archive-card__description,
 .archive__item-excerpt {
   margin-top: 0 !important;
   margin-bottom: 0.4rem !important;
   font-size: 0.82rem !important;
+  color: #3b4654 !important;
+}
+html[data-theme="dark"] .archive-card__description,
+html[data-theme="dark"] .archive__item-excerpt {
+  color: #aab4c0 !important;
 }
 .archive__item--card .page__meta {
   margin-top: 0 !important;

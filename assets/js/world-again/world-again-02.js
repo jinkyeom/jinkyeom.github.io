@@ -367,11 +367,9 @@
     const status = root.querySelector("[data-window-status]");
     const legendWrap = root.querySelector("[data-density-legend]");
     const byCode = new Map(data.countries.map((country) => [country.countryCode, country]));
-    const maxPopulation = data.views.population.axisMax;
     svg.classList.add("wa02-map--window", "wa02-map--reveal-comparison");
 
     // 6-rank density scale mapping by country code
-    // FI(18.6, Rank 1), IE(79.2, Rank 2), FR(108.7, Rank 3), DE(236.6, Rank 4), NL(531.0, Rank 5), MT(1834.7, Rank 6)
     const DENSITY_RANKS = {
       FI: { rank: 1, lightFill: "#D1EAE0", lightStroke: "#4D8070", darkFill: "#1D3B31", darkStroke: "#3E6E5E" },
       IE: { rank: 2, lightFill: "#9FD8C4", lightStroke: "#356F5F", darkFill: "#285344", darkStroke: "#52917D" },
@@ -381,16 +379,25 @@
       MT: { rank: 6, lightFill: "#08533F", lightStroke: "#04291F", darkFill: "#7DE2BF", darkStroke: "#C4F6E5" },
     };
 
+    // Centroids & radii for Population Proportional Circles (area proportional to population)
+    const POP_CIRCLES = [
+      { code: "DE", cx: 330, cy: 315, r: 46, label: "독일 8,344만", lx: 330, ly: 372 },
+      { code: "FR", cx: 215, cy: 410, r: 41.5, label: "프랑스 6,845만", lx: 215, ly: 462 },
+      { code: "NL", cx: 280, cy: 268, r: 21.4, label: "네덜란드 1,798만", lx: 280, ly: 298 },
+      { code: "FI", cx: 440, cy: 115, r: 12, label: "핀란드 563만", lx: 440, ly: 135 },
+      { code: "IE", cx: 115, cy: 270, r: 11.8, label: "아일랜드 544만", lx: 115, ly: 290 },
+      { code: "MT", cx: 478, cy: 642, r: 6, label: "몰타 57만", lx: 450, ly: 668, line: true },
+    ];
+
     const isDarkMode = () => document.documentElement.getAttribute("data-theme") === "dark";
 
-    // Malta overlay element helper
+    // Malta overlay helper (Density Mode)
     let maltaOverlayGroup = svg.querySelector(".wa02-map__malta-overlay-group");
     if (!maltaOverlayGroup) {
       maltaOverlayGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
       maltaOverlayGroup.setAttribute("class", "wa02-map__malta-overlay-group");
       maltaOverlayGroup.setAttribute("aria-hidden", "true");
       maltaOverlayGroup.style.display = "none";
-      // Position over Malta centroid in SVG coordinates: Malta is at (478, 642) approx in window map
       maltaOverlayGroup.innerHTML = `
         <circle cx="478" cy="642" r="14" class="wa02-map__malta-halo" />
         <circle cx="478" cy="642" r="3.5" fill="currentColor" />
@@ -398,6 +405,23 @@
         <text x="450" y="684" text-anchor="end" font-size="11" font-weight="800" fill="currentColor" class="wa02-map__malta-label">몰타 1,835명/㎢</text>
       `;
       svg.appendChild(maltaOverlayGroup);
+    }
+
+    // Population Circles overlay helper (Population Mode)
+    let popOverlayGroup = svg.querySelector(".wa02-map__pop-overlay-group");
+    if (!popOverlayGroup) {
+      popOverlayGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      popOverlayGroup.setAttribute("class", "wa02-map__pop-overlay-group");
+      popOverlayGroup.setAttribute("aria-hidden", "true");
+      popOverlayGroup.style.display = "none";
+      popOverlayGroup.innerHTML = POP_CIRCLES.map((item) => `
+        <g class="wa02-map__pop-item" data-pop-code="${item.code}">
+          <circle cx="${item.cx}" cy="${item.cy}" r="${item.r}" class="wa02-map__pop-circle" />
+          ${item.line ? `<line x1="${item.cx}" y1="${item.cy}" x2="${item.lx + 10}" y2="${item.ly - 4}" class="wa02-map__malta-line" />` : ""}
+          <text x="${item.lx}" y="${item.ly}" text-anchor="middle" class="wa02-map__pop-label">${item.label}</text>
+        </g>
+      `).join("");
+      svg.appendChild(popOverlayGroup);
     }
 
     const applyMode = (mode) => {
@@ -413,10 +437,10 @@
 
         let fill = country.color.primary;
         let stroke = country.color.primary;
-        let opacity = 0.48;
+        let opacity = 0.55;
 
         if (mode === "population") {
-          opacity = 0.2 + 0.8 * (country.population / maxPopulation);
+          opacity = 0.35;
         } else if (mode === "density") {
           const config = DENSITY_RANKS[code];
           fill = dark ? config.darkFill : config.lightFill;
@@ -429,20 +453,21 @@
         pathNode.style.setProperty("stroke", stroke, "important");
       });
 
-      // Malta marker overlay visibility
+      // Overlay visibility logic
+      if (popOverlayGroup) {
+        popOverlayGroup.style.display = mode === "population" ? "block" : "none";
+      }
       if (maltaOverlayGroup) {
         maltaOverlayGroup.style.display = mode === "density" ? "block" : "none";
       }
-
-      // Legend visibility
       if (legendWrap) {
         legendWrap.style.display = mode === "density" ? "block" : "none";
         legendWrap.setAttribute("aria-hidden", String(mode !== "density"));
       }
 
       const messages = {
-        map: "기본 지도입니다. 여섯 나라는 고유색과 같인 비중의 라벨로 표시됩니다.",
-        population: "인구 창입니다. 색의 진하기가 인구 수에 비례합니다.",
+        map: "기본 지도입니다. 여섯 나라는 고유색과 같은 비중의 라벨로 표시됩니다.",
+        population: "원의 크기는 인구를 나타냅니다. 정확한 값은 앞의 인구 비교에서 확인할 수 있습니다.",
         density: "밀도 창입니다. 여섯 나라 안에서의 인구밀도 순서대로 6단계 색이 적용됩니다.",
       };
       if (status) status.textContent = messages[mode];

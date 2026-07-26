@@ -9,9 +9,9 @@
   --wa02-surface-soft: #f4f6f8;
   --wa02-text: #20242a;
   --wa02-muted: #68717d;
-  --wa02-line: #b8c1cc;
-  --wa02-border-card: #b8c1cc;
-  --wa02-border-subtle: #d7dde4;
+  --wa02-line: #a8b3c2;
+  --wa02-border-card: #a8b3c2;
+  --wa02-border-subtle: #d4dbdf;
   --wa02-grid-line: #e2e6eb;
   --wa02-track: #e0e4e8;
   --wa02-map-land: #d9dee5;
@@ -924,6 +924,39 @@ html[data-theme="dark"] .wa02-map__malta-halo {
 
 html[data-theme="dark"] .wa02-map__malta-line {
   stroke: #7DE2BF;
+}
+
+/* Population Proportional Circle Overlay */
+.wa02-map__pop-overlay-group {
+  pointer-events: none;
+}
+
+.wa02-map__pop-circle {
+  fill: rgba(35, 103, 168, 0.42);
+  stroke: #2367a8;
+  stroke-width: 1.5;
+  transition: r 0.3s ease;
+}
+
+html[data-theme="dark"] .wa02-map__pop-circle {
+  fill: rgba(105, 169, 208, 0.48);
+  stroke: #69a9d0;
+}
+
+.wa02-map__pop-label {
+  fill: #1f2937;
+  font-size: 11px;
+  font-weight: 800;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html[data-theme="dark"] .wa02-map__pop-label {
+  fill: #f3f4f6;
+  stroke: #11161c;
 }
 
 .wa02__next {
