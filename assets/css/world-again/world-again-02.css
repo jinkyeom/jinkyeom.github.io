@@ -9,10 +9,10 @@
   --wa02-surface-soft: #f4f6f8;
   --wa02-text: #20242a;
   --wa02-muted: #68717d;
-  --wa02-line: #a8b3c2;
-  --wa02-border-card: #a8b3c2;
-  --wa02-border-subtle: #d4dbdf;
-  --wa02-grid-line: #e2e6eb;
+  --wa02-line: #94a3b8;
+  --wa02-border-card: #94a3b8;
+  --wa02-border-subtle: #cbd5e1;
+  --wa02-grid-line: #e2e8f0;
   --wa02-track: #e0e4e8;
   --wa02-map-land: #d9dee5;
   --wa02-map-line: #a6afba;
@@ -895,6 +895,97 @@ html[data-theme="dark"] .wa02__chip--6 { background: #7DE2BF; }
   margin: 0;
   font-size: 0.76rem;
   line-height: 1.4;
+  color: var(--wa02-muted);
+}
+
+/* Step 5 Window Body & Side/Bottom Population Panel */
+.wa02__window-body {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.wa02__window-body .wa02__window-map {
+  flex: 1 1 65%;
+  min-width: 0;
+}
+
+.wa02__pop-panel {
+  flex: 0 0 260px;
+  min-width: 0;
+  border: 1px solid var(--wa02-border-card);
+  border-radius: 8px;
+  background: var(--wa02-surface);
+  padding: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .wa02__window-body {
+    flex-direction: column;
+  }
+  .wa02__pop-panel {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+.wa02__pop-panel-title {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: var(--wa02-text);
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--wa02-border-subtle);
+}
+
+.wa02__pop-panel-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  justify-content: space-around;
+}
+
+.wa02__pop-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wa02__pop-circle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.wa02__pop-panel-circle {
+  fill: rgba(35, 103, 168, 0.45);
+  stroke: #2367a8;
+  stroke-width: 1.5;
+}
+
+html[data-theme="dark"] .wa02__pop-panel-circle {
+  fill: rgba(105, 169, 208, 0.55);
+  stroke: #69a9d0;
+}
+
+.wa02__pop-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.wa02__pop-item-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--wa02-text);
+}
+
+.wa02__pop-item-val {
+  font-size: 0.78rem;
   color: var(--wa02-muted);
 }
 

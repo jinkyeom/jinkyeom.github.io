@@ -366,6 +366,8 @@
     const buttons = [...root.querySelectorAll("[data-window-mode]")];
     const status = root.querySelector("[data-window-status]");
     const legendWrap = root.querySelector("[data-density-legend]");
+    const popPanel = root.querySelector("[data-pop-panel]");
+    const popPanelItems = root.querySelector("[data-pop-panel-items]");
     const byCode = new Map(data.countries.map((country) => [country.countryCode, country]));
     svg.classList.add("wa02-map--window", "wa02-map--reveal-comparison");
 
@@ -379,16 +381,30 @@
       MT: { rank: 6, lightFill: "#08533F", lightStroke: "#04291F", darkFill: "#7DE2BF", darkStroke: "#C4F6E5" },
     };
 
-    // Point-on-surface anchors (ax, ay) & displaced non-overlapping circle centers (cx, cy)
-    // Rendered in Z-order: largest circles first (below), smallest circles last (on top)
-    const POP_CIRCLES = [
-      { code: "DE", ax: 330, ay: 315, cx: 365, cy: 230, r: 28, label: "독일 8,344만", lx: 365, ly: 195 },
-      { code: "FR", ax: 215, ay: 410, cx: 145, cy: 470, r: 25.3, label: "프랑스 6,845만", lx: 145, ly: 508 },
-      { code: "NL", ax: 280, ay: 268, cx: 235, cy: 210, r: 13, label: "네덜란드 1,798만", lx: 235, ly: 188 },
-      { code: "FI", ax: 440, ay: 115, cx: 485, cy: 90, r: 7.3, label: "핀란드 563만", lx: 485, ly: 110 },
-      { code: "IE", ax: 115, ay: 270, cx: 55, cy: 230, r: 7.2, label: "아일랜드 544만", lx: 55, ly: 250 },
-      { code: "MT", ax: 478, ay: 642, cx: 520, cy: 642, r: 2.31, label: "몰타 57만", lx: 520, ly: 660 },
+    // Render Side/Bottom Population Comparison Panel items
+    // Proportional Circle radius: Germany(8344만) r=25px, France(6845만) r=22.6px, NL(1798만) r=11.6px, FI(563만) r=6.5px, IE(544만) r=6.4px, MT(57만) r=3.5px
+    const POP_PANEL_DATA = [
+      { code: "DE", name: "독일", popText: "8,344만 명", r: 25 },
+      { code: "FR", name: "프랑스", popText: "6,845만 명", r: 22.6 },
+      { code: "NL", name: "네덜란드", popText: "1,798만 명", r: 11.6 },
+      { code: "FI", name: "핀란드", popText: "563만 명", r: 6.5 },
+      { code: "IE", name: "아일랜드", popText: "544만 명", r: 6.4 },
+      { code: "MT", name: "몰타", popText: "57만 명", r: 3.5 },
     ];
+
+    if (popPanelItems && popPanelItems.children.length === 0) {
+      popPanelItems.innerHTML = POP_PANEL_DATA.map((item) => `
+        <div class="wa02__pop-item">
+          <svg class="wa02__pop-circle-wrap" viewBox="0 0 56 56" aria-hidden="true">
+            <circle cx="28" cy="28" r="${item.r}" class="wa02__pop-panel-circle" />
+          </svg>
+          <div class="wa02__pop-item-text">
+            <span class="wa02__pop-item-name">${item.name}</span>
+            <span class="wa02__pop-item-val">${item.popText}</span>
+          </div>
+        </div>
+      `).join("");
+    }
 
     const isDarkMode = () => document.documentElement.getAttribute("data-theme") === "dark";
 
@@ -408,24 +424,6 @@
       svg.appendChild(maltaOverlayGroup);
     }
 
-    // Population Circles overlay helper (Population Mode)
-    let popOverlayGroup = svg.querySelector(".wa02-map__pop-overlay-group");
-    if (!popOverlayGroup) {
-      popOverlayGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      popOverlayGroup.setAttribute("class", "wa02-map__pop-overlay-group");
-      popOverlayGroup.setAttribute("aria-hidden", "true");
-      popOverlayGroup.style.display = "none";
-      popOverlayGroup.innerHTML = POP_CIRCLES.map((item) => `
-        <g class="wa02-map__pop-item" data-pop-code="${item.code}">
-          <line x1="${item.ax}" y1="${item.ay}" x2="${item.cx}" y2="${item.cy}" class="wa02-map__leader-line" />
-          <circle cx="${item.ax}" cy="${item.ay}" r="2.5" class="wa02-map__anchor-dot" />
-          <circle cx="${item.cx}" cy="${item.cy}" r="${item.r}" class="wa02-map__pop-circle" />
-          <text x="${item.lx}" y="${item.ly}" text-anchor="middle" class="wa02-map__pop-label">${item.label}</text>
-        </g>
-      `).join("");
-      svg.appendChild(popOverlayGroup);
-    }
-
     const applyMode = (mode) => {
       const dark = isDarkMode();
       buttons.forEach((button) =>
@@ -441,9 +439,7 @@
         let stroke = country.color.primary;
         let opacity = 0.55;
 
-        if (mode === "population") {
-          opacity = 0.35;
-        } else if (mode === "density") {
+        if (mode === "density") {
           const config = DENSITY_RANKS[code];
           fill = dark ? config.darkFill : config.lightFill;
           stroke = dark ? config.darkStroke : config.lightStroke;
@@ -455,13 +451,18 @@
         pathNode.style.setProperty("stroke", stroke, "important");
       });
 
-      // Overlay visibility logic
-      if (popOverlayGroup) {
-        popOverlayGroup.style.display = mode === "population" ? "block" : "none";
+      // Population Side/Bottom Panel visibility
+      if (popPanel) {
+        popPanel.style.display = mode === "population" ? "block" : "none";
+        popPanel.setAttribute("aria-hidden", String(mode !== "population"));
       }
+
+      // Malta marker overlay visibility
       if (maltaOverlayGroup) {
         maltaOverlayGroup.style.display = mode === "density" ? "block" : "none";
       }
+
+      // Legend visibility
       if (legendWrap) {
         legendWrap.style.display = mode === "density" ? "block" : "none";
         legendWrap.setAttribute("aria-hidden", String(mode !== "density"));
@@ -469,7 +470,7 @@
 
       const messages = {
         map: "기본 지도입니다. 여섯 나라는 고유색과 같은 비중의 라벨로 표시됩니다.",
-        population: "원의 크기는 인구를 나타냅니다. 정확한 값은 앞의 인구 비교에서 확인할 수 있습니다.",
+        population: "인구 창입니다. 옆(모바일은 아래)의 패널에서 각 나라의 인구 수에 정확히 비례하는 원으로 인구 규모를 비교할 수 있습니다.",
         density: "밀도 창입니다. 여섯 나라 안에서의 인구밀도 순서대로 6단계 색이 적용됩니다.",
       };
       if (status) status.textContent = messages[mode];

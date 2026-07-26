@@ -107,8 +107,18 @@
         <button type="button" data-window-mode="population" aria-pressed="false">인구</button>
         <button type="button" data-window-mode="density" aria-pressed="false">밀도</button>
       </div>
-      <div class="wa02__window-map" data-chart="window-map" aria-live="polite">
-        <p class="wa02__loading">새로운 창을 준비하는 중입니다.</p>
+      <div class="wa02__window-body">
+        <div class="wa02__window-map" data-chart="window-map" aria-live="polite">
+          <p class="wa02__loading">새로운 창을 준비하는 중입니다.</p>
+        </div>
+        <div class="wa02__pop-panel" data-pop-panel aria-hidden="true" style="display: none;">
+          <div class="wa02__pop-panel-inner">
+            <div class="wa02__pop-panel-header">
+              <span class="wa02__pop-panel-title">여섯 나라의 인구 규모</span>
+            </div>
+            <div class="wa02__pop-panel-items" data-pop-panel-items></div>
+          </div>
+        </div>
       </div>
       <div class="wa02__density-legend-wrap" data-density-legend aria-hidden="true" style="display: none;">
         <div class="wa02__density-legend">
