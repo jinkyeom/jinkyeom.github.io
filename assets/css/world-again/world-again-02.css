@@ -943,6 +943,25 @@ html[data-theme="dark"] .wa02-map__pop-circle {
   stroke: #69a9d0;
 }
 
+.wa02-map__anchor-dot {
+  fill: #2367a8;
+}
+
+html[data-theme="dark"] .wa02-map__anchor-dot {
+  fill: #69a9d0;
+}
+
+.wa02-map__leader-line {
+  stroke: #2367a8;
+  stroke-width: 1.2;
+  stroke-dasharray: 2 2;
+  opacity: 0.8;
+}
+
+html[data-theme="dark"] .wa02-map__leader-line {
+  stroke: #69a9d0;
+}
+
 .wa02-map__pop-label {
   fill: #1f2937;
   font-size: 11px;

@@ -379,14 +379,15 @@
       MT: { rank: 6, lightFill: "#08533F", lightStroke: "#04291F", darkFill: "#7DE2BF", darkStroke: "#C4F6E5" },
     };
 
-    // Centroids & radii for Population Proportional Circles (area proportional to population)
+    // Point-on-surface anchors (ax, ay) & displaced non-overlapping circle centers (cx, cy)
+    // Rendered in Z-order: largest circles first (below), smallest circles last (on top)
     const POP_CIRCLES = [
-      { code: "DE", cx: 330, cy: 315, r: 46, label: "독일 8,344만", lx: 330, ly: 372 },
-      { code: "FR", cx: 215, cy: 410, r: 41.5, label: "프랑스 6,845만", lx: 215, ly: 462 },
-      { code: "NL", cx: 280, cy: 268, r: 21.4, label: "네덜란드 1,798만", lx: 280, ly: 298 },
-      { code: "FI", cx: 440, cy: 115, r: 12, label: "핀란드 563만", lx: 440, ly: 135 },
-      { code: "IE", cx: 115, cy: 270, r: 11.8, label: "아일랜드 544만", lx: 115, ly: 290 },
-      { code: "MT", cx: 478, cy: 642, r: 6, label: "몰타 57만", lx: 450, ly: 668, line: true },
+      { code: "DE", ax: 330, ay: 315, cx: 365, cy: 230, r: 28, label: "독일 8,344만", lx: 365, ly: 195 },
+      { code: "FR", ax: 215, ay: 410, cx: 145, cy: 470, r: 25.3, label: "프랑스 6,845만", lx: 145, ly: 508 },
+      { code: "NL", ax: 280, ay: 268, cx: 235, cy: 210, r: 13, label: "네덜란드 1,798만", lx: 235, ly: 188 },
+      { code: "FI", ax: 440, ay: 115, cx: 485, cy: 90, r: 7.3, label: "핀란드 563만", lx: 485, ly: 110 },
+      { code: "IE", ax: 115, ay: 270, cx: 55, cy: 230, r: 7.2, label: "아일랜드 544만", lx: 55, ly: 250 },
+      { code: "MT", ax: 478, ay: 642, cx: 520, cy: 642, r: 4.5, label: "몰타 57만", lx: 520, ly: 660 },
     ];
 
     const isDarkMode = () => document.documentElement.getAttribute("data-theme") === "dark";
@@ -416,8 +417,9 @@
       popOverlayGroup.style.display = "none";
       popOverlayGroup.innerHTML = POP_CIRCLES.map((item) => `
         <g class="wa02-map__pop-item" data-pop-code="${item.code}">
+          <line x1="${item.ax}" y1="${item.ay}" x2="${item.cx}" y2="${item.cy}" class="wa02-map__leader-line" />
+          <circle cx="${item.ax}" cy="${item.ay}" r="2.5" class="wa02-map__anchor-dot" />
           <circle cx="${item.cx}" cy="${item.cy}" r="${item.r}" class="wa02-map__pop-circle" />
-          ${item.line ? `<line x1="${item.cx}" y1="${item.cy}" x2="${item.lx + 10}" y2="${item.ly - 4}" class="wa02-map__malta-line" />` : ""}
           <text x="${item.lx}" y="${item.ly}" text-anchor="middle" class="wa02-map__pop-label">${item.label}</text>
         </g>
       `).join("");
