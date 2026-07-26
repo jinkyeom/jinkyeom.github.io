@@ -387,7 +387,7 @@
       { code: "NL", ax: 280, ay: 268, cx: 235, cy: 210, r: 13, label: "네덜란드 1,798만", lx: 235, ly: 188 },
       { code: "FI", ax: 440, ay: 115, cx: 485, cy: 90, r: 7.3, label: "핀란드 563만", lx: 485, ly: 110 },
       { code: "IE", ax: 115, ay: 270, cx: 55, cy: 230, r: 7.2, label: "아일랜드 544만", lx: 55, ly: 250 },
-      { code: "MT", ax: 478, ay: 642, cx: 520, cy: 642, r: 4.5, label: "몰타 57만", lx: 520, ly: 660 },
+      { code: "MT", ax: 478, ay: 642, cx: 520, cy: 642, r: 2.31, label: "몰타 57만", lx: 520, ly: 660 },
     ];
 
     const isDarkMode = () => document.documentElement.getAttribute("data-theme") === "dark";
