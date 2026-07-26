@@ -31,14 +31,9 @@
 
   position: relative;
   display: block;
-  width: min(100%, calc(100vw - 2rem)) !important;
-  max-width: 1280px !important;
-  margin: 0 auto 2rem;
-  padding: clamp(1rem, 3vw, 2.4rem);
-  overflow: clip;
-  border: 1px solid var(--wa02-line);
-  border-radius: 18px;
-  background: var(--wa02-bg);
+  width: 100%;
+  margin: 0 0 2rem;
+  padding: 0;
   color: var(--wa02-text) !important;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
@@ -86,7 +81,7 @@ html[data-theme="dark"] .wa02 {
 
 .wa02__inner {
   width: 100%;
-  max-width: 1180px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -101,19 +96,35 @@ html[data-theme="dark"] .wa02 {
   word-break: keep-all;
 }
 
+.wa02__prose,
 .wa02__hero,
+.wa02__step-head,
+.wa02__transition,
+.wa02__finding,
+.wa02__notes,
+.wa02__next {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.world-again-02__wide {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
 .wa02__step,
 .wa02__window,
 .wa02__next,
 .wa02__notes {
-  margin-block: clamp(4rem, 9vw, 8rem);
+  margin-block: clamp(2.5rem, 5vw, 5rem);
 }
 
 .wa02__hero {
-  display: grid;
-  min-height: min(82vh, 760px);
-  align-content: center;
-  padding-block: clamp(2rem, 6vw, 5rem);
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  padding-block: 0;
 }
 
 .wa02__series,
@@ -971,14 +982,12 @@ html[data-theme="dark"] .wa02 {
 
 @media (max-width: 560px) {
   .wa02 {
-    width: min(100%, calc(100vw - 0.75rem)) !important;
-    max-width: calc(100vw - 0.75rem) !important;
-    padding: 0.75rem;
-    border-radius: 12px;
+    width: 100%;
+    padding: 0;
   }
 
   .wa02__hero {
-    min-height: 72vh;
+    margin-bottom: 2rem;
   }
 
   .wa02__hero h1 {
@@ -1140,30 +1149,4 @@ html[data-theme="dark"] .wa02 {
   .wa02-map__label-en {
     font-size: 20px;
   }
-}
-
-body.layout--single:has(.wa02) .page__inner-wrap {
-  max-width: 1540px !important;
-  margin-inline: auto !important;
-}
-
-body.layout--single:has(.wa02) #main > .page,
-body.layout--single:has(.wa02) .page__content {
-  float: none !important;
-  width: 100% !important;
-  max-width: 1280px !important;
-  margin-inline: auto !important;
-  padding-right: 0 !important;
-}
-
-body.layout--single:has(.wa02) .page__inner-wrap > header {
-  display: none;
-}
-
-body.layout--single:has(.wa02) .sidebar__top {
-  display: none !important;
-}
-
-body.layout--single:has(.wa02) .page__content > :not(.sidebar__right) {
-  max-width: 1280px !important;
 }
