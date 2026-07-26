@@ -159,16 +159,17 @@ html[data-theme="dark"] .wa02 {
 }
 
 .wa02__step-head {
-  max-width: 50rem;
-  margin-bottom: clamp(1.4rem, 3.5vw, 2.6rem);
+  max-width: 720px;
+  margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
 }
 
 .wa02__step-head h2,
+.wa02__window h2,
 .wa02__next h2 {
-  margin-bottom: 0.7rem;
-  font-size: clamp(1.7rem, 4vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.035em;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.4rem, 2.4vw, 2.15rem);
+  line-height: 1.22;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
@@ -176,25 +177,23 @@ html[data-theme="dark"] .wa02 {
 .wa02__next > p:last-child {
   margin-bottom: 0;
   color: var(--wa02-muted) !important;
-  font-size: clamp(0.98rem, 1.8vw, 1.1rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
 }
 
 .wa02__transition {
-  display: grid;
-  min-height: min(50vh, 430px);
-  align-content: center;
-  max-width: 52rem;
-  margin: clamp(4rem, 10vw, 9rem) auto;
-  padding-block: clamp(2rem, 5vw, 4rem);
+  display: block;
+  max-width: 720px;
+  margin: clamp(2rem, 4vw, 3.5rem) auto;
+  padding-block: clamp(1.2rem, 3vw, 2.2rem);
   border-block: 1px solid var(--wa02-line);
   text-align: center;
 }
 
 .wa02__transition p {
   margin-bottom: 0.3rem;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  line-height: 1.45;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
 }
 
 .wa02__transition p:first-child {
@@ -539,8 +538,8 @@ html[data-theme="dark"] .wa02 {
 
 .wa02__finding p {
   margin-bottom: 0;
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
-  line-height: 1.72;
+  font-size: clamp(1rem, 1.5vw, 1.22rem);
+  line-height: 1.6;
 }
 
 .wa02__step--turn {
@@ -829,14 +828,9 @@ html[data-theme="dark"] .wa02 {
 }
 
 .wa02__next {
-  display: grid;
-  min-height: min(65vh, 600px);
-  align-content: center;
-  max-width: 58rem;
-}
-
-.wa02__next h2 {
-  font-size: clamp(1.8rem, 4.5vw, 3.6rem);
+  display: block;
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 .wa02__notes {
@@ -1003,8 +997,7 @@ html[data-theme="dark"] .wa02 {
   }
 
   .wa02__transition {
-    min-height: 42vh;
-    margin-block: 4rem;
+    margin-block: 2.5rem;
   }
 
   .wa02__chart-card {
