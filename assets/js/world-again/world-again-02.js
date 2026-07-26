@@ -365,35 +365,85 @@
     if (!svg) return;
     const buttons = [...root.querySelectorAll("[data-window-mode]")];
     const status = root.querySelector("[data-window-status]");
+    const legendWrap = root.querySelector("[data-density-legend]");
     const byCode = new Map(data.countries.map((country) => [country.countryCode, country]));
     const maxPopulation = data.views.population.axisMax;
-    const maxDensity = data.views.density.axisMax;
     svg.classList.add("wa02-map--window", "wa02-map--reveal-comparison");
 
+    // 6-rank density scale mapping by country code
+    // FI(18.6, Rank 1), IE(79.2, Rank 2), FR(108.7, Rank 3), DE(236.6, Rank 4), NL(531.0, Rank 5), MT(1834.7, Rank 6)
+    const DENSITY_RANKS = {
+      FI: { rank: 1, lightFill: "#D1EAE0", lightStroke: "#4D8070", darkFill: "#1D3B31", darkStroke: "#3E6E5E" },
+      IE: { rank: 2, lightFill: "#9FD8C4", lightStroke: "#356F5F", darkFill: "#285344", darkStroke: "#52917D" },
+      FR: { rank: 3, lightFill: "#69C1A5", lightStroke: "#225849", darkFill: "#356F5C", darkStroke: "#69B39B" },
+      DE: { rank: 4, lightFill: "#36A483", lightStroke: "#154437", darkFill: "#448D75", darkStroke: "#86D5BC" },
+      NL: { rank: 5, lightFill: "#1B7F62", lightStroke: "#0E3328", darkFill: "#5BB396", darkStroke: "#A9EBD4" },
+      MT: { rank: 6, lightFill: "#08533F", lightStroke: "#04291F", darkFill: "#7DE2BF", darkStroke: "#C4F6E5" },
+    };
+
+    const isDarkMode = () => document.documentElement.getAttribute("data-theme") === "dark";
+
+    // Malta overlay element helper
+    let maltaOverlayGroup = svg.querySelector(".wa02-map__malta-overlay-group");
+    if (!maltaOverlayGroup) {
+      maltaOverlayGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      maltaOverlayGroup.setAttribute("class", "wa02-map__malta-overlay-group");
+      maltaOverlayGroup.setAttribute("aria-hidden", "true");
+      maltaOverlayGroup.style.display = "none";
+      // Position over Malta centroid in SVG coordinates: Malta is at (478, 642) approx in window map
+      maltaOverlayGroup.innerHTML = `
+        <circle cx="478" cy="642" r="14" class="wa02-map__malta-halo" />
+        <circle cx="478" cy="642" r="3.5" fill="currentColor" />
+        <line x1="478" y1="642" x2="455" y2="670" class="wa02-map__malta-line" />
+        <text x="450" y="684" text-anchor="end" font-size="11" font-weight="800" fill="currentColor" class="wa02-map__malta-label">몰타 1,835명/㎢</text>
+      `;
+      svg.appendChild(maltaOverlayGroup);
+    }
+
     const applyMode = (mode) => {
+      const dark = isDarkMode();
       buttons.forEach((button) =>
         button.setAttribute("aria-pressed", String(button.dataset.windowMode === mode)),
       );
+
       COUNTRY_ORDER.forEach((code) => {
         const country = byCode.get(code);
         const pathNode = svg.querySelector(`[data-country="${code}"]`);
         if (!country || !pathNode) return;
+
         let fill = country.color.primary;
+        let stroke = country.color.primary;
         let opacity = 0.48;
+
         if (mode === "population") {
           opacity = 0.2 + 0.8 * (country.population / maxPopulation);
         } else if (mode === "density") {
-          fill = mixHex("#D9F0E8", "#075C48", country.density / maxDensity);
+          const config = DENSITY_RANKS[code];
+          fill = dark ? config.darkFill : config.lightFill;
+          stroke = dark ? config.darkStroke : config.lightStroke;
           opacity = 1;
         }
+
         pathNode.style.setProperty("fill", fill, "important");
         pathNode.style.setProperty("fill-opacity", String(opacity), "important");
-        pathNode.style.setProperty("stroke", mode === "density" ? "#163F36" : country.color.primary, "important");
+        pathNode.style.setProperty("stroke", stroke, "important");
       });
+
+      // Malta marker overlay visibility
+      if (maltaOverlayGroup) {
+        maltaOverlayGroup.style.display = mode === "density" ? "block" : "none";
+      }
+
+      // Legend visibility
+      if (legendWrap) {
+        legendWrap.style.display = mode === "density" ? "block" : "none";
+        legendWrap.setAttribute("aria-hidden", String(mode !== "density"));
+      }
+
       const messages = {
-        map: "기본 지도입니다. 여섯 나라는 같은 비중의 라벨과 고유색으로 표시됩니다.",
-        population: "인구 창입니다. 색의 진하기가 2025년 1월 1일 인구에 비례합니다.",
-        density: "밀도 창입니다. 연속 녹색 척도가 계산 인구밀도에 비례합니다.",
+        map: "기본 지도입니다. 여섯 나라는 고유색과 같인 비중의 라벨로 표시됩니다.",
+        population: "인구 창입니다. 색의 진하기가 인구 수에 비례합니다.",
+        density: "밀도 창입니다. 여섯 나라 안에서의 인구밀도 순서대로 6단계 색이 적용됩니다.",
       };
       if (status) status.textContent = messages[mode];
     };

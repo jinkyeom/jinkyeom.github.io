@@ -5,17 +5,20 @@
 
 .wa02 {
   --wa02-bg: #f6f4ef;
-  --wa02-surface: #fffefa;
-  --wa02-surface-soft: #eceff1;
+  --wa02-surface: #ffffff;
+  --wa02-surface-soft: #f4f6f8;
   --wa02-text: #20242a;
   --wa02-muted: #68717d;
-  --wa02-line: #d5dae0;
+  --wa02-line: #b8c1cc;
+  --wa02-border-card: #b8c1cc;
+  --wa02-border-subtle: #d7dde4;
+  --wa02-grid-line: #e2e6eb;
   --wa02-track: #e0e4e8;
   --wa02-map-land: #d9dee5;
   --wa02-map-line: #a6afba;
   --wa02-map-sea: #eef2f4;
   --wa02-focus: #224f87;
-  --wa02-shadow: 0 18px 48px rgba(31, 39, 48, 0.08);
+  --wa02-shadow: 0 2px 10px rgba(31, 39, 48, 0.05);
   --wa02-ie: #168b5b;
   --wa02-ie-soft: #ddf3e9;
   --wa02-de: #c58a00;
@@ -46,12 +49,15 @@ html[data-theme="dark"] .wa02 {
   --wa02-text: #f2f4f7;
   --wa02-muted: #abb3be;
   --wa02-line: #3d4652;
+  --wa02-border-card: #3d4652;
+  --wa02-border-subtle: #2c343f;
+  --wa02-grid-line: #222933;
   --wa02-track: #303946;
   --wa02-map-land: #39414c;
   --wa02-map-line: #717b88;
   --wa02-map-sea: #171e25;
   --wa02-focus: #99c8ff;
-  --wa02-shadow: 0 20px 56px rgba(0, 0, 0, 0.32);
+  --wa02-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
   --wa02-ie-soft: #163d2f;
   --wa02-de-soft: #4d3a13;
   --wa02-fr-soft: #193550;
@@ -825,6 +831,99 @@ html[data-theme="dark"] .wa02 {
   margin: 0.7rem 0 0;
   color: var(--wa02-muted) !important;
   font-size: 0.84rem;
+}
+
+.wa02__density-legend-wrap {
+  margin-top: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--wa02-border-subtle);
+  border-radius: 10px;
+  background: var(--wa02-surface-soft);
+}
+
+.wa02__legend-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.wa02__legend-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--wa02-text);
+}
+
+.wa02__legend-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--wa02-muted);
+}
+
+.wa02__legend-chips {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.wa02__chip {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.wa02__chip--1 { background: #D1EAE0; }
+.wa02__chip--2 { background: #9FD8C4; }
+.wa02__chip--3 { background: #69C1A5; }
+.wa02__chip--4 { background: #36A483; }
+.wa02__chip--5 { background: #1B7F62; }
+.wa02__chip--6 { background: #08533F; }
+
+html[data-theme="dark"] .wa02__chip--1 { background: #1D3B31; }
+html[data-theme="dark"] .wa02__chip--2 { background: #285344; }
+html[data-theme="dark"] .wa02__chip--3 { background: #356F5C; }
+html[data-theme="dark"] .wa02__chip--4 { background: #448D75; }
+html[data-theme="dark"] .wa02__chip--5 { background: #5BB396; }
+html[data-theme="dark"] .wa02__chip--6 { background: #7DE2BF; }
+
+.wa02__legend-note {
+  margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--wa02-muted);
+}
+
+/* Malta Position Marker Overlay in Window Map */
+.wa02-map__malta-overlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.wa02-map__malta-halo {
+  stroke: #08533F;
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .wa02-map__malta-halo {
+  stroke: #7DE2BF;
+}
+
+.wa02-map__malta-line {
+  stroke: #08533F;
+  stroke-width: 1.2;
+  stroke-dasharray: 2 2;
+}
+
+html[data-theme="dark"] .wa02-map__malta-line {
+  stroke: #7DE2BF;
 }
 
 .wa02__next {
