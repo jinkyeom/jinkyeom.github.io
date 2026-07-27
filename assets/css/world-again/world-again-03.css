@@ -422,6 +422,11 @@
   stroke: var(--wa03-map-country-stroke) !important;
 }
 
+/* Hide the base label layer when population circles + labels are shown */
+.wa03-map--mode-population #wa03-nw-base-labels {
+  display: none;
+}
+
 /* Proportional circles - Single color family for ALL circles */
 .wa03-pop-circle {
   fill: var(--wa03-pop-circle-fill);
