@@ -814,3 +814,33 @@
     animation: none !important;
   }
 }
+
+/* Next Post Teaser Box */
+.wa03__next-post-box {
+  margin-top: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--wa03-bg-card, rgba(255, 255, 255, 0.8));
+  border: 1px solid var(--wa03-border-card, #e2e8f0);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.wa03__next-post-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--wa03-accent-primary, #2563eb);
+  margin-bottom: 0.4rem;
+}
+
+.wa03__next-post-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wa03__next-post-title:hover {
+  text-decoration: underline;
+}

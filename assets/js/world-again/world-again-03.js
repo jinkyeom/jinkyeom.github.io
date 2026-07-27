@@ -124,7 +124,7 @@
       if (popInfoCard) {
         popInfoCard.innerHTML = `
           <div class="wa03__pop-info-prompt">
-            지도 위의 원을 선택하면<br>나라별 인구를 볼 수 있습니다.
+            지도 위의 원을 선택하거나,<br>앞에서 비교한 여덟 나라의 인구를 함께 볼 수 있습니다.
           </div>
         `;
       }
