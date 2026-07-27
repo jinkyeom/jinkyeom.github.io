@@ -427,6 +427,26 @@
   display: none;
 }
 
+/* Hide the entire population circles + labels group by default to prevent overlap in other modes */
+#wa03-pop-circles-layer {
+  display: none !important;
+}
+
+/* Show the population circles layer only when the population mode is active */
+.wa03-map--mode-population #wa03-pop-circles-layer {
+  display: inline !important;
+}
+
+/* Hide the population circles labels group by default to prevent overlap in other modes */
+.wa03-pop-labels {
+  display: none;
+}
+
+/* Show the population labels only when the population mode is active */
+.wa03-map--mode-population .wa03-pop-labels {
+  display: inline;
+}
+
 /* Proportional circles - Single color family for ALL circles */
 .wa03-pop-circle {
   fill: var(--wa03-pop-circle-fill);
