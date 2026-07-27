@@ -317,6 +317,44 @@
   display: block;
 }
 
+/* ── Country Name Labels ─────────────────────────────────────────── */
+.wa03 .wa03-map__label {
+  fill: #0f172a;
+  font-size: 15px;
+  font-weight: 650;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+
+[data-theme="dark"] .wa03 .wa03-map__label {
+  fill: #f8fafc;
+  stroke: rgba(15, 23, 42, 0.92);
+}
+
+/* Small label variant for micro-states (e.g. Liechtenstein) */
+.wa03 .wa03-map__label--small {
+  font-size: 10px;
+  stroke-width: 2px;
+}
+
+/* Secondary labels hidden on narrow viewports */
+@media (max-width: 480px) {
+  .wa03 .wa03-map__label--secondary {
+    display: none;
+  }
+  /* Also shrink primary label text on very small screens */
+  .wa03 .wa03-map__label {
+    font-size: 12px;
+    stroke-width: 2.5px;
+  }
+}
+
 /* Map Country Paths Base */
 .wa03-country {
   fill: var(--wa03-map-country-neutral);
