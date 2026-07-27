@@ -167,7 +167,7 @@
           oneLiner.innerHTML = `
             <div class="wa03__nw-description-card">
               <strong>나라별 인구</strong>
-              <p>앞에서 비교한 여덟 나라의 인구를 원의 크기로 표시했습니다.<br>정확한 인구는 각 나라 이름 아래에서 확인할 수 있습니다.</p>
+              <p>원이 클수록 인구가 많습니다.<br>정확한 인구는 각 나라 이름 아래에서 확인할 수 있습니다.</p>
             </div>`;
         }
         if (popCirclesLayer) popCirclesLayer.hidden = false;
