@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ '/assets/css/world-again/world-again-03.css' | relative_url }}">
+
 <div class="wa03" id="wa03-root">
   <div class="wa03__prose">
     <p>유럽 나라별 인구를<br>한 번에 보고 싶었습니다.</p>
@@ -24,7 +26,7 @@
       </blockquote>
     </div>
 
-    <div class="wa03__interactive-area wa03-wide">
+    <div class="wa03__interactive-area wa03-wide wa03-visual-block">
       <div class="wa03__controls">
         <button type="button" class="wa03__btn wa03__btn--primary" id="wa03-btn-step1-eu" aria-expanded="false">
           EU 27개국 보기
@@ -108,56 +110,55 @@
     <h2 class="wa03__heading" id="wa03-sec2-title">EU 밖으로 이어지는 솅겐</h2>
 
     <div class="wa03__prose">
-      <p>영국과 노르웨이, 스위스를 차례로 봅니다.</p>
+      <p>EU 밖에 있는 세 나라를<br>함께 놓고 봅니다.</p>
     </div>
 
-    <div class="wa03__interactive-area wa03-wide">
-      <div class="wa03__table-container">
-        <table class="wa03__table">
-          <thead>
-            <tr>
-              <th>나라</th>
-              <th>EU</th>
-              <th>솅겐</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>영국</td>
-              <td>미참여</td>
-              <td>미참여</td>
-            </tr>
-            <tr>
-              <td>노르웨이</td>
-              <td>미참여</td>
-              <td>참여</td>
-            </tr>
-            <tr>
-              <td>스위스</td>
-              <td>미참여</td>
-              <td>참여</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="wa03__table-note">
-        세 나라 모두 EU 밖에 있지만, 노르웨이와 스위소는 솅겐에는 참여합니다.<br>
-        EU와 솅겐은 같은 공동체도, 같은 경계도 아니었습니다.
-      </p>
+    <div class="wa03__membership-panel wa03-visual-block wa03-wide">
+      <table class="wa03__membership-table">
+        <thead>
+          <tr>
+            <th scope="col" class="wa03__th-country">나라</th>
+            <th scope="col" class="wa03__th-state">EU</th>
+            <th scope="col" class="wa03__th-state">솅겐</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="wa03__td-country">영국</td>
+            <td class="wa03__td-state"><span class="wa03__status wa03__status--inactive"><svg class="wa03__status-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg> 미참여</span></td>
+            <td class="wa03__td-state"><span class="wa03__status wa03__status--inactive"><svg class="wa03__status-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg> 미참여</span></td>
+          </tr>
+          <tr>
+            <td class="wa03__td-country">노르웨이</td>
+            <td class="wa03__td-state"><span class="wa03__status wa03__status--inactive"><svg class="wa03__status-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg> 미참여</span></td>
+            <td class="wa03__td-state"><span class="wa03__status wa03__status--active"><svg class="wa03__status-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3332 4L5.99984 11.3333L2.6665 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 참여</span></td>
+          </tr>
+          <tr>
+            <td class="wa03__td-country">스위스</td>
+            <td class="wa03__td-state"><span class="wa03__status wa03__status--inactive"><svg class="wa03__status-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/></svg> 미참여</span></td>
+            <td class="wa03__td-state"><span class="wa03__status wa03__status--active"><svg class="wa03__status-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.3332 4L5.99984 11.3333L2.6665 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 참여</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <blockquote class="wa03__quote">
-        EU 회원국이 아닌데<br>어떻게 솅겐에는 들어가 있을까?
-      </blockquote>
+    <div class="wa03__prose">
+      <p>세 나라 모두 EU 밖에 있습니다.<br>하지만 노르웨이와 스위스는 솅겐에는 참여합니다.</p>
+      <p>EU와 솅겐은<br>같은 공동체도, 같은 경계도 아니었습니다.</p>
+    </div>
 
-      <div class="wa03__prose">
-        <p>솅겐은 긴 제도 이름의 앞글자를 모은 약자가 아닙니다.<br>룩셈부르크에 실제로 있는 작은 마을의 이름입니다.<br>1985년 다섯 나라가 이곳 인근에서 국경 검사를 점차 없애기 위한 협정에 서명하면서, 마을의 이름이 여러 나라를 잇는 이동 공간의 이름이 됐습니다.</p>
-        <p>솅겐은 참여 국가 사이를 오갈 때<br>평상시의 내부 국경 검사를 없앤 공간입니다.</p>
-        <p>현재 스물아홉 나라가 참여하고 있습니다.</p>
-        <p>그 가운데 네 나라는<br>EU 회원국이 아닙니다.</p>
-        <p>아이슬란드,<br>리히텐슈타인,<br>노르웨이,<br>스위스입니다.</p>
-        <p>반대로 EU 회원국이라고 해서<br>모두 솅겐에 들어가 있는 것도 아닙니다.</p>
-        <p>EU의 경계와 솅겐의 경계는<br>서로 완전히 겹치지 않았습니다.</p>
-      </div>
+    <blockquote class="wa03__quote">
+      EU 회원국이 아닌데<br>어떻게 솅겐에는 들어가 있을까?
+    </blockquote>
+
+    <div class="wa03__prose">
+      <p>솅겐은 긴 제도 이름의 앞글자를 모은 약자가 아닙니다.<br>룩셈부르크에 실제로 있는 작은 마을의 이름입니다.<br>1985년 다섯 나라가 이곳 인근에서 국경 검사를 점차 없애기 위한 협정에 서명하면서, 마을의 이름이 여러 나라를 잇는 이동 공간의 이름이 됐습니다.</p>
+      <p>솅겐은 참여 국가 사이를 오갈 때<br>평상시의 내부 국경 검사를 없앤 공간입니다.</p>
+      <p>현재 스물아홉 나라가 참여하고 있습니다.</p>
+      <p>그 가운데 네 나라는<br>EU 회원국이 아닙니다.</p>
+      <p>아이슬란드,<br>리히텐슈타인,<br>노르웨이,<br>스위스입니다.</p>
+      <p>반대로 EU 회원국이라고 해서<br>모두 솅겐에 들어가 있는 것도 아닙니다.</p>
+      <p>EU의 경계와 솅겐의 경계는<br>서로 완전히 겹치지 않았습니다.</p>
     </div>
   </section>
 
@@ -180,7 +181,7 @@
         </button>
       </div>
 
-      <div class="wa03__tabpanel" id="wa03-tabpanel-step3" role="tabpanel" aria-labelledby="wa03-tab-eu">
+      <div class="wa03__tabpanel wa03-visual-block" id="wa03-tabpanel-step3" role="tabpanel" aria-labelledby="wa03-tab-eu">
         <div class="wa03__legend-bar" id="wa03-step3-legend">
           <!-- Rendered dynamically -->
         </div>
@@ -244,27 +245,17 @@
             </g>
           </svg>
         </div>
-
-        <div class="wa03__state-status-list" id="wa03-state-status-text">
-          <!-- Text explanation of country states -->
-        </div>
       </div>
 
       <div class="wa03__prose">
         <div class="wa03__prose-block" id="wa03-prose-step3-eu">
-          <p>EU 지도를 켭니다.</p>
-          <p>스물일곱 나라가<br>하나의 색으로 이어집니다.</p>
+          <p>EU 지도를 켜면<br>스물일곱 나라가 하나의 색으로 이어집니다.</p>
         </div>
         <div class="wa03__prose-block" id="wa03-prose-step3-schengen" hidden>
-          <p>솅겐 지도로 바꿉니다.</p>
-          <p>노르웨이와 스위스,<br>아이슬란드와 리히텐슈타인이 새로 이어지고,<br>아일랜드와 키프로스는 다른 상태로 남습니다.</p>
+          <p>솅겐 지도로 바꾸면<br>노르웨이와 스위스, 아이슬란드와 리히텐슈타인이 새로 이어지고<br>아일랜드와 키프로스는 다른 상태로 남습니다.</p>
         </div>
         <div class="wa03__prose-block" id="wa03-prose-step3-both" hidden>
-          <p>두 지도를 겹쳐 봅니다.</p>
-          <p>EU에 있으면서 솅겐에도 참여하는 나라,<br>EU에 있지만 솅겐에는 참여하지 않는 나라,<br>EU 밖에 있으면서 솅겐에 참여하는 나라가<br>한 지도 위에 함께 나타납니다.</p>
-          <p>각각의 지도만 볼 때는<br>하나의 영역처럼 보였습니다.</p>
-          <p>두 지도를 겹치자<br>그 사이의 어긋남이 보였습니다.</p>
-          <p>유럽은 하나의 색으로<br>한 번에 칠할 수 있는 지도가 아니었습니다.</p>
+          <p>두 지도를 겹치면<br>서로 완전히 일치하지 않는 경계가 나타납니다.</p>
         </div>
       </div>
     </div>
@@ -291,55 +282,87 @@
         </button>
       </div>
 
-      <div class="wa03__pop-result-panel" id="wa03-pop-result-panel" hidden>
+      <div class="wa03__pop-result-panel wa03-visual-block" id="wa03-pop-result-panel" hidden>
         <div class="wa03__bar-chart" aria-label="8개국 인구 순위 및 비교 차트">
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">1위</span>
-            <span class="wa03__bar-label">독일</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 100%;"></div></div>
-            <span class="wa03__bar-val">약 8,347만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">1위</span>
+              <span class="wa03__bar-label">독일</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 100.0%;"></div></div>
+              <span class="wa03__bar-val">약 8,347만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">2위</span>
-            <span class="wa03__bar-label">영국</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 83.3%;"></div></div>
-            <span class="wa03__bar-val">약 6,955만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">2위</span>
+              <span class="wa03__bar-label">영국</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 83.3%;"></div></div>
+              <span class="wa03__bar-val">약 6,955만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">3위</span>
-            <span class="wa03__bar-label">프랑스</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 82.8%;"></div></div>
-            <span class="wa03__bar-val">약 6,911만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">3위</span>
+              <span class="wa03__bar-label">프랑스</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 82.8%;"></div></div>
+              <span class="wa03__bar-val">약 6,911만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">4위</span>
-            <span class="wa03__bar-label">이탈리아</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 70.6%;"></div></div>
-            <span class="wa03__bar-val">약 5,894만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">4위</span>
+              <span class="wa03__bar-label">이탈리아</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 70.6%;"></div></div>
+              <span class="wa03__bar-val">약 5,894만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">5위</span>
-            <span class="wa03__bar-label">스페인</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 59.4%;"></div></div>
-            <span class="wa03__bar-val">약 4,959만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">5위</span>
+              <span class="wa03__bar-label">스페인</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 59.4%;"></div></div>
+              <span class="wa03__bar-val">약 4,959만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">6위</span>
-            <span class="wa03__bar-label">폴란드</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 43.5%;"></div></div>
-            <span class="wa03__bar-val">약 3,633만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">6위</span>
+              <span class="wa03__bar-label">폴란드</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 43.5%;"></div></div>
+              <span class="wa03__bar-val">약 3,633만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">7위</span>
-            <span class="wa03__bar-label">루마니아</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 22.8%;"></div></div>
-            <span class="wa03__bar-val">약 1,904만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">7위</span>
+              <span class="wa03__bar-label">루마니아</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 22.8%;"></div></div>
+              <span class="wa03__bar-val">약 1,904만 명</span>
+            </div>
           </div>
           <div class="wa03__bar-row">
-            <span class="wa03__bar-rank">8위</span>
-            <span class="wa03__bar-label">네덜란드</span>
-            <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 21.7%;"></div></div>
-            <span class="wa03__bar-val">약 1,813만 명</span>
+            <div class="wa03__bar-meta">
+              <span class="wa03__bar-rank">8위</span>
+              <span class="wa03__bar-label">네덜란드</span>
+            </div>
+            <div class="wa03__bar-content">
+              <div class="wa03__bar-track"><div class="wa03__bar-fill" style="width: 21.7%;"></div></div>
+              <span class="wa03__bar-val">약 1,813만 명</span>
+            </div>
           </div>
         </div>
 
@@ -381,7 +404,7 @@
         <!-- Rendered dynamically based on active tab -->
       </div>
 
-      <div class="wa03__window-stage" id="wa03-nw-stage">
+      <div class="wa03__window-stage wa03-visual-block" id="wa03-nw-stage">
         <div class="wa03__map-container">
           <svg class="wa03__map-svg" viewBox="0 0 990 720" role="img" aria-label="관점 전환 실제 유럽 지도">
             <g class="wa03-map__layer" id="wa03-nw-map-layer">
@@ -441,31 +464,46 @@
             </g>
 
           <g class="wa03-pop-circles-layer" id="wa03-pop-circles-layer" hidden>
-            <circle cx="444" cy="398" r="38" class="wa03-pop-circle" data-code="DE" data-name="독일" data-pop="8,347만 명"></circle>
-            <circle cx="203" cy="306" r="34" class="wa03-pop-circle" data-code="GB" data-name="영국" data-pop="6,955만 명"></circle>
-            <circle cx="300" cy="488" r="34" class="wa03-pop-circle" data-code="FR" data-name="프랑스" data-pop="6,911만 명"></circle>
-            <circle cx="492" cy="581" r="31" class="wa03-pop-circle" data-code="IT" data-name="이탈리아" data-pop="5,894만 명"></circle>
-            <circle cx="191" cy="593" r="28" class="wa03-pop-circle" data-code="ES" data-name="스페인" data-pop="4,959만 명"></circle>
-            <circle cx="589" cy="376" r="24" class="wa03-pop-circle" data-code="PL" data-name="폴란드" data-pop="3,633만 명"></circle>
-            <circle cx="715" cy="475" r="18" class="wa03-pop-circle" data-code="RO" data-name="루마니아" data-pop="1,904만 명"></circle>
-            <circle cx="359" cy="379" r="17" class="wa03-pop-circle" data-code="NL" data-name="네덜란드" data-pop="1,813만 명"></circle>
+            <circle cx="444" cy="398" r="38" class="wa03-pop-circle" data-code="DE" data-name="독일" data-pop="약 8,347만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="203" cy="306" r="34.7" class="wa03-pop-circle" data-code="GB" data-name="영국" data-pop="약 6,955만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="300" cy="488" r="34.6" class="wa03-pop-circle" data-code="FR" data-name="프랑스" data-pop="약 6,911만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="492" cy="581" r="31.9" class="wa03-pop-circle" data-code="IT" data-name="이탈리아" data-pop="약 5,894만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="191" cy="593" r="29.3" class="wa03-pop-circle" data-code="ES" data-name="스페인" data-pop="약 4,959만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="589" cy="376" r="25.1" class="wa03-pop-circle" data-code="PL" data-name="폴란드" data-pop="약 3,633만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="715" cy="475" r="18.1" class="wa03-pop-circle" data-code="RO" data-name="루마니아" data-pop="약 1,904만 명" data-date="2026년 1월 1일"></circle>
+            <circle cx="359" cy="379" r="17.7" class="wa03-pop-circle" data-code="NL" data-name="네덜란드" data-pop="약 1,813만 명" data-date="2026년 1월 1일"></circle>
           </g>
           </svg>
         </div>
-      </div>
 
-      <div class="wa03__window-prose">
-        <div class="wa03__nw-prose-block" id="wa03-nw-prose-eu">
-          <h3>EU 회원국</h3>
-          <p>정치와 경제를 함께 운영하는<br>스물일곱 나라가 보입니다.</p>
+        <!-- Proportional circle legend for population mode -->
+        <div class="wa03__pop-legend" id="wa03-pop-legend" hidden>
+          <span class="wa03__pop-legend-title">인구 원 크기 범례</span>
+          <div class="wa03__pop-legend-items">
+            <div class="wa03__pop-legend-item">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5" class="wa03-pop-legend-circle"></circle>
+              </svg>
+              <span>2,000만 명</span>
+            </div>
+            <div class="wa03__pop-legend-item">
+              <svg width="36" height="36" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="11" class="wa03-pop-legend-circle"></circle>
+              </svg>
+              <span>5,000만 명</span>
+            </div>
+            <div class="wa03__pop-legend-item">
+              <svg width="48" height="48" viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="18" class="wa03-pop-legend-circle"></circle>
+              </svg>
+              <span>8,000만 명</span>
+            </div>
+          </div>
         </div>
-        <div class="wa03__nw-prose-block" id="wa03-nw-prose-schengen" hidden>
-          <h3>솅겐 참여국</h3>
-          <p>평상시의 내부 국경 검사 없이 이어지는<br>스물아홉 나라가 보입니다.</p>
-        </div>
-        <div class="wa03__nw-prose-block" id="wa03-nw-prose-pop" hidden>
-          <h3>나라별 인구</h3>
-          <p>익숙한 국경선 안에<br>얼마나 많은 사람이 살고 있는지 보입니다.</p>
+
+        <!-- Touch/Click Info Card -->
+        <div class="wa03__pop-info-card" id="wa03-pop-info-card" hidden>
+          <div class="wa03__pop-info-prompt">지도 위의 원을 선택하면<br>나라별 인구를 볼 수 있습니다.</div>
         </div>
       </div>
     </div>
@@ -494,7 +532,12 @@
 
     <div class="wa03__notes-group">
       <h4>인구</h4>
-      <p>국가별 인구는 Eurostat <code>demo_gind</code>의 2026년 1월 1일 상주인구(JAN)를 사용합니다. 화면에서는 만 명 또는 백만 명 단위의 읽기 쉬운 근삿값으로 표시합니다.</p>
+      <p>유럽연합 통계청 Eurostat가 집계한 2026년 1월 1일 기준 총인구를 사용했습니다. 화면에서는 읽기 쉽도록 만 명 단위의 근삿값으로 표시했습니다.</p>
+      <p class="wa03__notes-tech">
+        <strong>자료표:</strong> Population change – Demographic balance and crude rates at national level<br>
+        <strong>데이터 코드:</strong> <code>demo_gind</code><br>
+        <strong>사용 항목:</strong> Population on 1 January – total
+      </p>
     </div>
 
     <div class="wa03__notes-group">
@@ -503,3 +546,4 @@
     </div>
   </section>
 </div>
+<script src="{{ '/assets/js/world-again/world-again-03.js' | relative_url }}" defer></script>

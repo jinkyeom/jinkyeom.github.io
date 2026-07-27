@@ -69,29 +69,20 @@
           <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-eu);"></span> EU 회원국 (27개국)</span>
           <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-map-country-muted);"></span> 비회원국</span>
         `;
-        statusText.innerHTML = `<p>EU 스물일곱 나라가 하나의 색으로 강조됩니다. 영국·노르웨이·스위스는 비회원 상태입니다.</p>`;
       } else if (mode === 'schengen') {
         legend.innerHTML = `
           <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-schengen);"></span> 솅겐 참여국 (29개국)</span>
           <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-map-country-muted);"></span> 미참여국</span>
         `;
-        statusText.innerHTML = `<p>노르웨이·스위스·아이슬란드·리히텐슈타인이 솅겐 지역으로 이어지고, 아일랜드와 키프로스는 솅겐 미참여 상태로 남습니다.</p>`;
       } else if (mode === 'both') {
         legend.innerHTML = `
-          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-both);"></span> EU & 솅겐 모두 (25)</span>
-          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-eu);"></span> EU만 (아일랜드, 키프로스) (2)</span>
-          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-schengen);"></span> 솅겐만 (노르웨이, 스위스, IS, LI) (4)</span>
-          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-neither);"></span> 둘 다 아님 (영국 외)</span>
-        `;
-        statusText.innerHTML = `
-          <ul>
-            <li><strong>EU & 솅겐 모두 (25개국):</strong> 독일, 프랑스, 이탈리아, 스페인 등</li>
-            <li><strong>EU만 참여 (2개국):</strong> 아일랜드, 키프로스</li>
-            <li><strong>솅겐만 참여 (4개국):</strong> 노르웨이, 스위스, 아이슬란드, 리히텐슈타인</li>
-            <li><strong>둘 다 미참여:</strong> 영국 외</li>
-          </ul>
+          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-both);"></span> EU와 솅겐 모두: 25개국</span>
+          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-eu);"></span> EU만 참여: 아일랜드, 키프로스</span>
+          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-schengen);"></span> 솅겐만 참여: 노르웨이, 스위스, 아이슬란드, 리히텐슈타인</span>
+          <span class="wa03__legend-item"><span class="wa03__legend-color" style="background:var(--wa03-accent-neither);"></span> 둘 다 참여하지 않음: 영국 등</span>
         `;
       }
+      if (statusText) statusText.innerHTML = '';
     }
 
     tabs.forEach((t) => {
@@ -120,13 +111,24 @@
   function initNewWindow() {
     const tabs = document.querySelectorAll('#wa03-sec-5 [role="tab"]');
     const popCirclesLayer = document.getElementById('wa03-pop-circles-layer');
+    const popLegend = document.getElementById('wa03-pop-legend');
+    const popInfoCard = document.getElementById('wa03-pop-info-card');
     const oneLiner = document.getElementById('wa03-nw-one-liner');
-    const proseEU = document.getElementById('wa03-nw-prose-eu');
-    const proseSchengen = document.getElementById('wa03-nw-prose-schengen');
-    const prosePop = document.getElementById('wa03-nw-prose-pop');
     const mapContainer = document.querySelector('#wa03-nw-stage .wa03__map-container');
+    const circles = document.querySelectorAll('.wa03-pop-circle');
 
     if (!tabs.length || !mapContainer) return;
+
+    function resetPopSelection() {
+      circles.forEach((c) => c.classList.remove('is-active'));
+      if (popInfoCard) {
+        popInfoCard.innerHTML = `
+          <div class="wa03__pop-info-prompt">
+            지도 위의 원을 선택하면<br>나라별 인구를 볼 수 있습니다.
+          </div>
+        `;
+      }
+    }
 
     function setNWMode(mode) {
       tabs.forEach((t) => {
@@ -135,24 +137,66 @@
         t.setAttribute('aria-selected', String(active));
       });
 
-      if (proseEU) proseEU.hidden = mode !== 'eu';
-      if (proseSchengen) proseSchengen.hidden = mode !== 'schengen';
-      if (prosePop) prosePop.hidden = mode !== 'population';
-
       mapContainer.classList.remove('wa03-map--mode-eu', 'wa03-map--mode-schengen', 'wa03-map--mode-population');
       mapContainer.classList.add(`wa03-map--mode-${mode}`);
 
       if (mode === 'eu') {
-        if (oneLiner) oneLiner.textContent = 'EU 회원국: 정치와 경제를 함께 운영하는 27개국';
+        if (oneLiner) {
+          oneLiner.innerHTML = `
+            <div class="wa03__nw-description-card">
+              <strong>EU 회원국</strong>
+              <p>정치와 경제를 함께 운영하는 27개국을 표시합니다.</p>
+            </div>`;
+        }
         if (popCirclesLayer) popCirclesLayer.hidden = true;
+        if (popLegend) popLegend.hidden = true;
+        if (popInfoCard) popInfoCard.hidden = true;
       } else if (mode === 'schengen') {
-        if (oneLiner) oneLiner.textContent = '솅겐 참여국: 평상시 내부 국경 검사 없이 이어지는 29개국';
+        if (oneLiner) {
+          oneLiner.innerHTML = `
+            <div class="wa03__nw-description-card">
+              <strong>솅겐 참여국</strong>
+              <p>평상시 내부 국경 검사 없이 이어지는 29개국을 표시합니다.</p>
+            </div>`;
+        }
         if (popCirclesLayer) popCirclesLayer.hidden = true;
+        if (popLegend) popLegend.hidden = true;
+        if (popInfoCard) popInfoCard.hidden = true;
       } else if (mode === 'population') {
-        if (oneLiner) oneLiner.textContent = '나라별 인구: 각 나라에 사는 사람의 수를 원의 크기와 고유 색상으로 표시합니다.';
+        if (oneLiner) {
+          oneLiner.innerHTML = `
+            <div class="wa03__nw-description-card">
+              <strong>나라별 인구</strong>
+              <p>각 나라의 인구를 원의 크기로 표시합니다. 원이 클수록 더 많은 사람이 살고 있습니다.</p>
+            </div>`;
+        }
         if (popCirclesLayer) popCirclesLayer.hidden = false;
+        if (popLegend) popLegend.hidden = false;
+        if (popInfoCard) popInfoCard.hidden = false;
+        resetPopSelection();
       }
     }
+
+    const updateInfoCard = (circle) => {
+      if (!circle || !popInfoCard) return;
+      circles.forEach((c) => c.classList.remove('is-active'));
+      circle.classList.add('is-active');
+
+      const name = circle.getAttribute('data-name') || '';
+      const pop = circle.getAttribute('data-pop') || '';
+      const date = circle.getAttribute('data-date') || '2026년 1월 1일';
+
+      popInfoCard.innerHTML = `
+        <div class="wa03__pop-info-name">${name}</div>
+        <div class="wa03__pop-info-value">${pop}</div>
+        <div class="wa03__pop-info-date">${date}</div>
+      `;
+    };
+
+    circles.forEach((c) => {
+      c.addEventListener('click', () => updateInfoCard(c));
+      c.addEventListener('mouseenter', () => updateInfoCard(c));
+    });
 
     tabs.forEach((t) => {
       t.addEventListener('click', () => setNWMode(t.getAttribute('data-nw-mode')));
