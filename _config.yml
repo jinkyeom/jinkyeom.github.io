@@ -286,6 +286,23 @@ after_footer_scripts:
 
 # Defaults
 defaults:
+  # Static HTML utilities are public, but are not standalone canonical pages.
+  - scope:
+      path: "assets/demos/drum-game/index.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "googleb7edab49c311642d.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "naver/darwin-tree-and-time.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "naver/goedel-incompleteness-and-waiting.html"
+    values:
+      sitemap: false
   # _posts
   - scope:
       path: ""
