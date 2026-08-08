@@ -393,7 +393,7 @@
         r: Math.max(2, Math.round(25 * Math.sqrt(country.population / 83577140) * 100) / 100),
       }));
 
-    if (popPanelItems && popPanelItems.children.length === 0) {
+    if (popPanelItems) {
       popPanelItems.innerHTML = POP_PANEL_DATA.map((item) => `
         <div class="wa02__pop-item">
           <svg class="wa02__pop-circle-wrap" viewBox="0 0 56 56" aria-hidden="true">
