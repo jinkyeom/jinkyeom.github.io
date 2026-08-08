@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ '/assets/css/world-again/world-again-02.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/world-again/world-again-02.css?v=2' | relative_url }}">
 
 <article class="wa02" data-world-again="02"
   data-source="{{ '/assets/data/world-again/world-again-02.json' | relative_url }}"
@@ -64,6 +64,22 @@
       <div class="wa02__finding">
         <span>FINDING</span>
         <p>핀란드와 아일랜드의 인구는 비슷했습니다. 하지만 핀란드의 땅은 아일랜드보다 약 4.4배 넓습니다.</p>
+      </div>
+      <div class="wa02__video-block">
+        <p class="wa02__video-lead">같은 축척으로 놓이는 순간을 15초로 다시 봅니다.</p>
+        <div class="wa02__video-wrapper">
+          <video
+            class="wa02__video"
+            controls
+            playsinline
+            preload="metadata"
+            poster="{{ '/assets/images/world-again/world-again-02/shorts-poster.png?v=2' | relative_url }}"
+            aria-label="핀란드 303,109 km²와 아일랜드 68,655 km²를 동일 축척으로 비교해 약 4.4배의 면적 차이를 보여주는 15초 영상">
+            <source src="{{ '/assets/media/world-again/world-again-02/output-shorts-15s.mp4?v=2' | relative_url }}" type="video/mp4">
+            핀란드와 아일랜드를 동일 축척으로 비교해 약 4.4배의 면적 차이를 보여주는 영상입니다.
+          </video>
+        </div>
+        <p class="wa02__video-caption">핀란드와 아일랜드 — 같은 축척에서 본 면적 차이</p>
       </div>
     </section>
 
@@ -139,15 +155,15 @@
       <dl>
         <div>
           <dt>인구</dt>
-          <dd>Eurostat <code>demo_pjan</code>, 2025년 1월 1일. 프랑스 값은 잠정치입니다.</dd>
+          <dd>Eurostat <code>demo_pjan</code>, 2025년 1월 1일 기준. 프랑스 값은 잠정치입니다.</dd>
         </div>
         <div>
           <dt>면적</dt>
-          <dd>면적은 Eurostat의 <code>reg_area3</code>, 2024년 <code>L0008</code> Land area - total 통계를 사용했습니다. 이 수치는 전체 표면적에서 호수·강·연안 수역 등을 제외한 국가별 토지 면적 기준입니다. 섬을 제외한다는 뜻은 아닙니다. 섬의 땅도 포함되며, 제외되는 것은 호수·강·연안 수역 같은 물의 면적입니다.</dd>
+          <dd>Eurostat <code>reg_area3</code> (2024년 <code>L0008</code> Land area - total). 전체 표면적에서 호수·강·연안 수역 등 물의 면적을 제외한 순수 토지 면적 기준입니다. 섬의 육지는 당연히 포함됩니다.</dd>
         </div>
         <div>
           <dt>인구밀도</dt>
-          <dd>2025년 1월 1일 인구 ÷ 2024년 면적. Eurostat 2024 공식 인구밀도는 연평균 인구 기준으로 교차검증했습니다.</dd>
+          <dd>본문 인구밀도는 <strong>2025년 1월 1일 인구 ÷ 2024년 토지 면적</strong>으로 직접 계산했습니다. Eurostat 공식 2024년 인구밀도는 <strong>연평균(Mean) 인구 ÷ 토지 면적</strong>을 사용하기 때문에 수치에 소폭 차이가 있으며, 교차검증 표에서 함께 비교할 수 있습니다.</dd>
         </div>
         <div>
           <dt>지도</dt>

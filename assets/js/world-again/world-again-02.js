@@ -383,14 +383,15 @@
 
     // Render Side/Bottom Population Comparison Panel items
     // Proportional Circle radius: Germany(8344만) r=25px, France(6845만) r=22.6px, NL(1798만) r=11.6px, FI(563만) r=6.5px, IE(544만) r=6.4px, MT(57만) r=3.5px
-    const POP_PANEL_DATA = [
-      { code: "DE", name: "독일", popText: "8,344만 명", r: 25 },
-      { code: "FR", name: "프랑스", popText: "6,845만 명", r: 22.6 },
-      { code: "NL", name: "네덜란드", popText: "1,798만 명", r: 11.6 },
-      { code: "FI", name: "핀란드", popText: "563만 명", r: 6.5 },
-      { code: "IE", name: "아일랜드", popText: "544만 명", r: 6.4 },
-      { code: "MT", name: "몰타", popText: "57만 명", r: 2.07 },
-    ];
+    const POP_PANEL_DATA = data.countries
+      .slice()
+      .sort((a, b) => b.population - a.population)
+      .map((country) => ({
+        code: country.countryCode,
+        name: country.nameKo,
+        popText: country.populationBody.replace(/^약\s*/, ""),
+        r: Math.max(2, Math.round(25 * Math.sqrt(country.population / 83577140) * 100) / 100),
+      }));
 
     if (popPanelItems && popPanelItems.children.length === 0) {
       popPanelItems.innerHTML = POP_PANEL_DATA.map((item) => `
