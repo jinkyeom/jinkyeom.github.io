@@ -79,13 +79,24 @@ $(function() {
       // Event support
       events: true // if true, emit custom events
     });
-
-    $(".toc__toggle").on("click", function() {
-      var isExpanded = $(this).attr("aria-expanded") === "true";
-      $(this).attr("aria-expanded", isExpanded ? "false" : "true");
-      $(this).closest(".toc").toggleClass("is-open", !isExpanded);
-    });
   }
+
+  // Mobile TOC accordion toggle
+  // The button (.toc__toggle) is inside nav.toc > header.toc__header
+  // The menu (.toc__menu ul) is nav.toc's direct child sibling of toc__header
+  // CSS sibling selectors cannot reach it, so JS controls display directly.
+  $(".toc__toggle").on("click", function() {
+    var $btn = $(this);
+    var $nav = $btn.closest("nav.toc");
+    var $menu = $nav.find(".toc__menu");
+    var isExpanded = $btn.attr("aria-expanded") === "true";
+    $btn.attr("aria-expanded", isExpanded ? "false" : "true");
+    if (isExpanded) {
+      $menu.attr("data-toc-open", "false");
+    } else {
+      $menu.attr("data-toc-open", "true");
+    }
+  });
 
   // add lightbox class to all image links
   $(

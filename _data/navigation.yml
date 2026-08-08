@@ -2,6 +2,8 @@
 main:
   #- title: "Quick-Start Guide"
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "홈"
+    url: /
   - title: "카테고리"
     url: /categories/
   - title: "태그"

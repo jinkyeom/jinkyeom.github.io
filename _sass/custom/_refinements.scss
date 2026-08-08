@@ -124,7 +124,11 @@ html[data-theme="dark"] .active-category {
   line-height: 1.5 !important;
 }
 
-// Mobile TOC Specifics (< 1024px)
+// ============================================================
+// Mobile TOC: 기본 접힘 / data-toc-open="true" 시 펼침
+// JS가 nav.toc > .toc__menu (ul) 에 data-toc-open 속성을 제어.
+// CSS 형제 선택자가 아닌 data 속성 방식으로 specificity 문제 우회.
+// ============================================================
 @media screen and (max-width: 1023px) {
   .toc {
     margin-bottom: 1.5rem;
@@ -137,17 +141,15 @@ html[data-theme="dark"] .active-category {
     padding: 0.65rem 1rem;
   }
 
-  .toc__menu {
-    display: none;
-    font-size: 0.98rem; /* Computed ~16.7px for 17px base size */
+  // 기본 접힘: !important로 upstream의 display 선언 모두 덮음
+  nav.toc .toc__menu {
+    display: none !important;
+    font-size: 0.98rem; /* ~16.7px at 17px root */
   }
 
-  .toc.is-open .toc__menu,
-  .toc__header:has(.toc__toggle[aria-expanded="true"]) + .toc__menu,
-  .toc:has(.toc__toggle[aria-expanded="true"]) .toc__menu,
-  .toc__toggle[aria-expanded="true"] + .toc__menu,
-  .toc__toggle[aria-expanded="true"] ~ .toc__menu {
-    display: block;
+  // 토글 후 펼침
+  nav.toc .toc__menu[data-toc-open="true"] {
+    display: block !important;
   }
 
   .toc__menu a {
@@ -161,11 +163,11 @@ html[data-theme="dark"] .active-category {
   }
 
   .toc__menu ul a {
-    font-size: 1em; /* Keep text legible on sub-items; rely on indentation */
+    font-size: 1em;
   }
 }
 
-// Desktop TOC Specifics (>= 1024px)
+// Desktop: 항상 펼침, 토글 버튼 시각적으로 비활성화
 @media screen and (min-width: 1024px) {
   .toc__toggle {
     cursor: default;
@@ -178,10 +180,14 @@ html[data-theme="dark"] .active-category {
     display: none !important;
   }
 
-  .toc__menu {
+  // 데스크톱에서는 무조건 보임 (data 속성 무관)
+  nav.toc .toc__menu,
+  nav.toc .toc__menu[data-toc-open="false"],
+  nav.toc .toc__menu[data-toc-open="true"] {
     display: block !important;
   }
 }
+
 
 // Left Sidebar Layout Fixes
 // Define Layout Gutter
