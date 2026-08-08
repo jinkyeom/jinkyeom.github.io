@@ -1075,7 +1075,8 @@ html[data-theme="default"] {
     background: #ffffff;
   }
 
-  .toc .nav__title {
+  .toc .nav__title,
+  .toc__toggle {
     background: #e8edf4;
     color: #1f2935;
   }
@@ -1139,7 +1140,8 @@ html[data-theme="dark"] {
     background: $bb-surface;
   }
 
-  .toc .nav__title {
+  .toc .nav__title,
+  .toc__toggle {
     background: #121922;
     color: $bb-text;
   }

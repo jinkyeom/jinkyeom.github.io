@@ -76,10 +76,111 @@ html[data-theme="dark"] .active-category {
 }
 
 // TOC Styling
+.toc__header {
+  margin: 0;
+  padding: 0;
+}
+
+.toc__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  background: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid #2f6fd6;
+    outline-offset: -2px;
+  }
+}
+
+.toc__toggle-icon {
+  font-size: 0.85em;
+  transition: transform 0.2s ease;
+}
+
+.toc__toggle[aria-expanded="true"] .toc__toggle-icon {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc__toggle-icon {
+    transition: none !important;
+  }
+}
+
 .toc__menu li a {
   word-break: keep-all;
   overflow-wrap: break-word;
-  line-height: 1.45 !important;
+  line-height: 1.5 !important;
+}
+
+// Mobile TOC Specifics (< 1024px)
+@media screen and (max-width: 1023px) {
+  .toc {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .toc__toggle {
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+  }
+
+  .toc__menu {
+    display: none;
+    font-size: 0.98rem; /* Computed ~16.7px for 17px base size */
+  }
+
+  .toc.is-open .toc__menu,
+  .toc__header:has(.toc__toggle[aria-expanded="true"]) + .toc__menu,
+  .toc:has(.toc__toggle[aria-expanded="true"]) .toc__menu,
+  .toc__toggle[aria-expanded="true"] + .toc__menu,
+  .toc__toggle[aria-expanded="true"] ~ .toc__menu {
+    display: block;
+  }
+
+  .toc__menu a {
+    padding: 0.45rem 1rem;
+    line-height: 1.5 !important;
+  }
+
+  .toc__menu ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .toc__menu ul a {
+    font-size: 1em; /* Keep text legible on sub-items; rely on indentation */
+  }
+}
+
+// Desktop TOC Specifics (>= 1024px)
+@media screen and (min-width: 1024px) {
+  .toc__toggle {
+    cursor: default;
+    pointer-events: none;
+    padding: 0.5rem 0.75rem;
+    min-height: auto;
+  }
+
+  .toc__toggle-icon {
+    display: none !important;
+  }
+
+  .toc__menu {
+    display: block !important;
+  }
 }
 
 // Left Sidebar Layout Fixes

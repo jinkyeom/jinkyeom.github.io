@@ -79,6 +79,12 @@ $(function() {
       // Event support
       events: true // if true, emit custom events
     });
+
+    $(".toc__toggle").on("click", function() {
+      var isExpanded = $(this).attr("aria-expanded") === "true";
+      $(this).attr("aria-expanded", isExpanded ? "false" : "true");
+      $(this).closest(".toc").toggleClass("is-open", !isExpanded);
+    });
   }
 
   // add lightbox class to all image links
