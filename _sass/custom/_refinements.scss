@@ -212,6 +212,16 @@ $sidebar-gutter: 20px;
 
   .sidebar {
     width: 160px !important; // Keep category column compact while avoiding awkward wraps
+
+    &.sticky {
+      overflow-y: visible !important;
+      max-height: none !important;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   .layout--single .page,
