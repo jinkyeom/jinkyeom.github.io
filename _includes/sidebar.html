@@ -15,33 +15,19 @@
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
   {% endif %}
-  <!-- Coupang Partners Banner -->
-  <style>
-    .sidebar-partner-card .partner-card-box {
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    @media (hover: hover) {
-      .sidebar-partner-card a:hover .partner-card-box {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-      }
-      .sidebar-partner-card a:hover .partner-btn {
-        background-color: #005bb5 !important;
-      }
-    }
-  </style>
-
+  <!-- Coupang Partners Card -->
   <div class="sidebar-partner-card" style="margin: 20px auto; text-align: center; max-width: 130px; font-size: 12px;">
     <a href="https://link.coupang.com/a/igjU1bON2G" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
-      <div class="partner-card-box">
+      <div class="partner-card-box"
+           onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 18px rgba(0,0,0,0.08)';"
+           onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05)';"
+           style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;">
         <img src="/assets/img/partners/terarosa.jpg" alt="테라로사 원두" style="width: 100%; border-radius: 4px; display: block; margin-bottom: 8px;" />
         <span style="display: block; font-weight: 600; line-height: 1.3; margin-bottom: 6px; color: #111827;">테라로사 원두</span>
-        <span class="partner-btn" style="display: inline-block; background: #0073e9; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; transition: background-color 0.2s ease;">보러가기</span>
+        <span class="partner-btn"
+              onmouseenter="this.style.backgroundColor='#005bb5';"
+              onmouseleave="this.style.backgroundColor='#0073e9';"
+              style="display: inline-block; background: #0073e9; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; transition: background-color 0.2s ease;">보러가기</span>
       </div>
     </a>
     <p style="font-size: 10px; color: #9ca3af; margin-top: 6px; line-height: 1.3;">
