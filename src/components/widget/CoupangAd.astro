@@ -1,0 +1,34 @@
+---
+interface Props {
+	class?: string;
+	style?: string;
+}
+const { class: className, style } = Astro.props;
+---
+
+<div class:list={["card-base p-4 text-center", className]} style={style}>
+	<a
+		href="https://link.coupang.com/a/igjU1bON2G"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="group block no-underline"
+	>
+		<div class="overflow-hidden rounded-xl mb-3 bg-white/90 p-2 transition-transform duration-200 group-hover:-translate-y-0.5">
+			<img
+				src="/assets/img/partners/terarosa.jpg"
+				alt="테라로사 원두"
+				class="w-full h-auto rounded-lg object-cover block"
+				loading="lazy"
+			/>
+		</div>
+		<div class="font-semibold text-sm text-black/85 dark:text-white/90 mb-2">
+			테라로사 원두
+		</div>
+		<span class="inline-block rounded-lg bg-[#0073e9] hover:bg-[#005bb5] text-white text-xs font-medium px-3.5 py-1.5 transition-colors">
+			쿠팡에서 보기
+		</span>
+	</a>
+	<p class="text-[11px] text-black/45 dark:text-white/45 mt-3 leading-snug">
+		이 포스팅은 쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.
+	</p>
+</div>

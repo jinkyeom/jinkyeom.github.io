@@ -1,87 +1,31 @@
-# History files
-.Rhistory
-.Rapp.history
+# build output
+dist/
 
-# Session Data files
-.RData
-.RDataTmp
+# generated types
+.astro/
 
-# User-specific files
-.Ruserdata
+# dependencies
+node_modules/
 
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
-.Rproj.user/
-*.Rproj
-
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
-
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
-
-# pkgdown site
-docs/
-
-# translation temp files
-po/*~
-
-# RStudio Connect folder
-rsconnect/
-
-# Vim
-*~
-*.sw[p_]
-
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-
-# Ruby Gem
-*.gem
-.bundle
-Gemfile.lock
-**/vendor/bundle
-
-# Node.js and NPM
-node_modules
+# logs
 npm-debug.log*
-package-lock.json
-codekit-config.json
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# macOS
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
 .DS_Store
 
-# Jekyll generated files
-.jekyll-cache
-.jekyll-metadata
-.sass-cache
-_asset_bundler_cache
-_site
+.vercel
 
-# Local agent workspace and draft posts
-.agents/
-_drafts/
+package-lock.json
+bun.lockb
+yarn.lock
 
-# Local agent files
-.agents/
+# ide
+.idea
+*.iml
