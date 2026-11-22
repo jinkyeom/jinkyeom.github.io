@@ -128,6 +128,18 @@ const bannerOffset =
 						document.documentElement.classList.remove('dark');
 					}
 			}
+			// Sync data-theme attribute for legacy interactive visualizations (world-again, guitar-theory)
+			(function () {
+				function syncDataTheme() {
+					var isDark = document.documentElement.classList.contains('dark');
+					document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'default');
+				}
+				syncDataTheme();
+				new MutationObserver(syncDataTheme).observe(document.documentElement, {
+					attributes: true,
+					attributeFilter: ['class'],
+				});
+			})();
 
 			// Load the hue from local storage
 			const hue = localStorage.getItem('hue') || configHue;

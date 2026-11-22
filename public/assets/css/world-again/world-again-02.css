@@ -42,7 +42,7 @@
   line-height: 1.6;
 }
 
-html.dark, html[data-theme="dark"] .wa02 {
+html[data-theme="dark"] .wa02 {
   --wa02-bg: #11161c;
   --wa02-surface: #1a2129;
   --wa02-surface-soft: #202933;
@@ -939,12 +939,12 @@ html.dark, html[data-theme="dark"] .wa02 {
 .wa02__chip--5 { background: #1B7F62; }
 .wa02__chip--6 { background: #08533F; }
 
-html.dark, html[data-theme="dark"] .wa02__chip--1 { background: #1D3B31; }
-html.dark, html[data-theme="dark"] .wa02__chip--2 { background: #285344; }
-html.dark, html[data-theme="dark"] .wa02__chip--3 { background: #356F5C; }
-html.dark, html[data-theme="dark"] .wa02__chip--4 { background: #448D75; }
-html.dark, html[data-theme="dark"] .wa02__chip--5 { background: #5BB396; }
-html.dark, html[data-theme="dark"] .wa02__chip--6 { background: #7DE2BF; }
+html[data-theme="dark"] .wa02__chip--1 { background: #1D3B31; }
+html[data-theme="dark"] .wa02__chip--2 { background: #285344; }
+html[data-theme="dark"] .wa02__chip--3 { background: #356F5C; }
+html[data-theme="dark"] .wa02__chip--4 { background: #448D75; }
+html[data-theme="dark"] .wa02__chip--5 { background: #5BB396; }
+html[data-theme="dark"] .wa02__chip--6 { background: #7DE2BF; }
 
 .wa02__legend-note {
   margin: 0;
@@ -1023,7 +1023,7 @@ html.dark, html[data-theme="dark"] .wa02__chip--6 { background: #7DE2BF; }
   stroke-width: 1.5;
 }
 
-html.dark, html[data-theme="dark"] .wa02__pop-panel-circle {
+html[data-theme="dark"] .wa02__pop-panel-circle {
   fill: rgba(105, 169, 208, 0.55);
   stroke: #69a9d0;
 }
@@ -1058,7 +1058,7 @@ html.dark, html[data-theme="dark"] .wa02__pop-panel-circle {
   opacity: 0.9;
 }
 
-html.dark, html[data-theme="dark"] .wa02-map__malta-halo {
+html[data-theme="dark"] .wa02-map__malta-halo {
   stroke: #7DE2BF;
 }
 
@@ -1068,7 +1068,7 @@ html.dark, html[data-theme="dark"] .wa02-map__malta-halo {
   stroke-dasharray: 2 2;
 }
 
-html.dark, html[data-theme="dark"] .wa02-map__malta-line {
+html[data-theme="dark"] .wa02-map__malta-line {
   stroke: #7DE2BF;
 }
 
@@ -1084,7 +1084,7 @@ html.dark, html[data-theme="dark"] .wa02-map__malta-line {
   transition: r 0.3s ease;
 }
 
-html.dark, html[data-theme="dark"] .wa02-map__pop-circle {
+html[data-theme="dark"] .wa02-map__pop-circle {
   fill: rgba(105, 169, 208, 0.48);
   stroke: #69a9d0;
 }
@@ -1093,7 +1093,7 @@ html.dark, html[data-theme="dark"] .wa02-map__pop-circle {
   fill: #2367a8;
 }
 
-html.dark, html[data-theme="dark"] .wa02-map__anchor-dot {
+html[data-theme="dark"] .wa02-map__anchor-dot {
   fill: #69a9d0;
 }
 
@@ -1104,7 +1104,7 @@ html.dark, html[data-theme="dark"] .wa02-map__anchor-dot {
   opacity: 0.8;
 }
 
-html.dark, html[data-theme="dark"] .wa02-map__leader-line {
+html[data-theme="dark"] .wa02-map__leader-line {
   stroke: #69a9d0;
 }
 
@@ -1119,7 +1119,7 @@ html.dark, html[data-theme="dark"] .wa02-map__leader-line {
   stroke-linejoin: round;
 }
 
-html.dark, html[data-theme="dark"] .wa02-map__pop-label {
+html[data-theme="dark"] .wa02-map__pop-label {
   fill: #f3f4f6;
   stroke: #11161c;
 }

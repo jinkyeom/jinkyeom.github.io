@@ -26,7 +26,7 @@
   --wa01-map-label-halo: #f2f4f5;
 }
 
-html.dark, html[data-theme="dark"] .wa01 {
+html[data-theme="dark"] .wa01 {
   --wa01-bg: #15191f;
   --wa01-surface: #1d222a;
   --wa01-surface-soft: #222831;
@@ -1044,6 +1044,6 @@ body.layout--single:has(.wa01) .page__content > :not(.sidebar__right) {
   letter-spacing: 0.05em;
 }
 
-html.dark, html[data-theme="dark"] .wa01 .wa-map__label--do {
+html[data-theme="dark"] .wa01 .wa-map__label--do {
   fill: #aeb7b5;
 }
