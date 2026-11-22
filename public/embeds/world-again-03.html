@@ -3,10 +3,29 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>body { margin: 0; padding: 12px; font-family: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif; background: transparent; }</style>
+<script>
+(function(){
+  function syncTheme(){
+    try {
+      var isDark = window.parent && window.parent.document.documentElement.classList.contains("dark");
+      document.documentElement.classList.toggle("dark", !!isDark);
+      document.documentElement.setAttribute("data-theme", isDark ? "dark" : "default");
+    } catch(e) {}
+  }
+  syncTheme();
+  try {
+    var obs = new MutationObserver(syncTheme);
+    obs.observe(window.parent.document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  } catch(e) {}
+})();
+</script>
+<style>
+  body { margin: 0; padding: 0; background: transparent; color: #1f2937; font-family: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif; }
+  html.dark body { color: #e5e7eb; }
+</style>
 </head>
 <body>
-<link rel="stylesheet" href="{{ '/assets/css/world-again/world-again-03.css' | relative_url }}">
+<link rel="stylesheet" href="/assets/css/world-again/world-again-03.css">
 
 <div class="wa03" id="wa03-root">
   <div class="wa03__prose">
@@ -621,7 +640,7 @@
       <p class="wa03__next-link-prose">비슷한 수의 사람이 사는 나라는<br>실제로 얼마나 넓을까요?</p>
       <div class="wa03__next-post-box">
         <span class="wa03__next-post-label">이어지는 글</span>
-        <a class="wa03__next-post-title" href="{{ '/visualization/europe-country-size/' | relative_url }}">「유럽의 나라는 우리가 생각한 크기와 같을까」 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="wa03__next-post-title" href="/posts/2026-07-27-europe-country-size/">「유럽의 나라는 우리가 생각한 크기와 같을까」 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </section>
@@ -656,6 +675,17 @@
     </div>
   </section>
 </div>
-<script src="{{ '/assets/js/world-again/world-again-03.js' | relative_url }}" defer></script>
+<script src="/assets/js/world-again/world-again-03.js" defer></script>
+<script>
+(function(){
+  function sendHeight(){
+    var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+    if (window.parent && h > 200) window.parent.postMessage({ type: "wa03-height", height: h + 32 }, "*");
+  }
+  window.addEventListener("load", sendHeight);
+  if (window.ResizeObserver) new ResizeObserver(sendHeight).observe(document.body);
+  setInterval(sendHeight, 1000);
+})();
+</script>
 </body>
 </html>

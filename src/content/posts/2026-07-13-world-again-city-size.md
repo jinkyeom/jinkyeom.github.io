@@ -8,9 +8,9 @@ category: "Visualization"
 draft: false
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/world-again/world-again-01.css' | relative_url }}">
+<link rel="stylesheet" href="/assets/css/world-again/world-again-01.css">
 <section class="wa01" data-world-again="01"
-data-source="{{ '/assets/data/world-again/world-again-01.json' | relative_url }}">
+data-source="/assets/data/world-again/world-again-01.json">
 <div class="wa01__inner">
 <header class="wa01__intro">
 <div class="wa01__copy">
@@ -132,4 +132,4 @@ data-source="{{ '/assets/data/world-again/world-again-01.json' | relative_url }}
 </noscript>
 </div>
 </section>
-<script src="{{ '/assets/js/world-again/world-again-01.js' | relative_url }}" defer></script>
+<script src="/assets/js/world-again/world-again-01.js" defer></script>

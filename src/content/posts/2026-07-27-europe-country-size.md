@@ -8,11 +8,11 @@ category: "Visualization"
 draft: false
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/world-again/world-again-02.css?v=2' | relative_url }}">
+<link rel="stylesheet" href="/assets/css/world-again/world-again-02.css?v=2">
 <article class="wa02" data-world-again="02"
-data-source="{{ '/assets/data/world-again/world-again-02.json' | relative_url }}"
-data-context-map="{{ '/assets/images/world-again/world-again-02/europe-context.svg' | relative_url }}"
-data-outlines-map="{{ '/assets/images/world-again/world-again-02/europe-country-outlines.svg' | relative_url }}">
+data-source="/assets/data/world-again/world-again-02.json"
+data-context-map="/assets/images/world-again/world-again-02/europe-context.svg"
+data-outlines-map="/assets/images/world-again/world-again-02/europe-country-outlines.svg">
 <div class="wa02__inner">
 <header class="wa02__hero">
 <div class="wa02__opening">
@@ -77,9 +77,9 @@ class="wa02__video"
 controls
 playsinline
 preload="metadata"
-poster="{{ '/assets/images/world-again/world-again-02/shorts-poster.png?v=2' | relative_url }}"
+poster="/assets/images/world-again/world-again-02/shorts-poster.png?v=2"
 aria-label="핀란드 303,109 km²와 아일랜드 68,655 km²를 동일 축척으로 비교해 약 4.4배의 면적 차이를 보여주는 15초 영상">
-<source src="{{ '/assets/media/world-again/world-again-02/output-shorts-15s.mp4?v=2' | relative_url }}" type="video/mp4">
+<source src="/assets/media/world-again/world-again-02/output-shorts-15s.mp4?v=2" type="video/mp4">
 핀란드와 아일랜드를 동일 축척으로 비교해 약 4.4배의 면적 차이를 보여주는 영상입니다.
 </video>
 </div>
@@ -178,4 +178,4 @@ aria-label="핀란드 303,109 km²와 아일랜드 68,655 km²를 동일 축척�
 </noscript>
 </div>
 </article>
-<script src="{{ '/assets/js/world-again/world-again-02.js' | relative_url }}" defer></script>
+<script src="/assets/js/world-again/world-again-02.js" defer></script>

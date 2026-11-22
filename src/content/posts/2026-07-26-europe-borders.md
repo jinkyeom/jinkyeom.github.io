@@ -9,8 +9,17 @@ draft: false
 ---
 
 <iframe
+  id="wa03-frame"
   src="/embeds/world-again-03.html"
   title="유럽은 어디까지일까 인터랙티브 지도"
-  style="width:100%;height:1400px;border:0;border-radius:12px;background:#ffffff;"
-  loading="lazy"
+  style="width:100%;height:3200px;border:0;background:transparent;display:block;"
+  scrolling="no"
 ></iframe>
+<script>
+window.addEventListener("message", function (e) {
+  if (e.data && e.data.type === "wa03-height") {
+    var f = document.getElementById("wa03-frame");
+    if (f) f.style.height = e.data.height + "px";
+  }
+});
+</script>
