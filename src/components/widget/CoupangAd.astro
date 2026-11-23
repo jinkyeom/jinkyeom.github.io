@@ -6,29 +6,29 @@ interface Props {
 const { class: className, style } = Astro.props;
 ---
 
-<div class:list={["card-base p-4 text-center", className]} style={style}>
+<div class:list={["card-base p-4 text-center border border-black/[0.05] dark:border-white/[0.06]", className]} style={style}>
 	<a
 		href="https://link.coupang.com/a/igjU1bON2G"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="group block no-underline"
 	>
-		<div class="overflow-hidden rounded-xl mb-3 bg-white/90 p-2 transition-transform duration-200 group-hover:-translate-y-0.5">
+		<div class="overflow-hidden rounded-lg mb-3 bg-black/[0.02] dark:bg-white/[0.04] p-1.5 border border-black/[0.05] dark:border-white/[0.06]">
 			<img
 				src="/assets/img/partners/terarosa.jpg"
 				alt="테라로사 원두"
-				class="w-full h-auto rounded-lg object-cover block"
+				class="w-full h-auto rounded-md object-cover block"
 				loading="lazy"
 			/>
 		</div>
-		<div class="font-semibold text-sm text-black/85 dark:text-white/90 mb-2">
+		<div class="font-semibold text-sm text-black/85 dark:text-white/90 mb-2.5 break-keep">
 			테라로사 원두
 		</div>
-		<span class="inline-block rounded-lg bg-[#0073e9] hover:bg-[#005bb5] text-white text-xs font-medium px-3.5 py-1.5 transition-colors">
+		<span class="inline-flex items-center justify-center rounded-lg btn-regular text-xs font-semibold px-3.5 py-2 w-full">
 			쿠팡에서 보기
 		</span>
 	</a>
-	<p class="text-[11px] text-black/45 dark:text-white/45 mt-3 leading-snug">
-		이 포스팅은 쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.
+	<p class="text-xs font-medium text-black/75 dark:text-white/75 mt-3 pt-2.5 border-t border-black/[0.07] dark:border-white/[0.09] leading-relaxed break-keep">
+		이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
 	</p>
 </div>
