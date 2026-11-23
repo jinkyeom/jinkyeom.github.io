@@ -92,15 +92,8 @@ const jsonLd = {
                         tags={entry.data.tags}
                         category={entry.data.category}
                 ></PostMetadata>
-                {(!entry.data.image || entry.data.category === "Visualization") && <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5"></div>}
+                <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5"></div>
             </div>
-
-            <!-- show cover for normal posts; skip duplicate cover on Visualization posts so interactive content starts immediately -->
-
-            {entry.data.image && entry.data.category !== "Visualization" &&
-                <ImageWrapper id="post-cover" src={entry.data.image} basePath={path.join("content/posts/", getDir(entry.id))} class="mb-6 max-h-[340px] rounded-xl banner-container onload-animation"/>
-            }
-
 
             <Markdown class="mb-6 markdown-content onload-animation">
                 <Content />
