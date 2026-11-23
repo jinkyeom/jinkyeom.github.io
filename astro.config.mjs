@@ -29,6 +29,9 @@ export default defineConfig({
 	site: "https://jinkyeom.github.io/",
 	base: "/",
 	trailingSlash: "always",
+	build: {
+		inlineStylesheets: "always",
+	},
 	integrations: [
 		tailwind({
 			nesting: true,
