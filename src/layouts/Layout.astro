@@ -26,9 +26,11 @@ interface Props {
 	description?: string;
 	lang?: string;
 	setOGTypeArticle?: boolean;
+	ogImage?: string;
+	canonicalUrl?: string;
 }
 
-let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
+let { title, banner, description, lang, setOGTypeArticle, ogImage, canonicalUrl } = Astro.props;
 
 // apply a class to the body element to decide the height of the banner, only used for initial page load
 // Swup can update the body for each page visit, but it's after the page transition, causing a delay for banner height change
@@ -38,6 +40,15 @@ const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
 // defines global css variables
 // why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
 const configHue = siteConfig.themeColor.hue;
+const resolvedOgImage = new URL(
+	ogImage && typeof ogImage === "string" && ogImage.trim() !== ""
+		? ogImage
+		: banner && typeof banner === "string" && banner.trim() !== ""
+			? banner
+			: "/assets/images/og/bouncebounce-site-og.png",
+	Astro.site || Astro.url,
+).href;
+const resolvedCanonicalUrl = canonicalUrl || Astro.url.href;
 if (!banner || typeof banner !== "string" || banner.trim() === "") {
 	banner = siteConfig.banner.src;
 }
@@ -83,11 +94,15 @@ const bannerOffset =
 		<meta charset="UTF-8" />
 		<meta name="description" content={description || pageTitle}>
 		<meta name="author" content={profileConfig.name}>
+		<meta name="naver-site-verification" content="76e224a596ba80eab6c9fb3d200f37a30e48208d" />
+		<link rel="canonical" href={resolvedCanonicalUrl} />
 
 		<meta property="og:site_name" content={siteConfig.title}>
-		<meta property="og:url" content={Astro.url}>
+		<meta property="og:locale" content="ko_KR">
+		<meta property="og:url" content={resolvedCanonicalUrl}>
 		<meta property="og:title" content={pageTitle}>
 		<meta property="og:description" content={description || pageTitle}>
+		<meta property="og:image" content={resolvedOgImage}>
 		{setOGTypeArticle ? (
         <meta property="og:type" content="article" />
         ) : (
@@ -95,14 +110,23 @@ const bannerOffset =
         )}
 
 		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content={Astro.url}>
+		<meta property="twitter:url" content={resolvedCanonicalUrl}>
 		<meta name="twitter:title" content={pageTitle}>
 		<meta name="twitter:description" content={description || pageTitle}>
+		<meta name="twitter:image" content={resolvedOgImage}>
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+		<!-- Global site tag (gtag.js) - Google Analytics 4 -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ZWXG1RRM0J"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-ZWXG1RRM0J', { 'anonymize_ip': false });
+		</script>
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8456502401928651" crossorigin="anonymous"></script>
 		{favicons.map(favicon => (
 			<link rel="icon"
@@ -161,6 +185,7 @@ const bannerOffset =
 		<slot name="head"></slot>
 
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
+		<link rel="alternate" type="application/rss+xml" title={`${siteConfig.title} Feed`} href={`${Astro.site}feed.xml`}/>
 
 	</head>
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
@@ -446,6 +471,13 @@ const setup = () => {
 		const heightExtend = document.getElementById('page-height-extend')
 		if (heightExtend) {
 			heightExtend.classList.remove('hidden')
+		}
+		// Send GA4 page_view on Swup client-side navigation
+		if (typeof (window as any).gtag === 'function') {
+			(window as any).gtag('config', 'G-ZWXG1RRM0J', {
+				page_path: window.location.pathname + window.location.search,
+				page_title: document.title,
+			});
 		}
 	});
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
