@@ -127,7 +127,8 @@ const bannerOffset =
 			gtag('js', new Date());
 			gtag('config', 'G-ZWXG1RRM0J', { 'anonymize_ip': false });
 		</script>
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8456502401928651" crossorigin="anonymous"></script>
+		<meta name="google-adsense-account" content="ca-pub-8456502401928651" />
+		<script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8456502401928651" crossorigin="anonymous"></script>
 		{favicons.map(favicon => (
 			<link rel="icon"
 				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
@@ -479,6 +480,12 @@ const setup = () => {
 				page_title: document.title,
 			});
 		}
+		// Ensure AdSense slots inside Swup container initialize after client-side navigation
+		document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])').forEach(() => {
+			try {
+				((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+			} catch (_e) {}
+		});
 	});
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
