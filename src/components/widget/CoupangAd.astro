@@ -4,31 +4,86 @@ interface Props {
 	style?: string;
 }
 const { class: className, style } = Astro.props;
+const VIDEO_ID = "ADp6rrvPt3M";
+const COUPANG_URL = "https://link.coupang.com/a/i0VQmSScDs";
 ---
 
 <div class:list={["card-base p-4 text-center border border-black/[0.05] dark:border-white/[0.06]", className]} style={style}>
+	<div class="text-[11px] font-semibold tracking-wider uppercase text-black/45 dark:text-white/45 mb-2">
+		AD · 홈카페 추천
+	</div>
+
+	<div
+		class="relative w-full max-w-[220px] mx-auto aspect-[9/16] rounded-lg overflow-hidden mb-3 bg-black border border-black/[0.06] dark:border-white/[0.08]"
+		data-yt-shorts-box={VIDEO_ID}
+	>
+		<button
+			type="button"
+			data-yt-shorts-play={VIDEO_ID}
+			aria-label="발룬피니 스텐 드리퍼 쇼츠 영상 재생"
+			class="group relative w-full h-full block p-0 border-0 bg-black cursor-pointer"
+		>
+			<img
+				src={`https://i.ytimg.com/vi/${VIDEO_ID}/oar2.jpg`}
+				onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg';`}
+				alt="발룬피니 스텐 304 드리퍼 + 내열유리 계량컵 쇼츠 썸네일"
+				class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+				loading="lazy"
+				decoding="async"
+			/>
+			<span class="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors flex items-center justify-center">
+				<span class="w-12 h-12 rounded-full bg-red-600/95 text-white shadow-lg flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+					<svg viewBox="0 0 24 24" class="w-6 h-6 fill-current ml-0.5" aria-hidden="true">
+						<path d="M8 5v14l11-7z" />
+					</svg>
+				</span>
+			</span>
+			<span class="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 text-white text-[11px] font-medium px-2.5 py-0.5">
+				쇼츠 영상 보기
+			</span>
+		</button>
+	</div>
+
 	<a
-		href="https://link.coupang.com/a/igjU1bON2G"
+		href={COUPANG_URL}
 		target="_blank"
-		rel="noopener noreferrer"
+		rel="sponsored noopener noreferrer"
 		class="group block no-underline"
 	>
-		<div class="overflow-hidden rounded-lg mb-3 bg-black/[0.02] dark:bg-white/[0.04] p-1.5 border border-black/[0.05] dark:border-white/[0.06]">
-			<img
-				src="/assets/img/partners/terarosa.jpg"
-				alt="테라로사 원두"
-				class="w-full h-auto rounded-md object-cover block"
-				loading="lazy"
-			/>
+		<div class="font-semibold text-sm text-black/85 dark:text-white/90 mb-1 break-keep">
+			발룬피니 스텐 304 드리퍼
 		</div>
-		<div class="font-semibold text-sm text-black/85 dark:text-white/90 mb-2.5 break-keep">
-			테라로사 원두
+		<div class="text-xs text-black/60 dark:text-white/60 mb-3 break-keep leading-snug">
+			이중 미세망 · 컬러핸들 내열유리 계량컵 2세트
 		</div>
 		<span class="inline-flex items-center justify-center rounded-lg btn-regular text-xs font-semibold px-3.5 py-2 w-full">
-			쿠팡에서 보기
+			쿠팡에서 확인하기
 		</span>
 	</a>
-	<p class="text-xs font-medium text-black/75 dark:text-white/75 mt-3 pt-2.5 border-t border-black/[0.07] dark:border-white/[0.09] leading-relaxed break-keep">
+
+	<p class="text-[11px] font-medium text-black/70 dark:text-white/70 mt-3 pt-2.5 border-t border-black/[0.07] dark:border-white/[0.09] leading-relaxed break-keep">
 		이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
 	</p>
 </div>
+
+<script is:inline>
+	if (!window.__ytShortsLiteBound) {
+		window.__ytShortsLiteBound = true;
+		document.addEventListener("click", (event) => {
+			const target = event.target instanceof Element ? event.target.closest("[data-yt-shorts-play]") : null;
+			if (!target) return;
+			const videoId = target.getAttribute("data-yt-shorts-play");
+			const box = target.closest("[data-yt-shorts-box]");
+			if (!videoId || !box) return;
+			const iframe = document.createElement("iframe");
+			iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+			iframe.title = "발룬피니 스텐 304 드리퍼 쇼츠 영상";
+			iframe.className = "w-full h-full border-0";
+			iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+			iframe.allowFullscreen = true;
+			iframe.loading = "lazy";
+			box.innerHTML = "";
+			box.appendChild(iframe);
+		});
+	}
+</script>
